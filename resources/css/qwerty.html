@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .block {
+      background: #2499d5;
+      position: relative;
+      z-index: 1;
+      width: 500px;
+      height: 250px;
+      margin: 50px;
+    }
+
+    .block:after {
+      background: inherit;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 50%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      transform: skewY(-5deg);
+      transform-origin: 100%;
+      z-index: -1;
+    }
+    .q{
+      width:100%;
+      height:50px;
+      background: red;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="block">
+    <div class="q"></div>
+    <div class="q"></div>
+    <div class="q"></div>
+  </div>
+  <div class="block">
+    <div class="q"></div>
+    <div class="q"></div>
+    <div class="q"></div>
+  </div>
+</body>
+</html>
