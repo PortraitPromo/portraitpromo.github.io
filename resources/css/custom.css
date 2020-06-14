@@ -92,6 +92,9 @@ Colors:
 .red{
 	color:#FF214A;
 }
+.blue{
+	color:#26C9FF;
+}
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. single IMG BACKGROUND */
 .bg-img-SINGLE {
@@ -676,6 +679,7 @@ strong {
 	color: #26C9FF;
 	border: 5px solid #26C9FF;
 	font-size:15px;
+	margin-top:-20px;
 }
 
 .c-btn.inverse.red {
@@ -1546,6 +1550,12 @@ h2.home-page-subtitle-show {
 	font-size:22px;
 }
 
+@media only screen and (max-width: 768px) {
+	.section-txt-services p {
+		font-size:20px;
+	}
+}
+
 .section-txt-contact p {
 	margin: -7px auto -6px auto;
 }
@@ -1574,7 +1584,6 @@ h2.section-subtitle {
 
 /* 13.2. section heading */
 h2.section-heading {
-	font-family: 'Montserrat', sans-serif;
 	font-size: 45px;
 	font-style: normal;
 	font-weight: 800;
@@ -1605,7 +1614,7 @@ h2.section-heading.section-heading-light {
 	color: #26C9FF;
 }
 
-h2.section-heading span {
+/*h2.section-heading span {
 	position: relative;
 	display: inline-block;
 	padding-right: 90px;
@@ -1632,9 +1641,9 @@ h2.section-heading span {
 		padding-right: 60px;
 		margin-right: 20px;
 	}
-}
+}*/
 
-h2.section-heading span:before {
+/*h2.section-heading span:before {
 	content: "";
 	position: absolute;
 	display: block;
@@ -1665,24 +1674,24 @@ h2.section-heading span:before {
 
 h2.section-heading span:before {
 	border-top: 1px solid #000;
-}
+}*/
 
-h2.section-heading-light span:before {
+/*h2.section-heading-light span:before {
 	border-top: 1px solid #26C9FF;
 }
-
+*/
 h2.section-heading.section-heading-all {
 	padding: 0;
 }
 
-h2.section-heading:after {
+/*h2.section-heading:after {
 	position: absolute;
 	content: '';
 	left: 50%;
 	top: 80px;
 	height: 70px;
 	border-left: 2px solid;
-}
+}*/
 
 @media only screen and (max-width: 768px) {
 	h2.section-heading:after {
@@ -1914,6 +1923,9 @@ h2.section-heading:after {
 @media only screen and (max-width: 880px) {
 	.post-all-heading-services {
 		padding-top: 8px;
+	}
+	.post-all-heading {
+		font-size: 25px;
 	}
 }
 
