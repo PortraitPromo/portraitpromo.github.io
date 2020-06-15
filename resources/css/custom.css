@@ -150,6 +150,24 @@ Colors:
 	background-image: url(../img/background/bg-4.jpg);
 }
 
+@media only screen and (max-width: 768px) {
+	.bg-img-1 {
+		background-image: url(../img/background/bg-1_m.jpg);
+	}
+
+	.bg-img-2 {
+		background-image: url(../img/background/bg-2_m.jpg);
+	}
+
+	.bg-img-3 {
+		background-image: url(../img/background/bg-3_m.jpg);
+	}
+
+	.bg-img-4 {
+		background-image: url(../img/background/bg-4_m.jpg);
+	}
+}
+
 /* 1.5. ken burns slideshow IMG BACKGROUND */
 .kenburns-slide-1 {
 	background-image: url(../img/background/bg-1.jpg);
@@ -2776,7 +2794,7 @@ textarea {
 }
 
 .contact-info {
-	font-family: 'Montserrat', sans-serif;
+	/*font-family: 'Montserrat', sans-serif;*/
 
 }
 
@@ -2790,7 +2808,7 @@ textarea {
 	font-weight: 700;
 }
 
-.contact-info .contact-email-link a {
+.contact-info .contact-email-link .link-underline-light {
 	text-decoration: none;
 	color:#26C9FF;
 }
