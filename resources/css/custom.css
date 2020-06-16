@@ -95,6 +95,68 @@ Colors:
 .blue{
 	color:#26C9FF;
 }
+#contacts-widget {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1111;
+}
+
+#contacts-widget>* {
+  pointer-events: auto;
+}
+
+#contacts-widget>.start {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  right:11px;
+  z-index: 1000;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  font-size:40px;
+  cursor: pointer;
+}
+
+#contacts-widget>.start:hover{
+  opacity: 1;
+  color:#26C9FF;
+}
+#close-modal{
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    cursor: pointer;
+}
+#close-modal:hover{
+    color:#FF214A;
+}
+#contacts-widget>.background {
+  background-color: rgba(0, 0, 0, .5);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 111111;
+}
+
+#contacts-widget>.modal {
+  background-color: #000;
+  border:5px solid #FFF;
+  z-index: 111111;
+  margin:0 auto;
+  margin-top:70px;
+}
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. single IMG BACKGROUND */
 .bg-img-SINGLE {
@@ -112,7 +174,6 @@ Colors:
 .bg-img-FILM-GRAIN {
 	background-image: url(../img/background/SINGLE-bg-FILM-GRAIN.jpg);
 }
-
 /* 1.2. facts parallax IMG BACKGROUND */
 .parallax-facts {
 	background-image: url(../img/background/parallax-facts-bg.jpg);
@@ -2657,9 +2718,10 @@ h2.section-heading.section-heading-all {
 
 /* 23. contact form */
 #contact {
-	background: url(../img/background/map-dark.png);
+	/*background: url(../img/background/parallax-facts-bg.jpg);*/
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: cover;
 }
 
 #contact-form {
@@ -2791,11 +2853,6 @@ textarea {
 .make-space {
 	margin-left: 15px;
 	margin-right: 15px;
-}
-
-.contact-info {
-	/*font-family: 'Montserrat', sans-serif;*/
-
 }
 
 .contact-info p {

@@ -16,6 +16,79 @@
         <link href="resources\css\custom.css" media="all" rel="stylesheet" type="text/css"><!-- style end -->
     </head>
     <body>
+        <!-- contacts widget -->
+        <div id="contacts-widget">
+           <!--  <div class="start" onclick="showFeedback()" title="Сязаться с нами"></div> -->
+            <div class="start" onclick="showFeedback()"><i class="fa fa-phone-square"></i></div>
+            <div class="background" onclick="hideFeedback()"><i id="close-modal" class="fa fa-window-close" style="margin-top:20px;font-size: 40px;"></i></div>
+            <div class="modal" id="contact">
+                <!-- divider start -->
+                <div class="inner-divider-large"></div><!-- divider end -->
+                <!-- container start -->
+                <div class="container sections">
+                    <!-- row start -->
+                    <div class="row">
+                        <!-- col start -->
+                        <div class="col-lg-12">
+                            <!-- section title start -->
+                            <h2 class="section-heading section-heading-all section-heading-light" style="color:#FFF; font-size:30px;">
+                                <span class="blue">Portrait</span>.<span class="span red">Promo</span><br>
+                                <span style="font-size:18px;"> - Расскрой уникальность - </span><br>
+                                Агентство продюсирования креатива
+                            </h2><!-- section title end -->
+                            <!-- divider start -->
+                            <div class="inner-divider-large"></div><!-- divider end -->
+
+
+                            <div class="contact-info">
+                                <div class="col-sm-4 col-md-4 col-lg-4 contact-email-link">
+                                    <p>
+                                        <i class="fa fa-phone"></i> <a class="link-underline-light" href="tel:89159894911">+ 7 915 989 49 11</a>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-phone"></i> <a class="link-underline-light" href="tel:89617680053">+ 7 961 768 00 53</a>
+                                    </p>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4 contact-email-link">
+                                    <p>
+                                        <i class="fa fa-envelope"></i> <a class="link-underline-light" href="mailto:info@portrait.promo">info@portrait.promo</a>
+                                    </p>
+                                    <!-- social icons start -->
+                                    <div class="social" style="margin-top:10px;">
+                                        <ul>
+                                            <li >
+                                                <a href="https://vk.com/portrait.promo"  style="font-size:30px;">
+                                                    <i class="fa fa-vk"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://instagram.com/portrait.promo"  style="font-size:30px;">
+                                                    <i class="fa fa-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://facebook.com/portrait.promo"  style="font-size:30px;">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- social icons end -->
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <p>
+                                        <i class="fa fa-map-o"></i> Москва
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- col end -->
+                    </div><!-- row end -->
+                </div><!-- container end -->
+                <!-- divider start -->
+                <div class="inner-divider-large"></div><!-- divider end -->
+            </div>
+        </div><!-- contacts widget end -->
+        
         <!-- preloader start -->
         <div class="preloader-bg"></div>
         <div id="preloader">
@@ -48,57 +121,32 @@
                         <div class="collapse navbar-collapse" id="navbar-collapse">
                             <!-- menu start -->
                             <ul class="nav navbar-nav">
-<!--                                 <li>
-                                    <a class="page-scroll link-underline-menu" href="#home">Вверх</a>
-                                </li> -->
                                 <li>
-                                    <a class="page-scroll link-underline-menu" href="#about">Тезис</a>
+                                    <a class="page-scroll link-underline-menu" href="#about">Наш тезис</a>
                                 </li>
                                 <li>
                                     <a class="page-scroll link-underline-menu" href="#services">Услуги</a>
-                                </li>
-                                <li>
-                                    <a class="page-scroll link-underline-menu" href="#contact">Контакты</a>
-                                </li>
-                                
-                                <li class="hidden-xs">
-                                    <a class="page-scroll link-underline-menu" href="index-mcp.html" style="font-size:30px;margin-top:-3px;" title="Сязаться с нами"><i class="fa fa-phone-square"></i></a>
                                 </li>
                                 <li class="hidden-xs">
                                     <!-- logo desktop start -->
                                     <a class="logo page-scroll active" href="#home"><img alt="Logo" class="logo-light" src="resources\img\log2_i.png"></a><!-- logo desktop end -->
                                 </li>
-                                <li class="hidden-xs">
+                                <!-- <li class="hidden-xs">
                                     <a class="page-scroll link-underline-menu red" href="index-mcp.html" style="font-size:22px;margin-top:-1px;" title="Найти"><i class="fa fa-search"></i></a>
-                                </li>
+                                </li> -->
 
                                 <li class="hidden-s">
                                    <hr>
                                 </li>
 
                                 <li>
-                                    <a class="page-scroll link-underline-menu red" href="index-mcp.html">Фото и Видео</a>
+                                    <a class="page-scroll link-underline-menu red" href="index-mcp.html"><span style="border-bottom:1px solid #FFF;">Фото и Видео</span></a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll link-underline-menu red" href="index-dib.html">ИТ</a>
+                                    <a class="page-scroll link-underline-menu red" href="index-dib.html"><span style="border-bottom:1px solid #FFF;">ИТ</span></a>
                                 </li>
-                                <li>
-                                    <a class="page-scroll link-underline-menu red" href="index-peo.html">Промо</a>
-                                </li>
-
-                                <li  class="hidden-s" style="margin-top:3px;">
-                                    <hr>
-                                    <a href="https://vk.com/portrait.promo"  style="font-size:20px;display:inline;">
-                                        <i class="fa fa-vk"></i>
-                                    </a>
-                                    <a href="https://instagram.com/portrait.promo"  style="font-size:20px;display:inline">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                    <a href="http://facebook.com/portrait.promo"  style="font-size:20px;display:inline">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                    <br>
-                                    <a class="link-underline-light" href="tel:89159894911">+ 7 915 989 49 11</a>
+                                <li> 
+                                    <a class="page-scroll link-underline-menu red" href="index-peo.html"><span style="border-bottom:1px solid #FFF;">Промо</span></a>
                                 </li>
                             </ul><!-- menu end -->
                         </div>
@@ -376,71 +424,12 @@
                 </div><!-- row end -->
             </div><!-- container end -->
         </section><!-- services end -->
-        <!-- contact start -->
-        <section id="contact">
+        <!-- footer start -->
+        <section>
             <!-- divider start -->
             <div class="inner-divider-large"></div><!-- divider end -->
             <!-- container start -->
             <div class="container sections">
-                <!-- row start -->
-                <div class="row">
-                    <!-- col start -->
-                    <div class="col-lg-12">
-                        <!-- section title start -->
-                        <h2 class="section-heading section-heading-all section-heading-light" style="color:#FFF; font-size:30px;">
-                            <span class="blue">Portrait</span>.<span class="span red">Promo</span><br>
-                            <span style="font-size:18px;"> - Расскрой уникальность - </span><br>
-                            Агентство продюсирования креатива
-                        </h2><!-- section title end -->
-                        <!-- divider start -->
-                        <div class="inner-divider-large"></div><!-- divider end -->
-
-
-                        <div class="contact-info">
-                            <div class="col-sm-4 col-md-4 col-lg-4 contact-email-link">
-                                <p>
-                                    <i class="fa fa-phone"></i> <a class="link-underline-light" href="tel:89159894911">+ 7 915 989 49 11</a>
-                                </p>
-                                <p>
-                                    <i class="fa fa-phone"></i> <a class="link-underline-light" href="tel:89617680053">+ 7 961 768 00 53</a>
-                                </p>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 contact-email-link">
-                                <i class="ion-android-mail"></i> <a class="link-underline-light" href="mailto:info@portrait.promo" style="font-family:Arial;">info@portrait.promo</a>
-                                <!-- social icons start -->
-                                <div class="social" style="margin-top:10px;">
-                                    <ul>
-                                        <li >
-                                            <a href="https://vk.com/portrait.promo"  style="font-size:30px;">
-                                                <i class="fa fa-vk"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://instagram.com/portrait.promo"  style="font-size:30px;">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="http://facebook.com/portrait.promo"  style="font-size:30px;">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- social icons end -->
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4">
-                                <p>
-                                    <i class="ion-android-map"></i> Москва
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- col end -->
-                </div><!-- row end -->
-                <!-- divider start -->
-                <div class="inner-divider-large"></div><!-- divider end -->
-                <!-- divider start -->
-                <div class="inner-divider-large"></div><!-- divider end -->
                 <!-- row start -->
                 <div class="row">
                     <!-- col start -->
@@ -454,7 +443,7 @@
                         <!-- social icons start -->
                         <div class="social">
                             <ul>
-                                <li>
+                                <li >
                                     <a href="https://vk.com/portrait.promo"  style="font-size:30px;">
                                         <i class="fa fa-vk"></i>
                                     </a>
@@ -477,7 +466,7 @@
                 <!-- divider start -->
                 <div class="inner-divider-large"></div><!-- divider end -->
             </div><!-- container end -->
-        </section><!-- contact end -->
+        </section><!-- footer end -->
         <!-- to top arrow start -->
         <a class="page-scroll" href="#home">
             <div class="to-top-arrow">
@@ -490,8 +479,7 @@
         <script src="resources\js\custom.js">
         </script>
         <script src="resources\js\wave.js">
-        </script><!-- scripts end -->
+        </script>
         <!-- scripts end -->
-
     </body>
 </html>

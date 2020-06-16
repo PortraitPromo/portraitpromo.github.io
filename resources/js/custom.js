@@ -283,11 +283,36 @@ $(function() {
 	
 	// 11. typed text
     $(".typed-title").typed({
-        strings: ["#Маркетинг", "#Креатив", "#Упаковка идей", "#Фотосессия", "#Social Media Marketing"],
+        strings: ["#Маркетинг", "#Креатив", "#Упаковка идей", "Созидание впечатления", "#Фотосессия", "#Social Media Marketing", "Web-разработка"],
         typeSpeed: 25,
         backDelay: 3500,
         loop: true
     });
-
-
 });
+
+//12. Contacts widget
+// объявляем переменные
+const background = $('.background');
+const modal = $('.modal');
+
+// инициализируем фидбэк
+hideFeedback(true);
+
+// ф-ия закрытия (immediate - плавно закрыть или моментально)
+function hideFeedback(immediate = false) {
+  if (immediate) {
+    modal.hide();
+    background.hide();
+  } else {
+    // тут можно какую-нидь анимацию скрытия поставить, но я использую стандартный fadeOut
+    modal.fadeOut('fast');
+    background.fadeOut('fast');
+  }
+}
+
+// ф-ия показа
+function showFeedback() {
+  // тут можно какую-нидь анимацию показа поставить, но я использую стандартный fadeIn
+  background.fadeIn('slow');
+  modal.fadeIn('slow');
+}
