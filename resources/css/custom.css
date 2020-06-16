@@ -155,7 +155,7 @@ Colors:
   border:5px solid #FFF;
   z-index: 111111;
   margin:0 auto;
-  margin-top:70px;
+  margin-top:250px;
 }
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. single IMG BACKGROUND */
@@ -1484,15 +1484,20 @@ h2.home-page-subtitle-show {
 	}
 
 	.navbar-collapse {
-		background: #202020;
+		/*background: #202020;*/
 		margin: 11px auto 0 4px;
 		border: none;
 		-webkit-box-shadow: none;
 		box-shadow: none;
+		-webkit-transition: all .4s ease-out;
+		-moz-transition: all .4s ease-out;
+		-ms-transition: all .4s ease-out;
+		-o-transition: all .4s ease-out;
+		transition: all .4s ease-out;
 	}
 
 	.navbar-collapse.navbar-collapse-position-primary {
-		background: #202020;
+		/*background: #202020;*/
 	}
 }
 
