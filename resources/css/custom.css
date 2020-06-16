@@ -154,8 +154,12 @@ Colors:
   background-color: #000;
   border:5px solid #FFF;
   z-index: 111111;
-  margin:0 auto;
-  margin-top:250px;
+  margin-top:70px;
+}
+@media only screen and (max-width: 768px) {
+	#contacts-widget>.modal {
+	  margin-top:350px;
+	}
 }
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. single IMG BACKGROUND */
