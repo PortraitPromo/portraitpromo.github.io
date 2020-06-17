@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>
-            Portrait.Promo - промо услуги
+            Portrait.Promo - Промо-организация
         </title>
         <meta content="" name="description">
         <meta content="" name="author">
@@ -12,17 +12,19 @@
         <!-- style start -->
         <link rel="shortcut icon" type="image/icon" href="resources\img\favicon.png">
         <link href="resources\css\vendor.css" media="all" rel="stylesheet" type="text/css">
-        <link href="resources\css\font-awesome.min.css" media="all" rel="stylesheet" type="text/css">
         <link href="resources\css\custom.css" media="all" rel="stylesheet" type="text/css"><!-- style end -->
     </head>
     <body>
+        <!-- search widget -->
+        <i id="searh-widget" class="fa fa-search widget-button" style="margin-top:50px;"></i>
         <!-- contacts widget -->
         <div id="contacts-widget">
-            <div class="start" onclick="showFeedback()"><i class="fa fa-phone-square"></i></div>
-            <div class="background" onclick="hideFeedback()"><i id="close-modal" class="fa fa-window-close" style="margin-top:20px;font-size: 40px;"></i></div>
+            <i class="start fa fa-phone widget-button" onclick="showFeedback()"></i>
+            <div class="background" onclick="hideFeedback()"></div>
             <div class="modal" id="contact">
+                <i id="close-modal" class="fa fa-window-close hidden-lg hidden-md" onclick="hideFeedback()" style="margin-top:20px;font-size: 40px;"></i>
                 <!-- divider start -->
-                <div class="inner-divider-large"></div><!-- divider end -->
+                <div class="inner-divider-half"></div><!-- divider end -->
                 <!-- container start -->
                 <div class="container sections">
                     <!-- row start -->
@@ -31,12 +33,16 @@
                         <div class="col-lg-12">
                             <!-- section title start -->
                             <h2 class="section-heading section-heading-all section-heading-light" style="color:#FFF; font-size:30px;">
-                                <span class="blue">Portrait</span>.<span class="span red">Promo</span><br>
-                                <span style="font-size:18px;"> - Расскрой уникальность - </span><br>
-                                Агентство продюсирования креатива
+                                <span class="blue">Portrait</span>.<span class="span red">Promo</span>
+                                <span style="font-size:18px;display:block;margin-top:-10px;">
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i> Расскрой уникальность <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </span>
                             </h2><!-- section title end -->
                             <!-- divider start -->
-                            <div class="inner-divider-large"></div><!-- divider end -->
+                            <div class="inner-divider"></div><!-- divider end -->
+                            <h2 class="section-heading section-heading-all section-heading-light" style="color:#FFF; font-size:30px;">Агентство продюсирования креатива</h2>
+                            <!-- divider start -->
+                            <div class="inner-divider"></div><!-- divider end -->
 
 
                             <div class="contact-info">
@@ -76,18 +82,18 @@
                                 </div>
                                 <div class="col-sm-4 col-md-4 col-lg-4">
                                     <p>
-                                        <i class="fa fa-map-o"></i> Москва
+                                        <i class="fa fa-map-o"></i> Москва, м. Лубянка, улица Кузнецкий Мост, 21/5
                                     </p>
                                 </div>
                             </div>
+
                         </div><!-- col end -->
                     </div><!-- row end -->
                 </div><!-- container end -->
                 <!-- divider start -->
-                <div class="inner-divider-large"></div><!-- divider end -->
+                <div class="inner-divider-half" style="margin-top:-20px;"></div><!-- divider end -->
             </div>
         </div><!-- contacts widget end -->
-
         <!-- preloader start -->
         <div class="preloader-bg"></div>
         <div id="preloader">
@@ -99,12 +105,7 @@
         </div><!-- preloader end -->
         <!-- borders start -->
         <div class="border-top"></div><!-- borders end -->
-        <!-- scroll indicator start -->
-        <div class="scroll-indicator">
-            <div class="scroll-indicator-wrapper">
-                <div class="scroll-line"></div>
-            </div>
-        </div><!-- scroll indicator end -->
+
         <!-- header start -->
         <div id="header">
             <!-- navigation start -->
@@ -142,13 +143,13 @@
                                 </li>
 
                                 <li>
-                                    <a class="page-scroll link-underline-menu red" href="index-mcp.html"><span style="border-bottom:1px solid #FFF;">Фото и Видео</span></a>
+                                    <a class="page-scroll link-underline-menu red" href="index-mcp.html"><span style="border-bottom:1px solid #FFF;">Photo &amp; Video</span></a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll link-underline-menu red" href="index-dib.html"><span style="border-bottom:1px solid #FFF;">ИТ</span></a>
+                                    <a class="page-scroll link-underline-menu red" href="index-dib.html"><span style="border-bottom:1px solid #FFF;">IT</span></a>
                                 </li>
                                 <li> 
-                                    <a class="page-scroll link-underline-menu red" href="index-peo.html"><span style="border-bottom:1px solid #FF214A;color:#FF214A">Промо</span></a>
+                                    <a class="page-scroll link-underline-menu red" href="index-peo.html"><span style="border-bottom:1px solid #FF214A;color:#FF214A">Promo</span></a>
                                 </li>
                             </ul><!-- menu end -->
                         </div>
@@ -401,7 +402,7 @@
         </section><!-- services end -->
 
         <!-- footer start -->
-        <section>
+        <footer>
             <!-- divider start -->
             <div class="inner-divider-large"></div><!-- divider end -->
             <!-- container start -->
@@ -411,7 +412,7 @@
                     <!-- col start -->
                     <div class="col-lg-12">
                         <!-- copyright start -->
-                        <div class="copyright">
+                        <div class="copyright" style="font-weight: 100;letter-spacing: 0.05em;font-size:20px;">
                             &copy; 2020 Portrait.promo
                         </div><!-- copyright end -->
                         <!-- divider start -->
@@ -439,23 +440,23 @@
                         <!-- social icons end -->
                     </div><!-- col end -->
                 </div><!-- row end -->
-                <!-- divider start -->
-                <div class="inner-divider-large"></div><!-- divider end -->
             </div><!-- container end -->
-        </section><!-- footer end -->
+            <!-- divider start -->
+            <div class="inner-divider-large"></div><!-- divider end -->
+        </footer><!-- footer end -->
+
         <!-- to top arrow start -->
         <a class="page-scroll" href="#home">
             <div class="to-top-arrow">
-                <span class="ion-ios-arrow-up"></span>
-            </div></a><!-- to top arrow end -->
+                <i class="fa fa-chevron-up"></i>
+            </div>
+        </a><!-- to top arrow end -->
+
         <!-- scripts start -->
         <script src="resources\js\vendor.js">
         </script>
         <script src="resources\js\custom.js">
         </script>
-        <script src="resources\js\wave.js">
-        </script><!-- scripts end -->
         <!-- scripts end -->
-
     </body>
 </html>

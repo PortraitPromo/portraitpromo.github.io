@@ -81,7 +81,6 @@ http://lifeinsys.com
 	33.1. swiper parallax
 	33.2. swiper thumbnail
   34. wave
-  35. film grain
   36. divider
 
 Colors:
@@ -95,6 +94,34 @@ Colors:
 .blue{
 	color:#26C9FF;
 }
+
+.widget-button{
+	right: 0;
+	top: 50%;
+	right:11px;
+	z-index: 1000;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+	font-size:25px;
+	cursor: pointer;
+	background: #FFF;
+	padding:9px;
+	border-radius:5px;
+	width:40px;
+	height: 40px;
+	color:#202020;
+}
+#searh-widget{
+	position: fixed;
+	padding-top:7px;
+}
+#searh-widget:hover{
+	color:#FF214A;
+}
+
 #contacts-widget {
   align-items: center;
   bottom: 0;
@@ -112,36 +139,16 @@ Colors:
   pointer-events: auto;
 }
 
-#contacts-widget>.start {
+.start{
   position: absolute;
-  right: 0;
   top: 50%;
   right:11px;
-  z-index: 1000;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -ms-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
-  font-size:40px;
-  cursor: pointer;
 }
 
-#contacts-widget>.start:hover{
-  opacity: 1;
+.start:hover{
   color:#26C9FF;
 }
-#close-modal{
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -ms-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-    cursor: pointer;
-}
-#close-modal:hover{
-    color:#FF214A;
-}
+
 #contacts-widget>.background {
   background-color: rgba(0, 0, 0, .5);
   height: 100%;
@@ -157,6 +164,20 @@ Colors:
   margin: 0 auto;
   margin-top:70px;
 }
+
+#close-modal{
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    cursor: pointer;
+}
+
+#close-modal:hover{
+    color:#FF214A;
+}
+
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. single IMG BACKGROUND */
 .bg-img-SINGLE {
@@ -2666,13 +2687,13 @@ h2.section-heading.section-heading-all {
 /* 22. to top arrow */
 .to-top-arrow {
 	position: fixed;
-	right: 20px;
-	bottom: -10px;
-	width: 50px;
-	height: 50px;
-	line-height: 50px;
+	right: 11px;
+	bottom: -11px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
 	cursor: pointer;
-	font-size: 16px;
+	font-size: 25px;
 	text-align: center;
 	color: #fff;
 	background: #202020;
@@ -2683,7 +2704,7 @@ h2.section-heading.section-heading-all {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	border-radius: 50%;
+	border-radius: 5px;
 	-webkit-transform: translateY(40px);
 	-moz-transform: translateY(40px);
 	-ms-transform: translateY(40px);
@@ -2698,7 +2719,7 @@ h2.section-heading.section-heading-all {
 }
 
 .to-top-arrow.show {
-	bottom: 0;
+	bottom: -11px;
 	-webkit-transform: translateY(-20px);
 	-moz-transform: translateY(-20px);
 	-ms-transform: translateY(-20px);
@@ -2722,13 +2743,6 @@ h2.section-heading.section-heading-all {
 }
 
 /* 23. contact form */
-#contact {
-	/*background: url(../img/background/parallax-facts-bg.jpg);*/
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-}
-
 #contact-form {
 	width: 100%;
 	margin: -20px auto 0 auto;
@@ -4453,26 +4467,6 @@ textarea:focus:-moz-placeholder {
 		display: none;
 		visibility: hidden;
 	}
-}
-
-/* 35. film grain */
-#film-grain {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	left: 0;
-	top: 0;
-	overflow: hidden;
-	background: url(../img/effects/film-grain.gif) repeat top left;
-	opacity: 0.1;
-	-moz-opacity: 0.1;
-	-webkit-opacity: 0.1;
-	filter: alpha(opacity=10);
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-	-webkit-pointer-events: none;
-	-moz-pointer-events: none;
-	pointer-events: none;
-	z-index: 1;
 }
 
 /* 36. divider */
