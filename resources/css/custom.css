@@ -1427,9 +1427,19 @@ h2.home-page-subtitle-show {
 	color: #26C9FF;
 	opacity:1;
 }
+.main-navigation .navbar-nav li a.red span{
+	border: 1px solid #FFF;
+	padding: 5px;
+	-webkit-transition: all .4s ease-out;
+	-moz-transition: all .4s ease-out;
+	-ms-transition: all .4s ease-out;
+	-o-transition: all .4s ease-out;
+	transition: all .4s ease-out;
+}
 
-.main-navigation .navbar-nav li a.red:hover {
+.main-navigation .navbar-nav li a.red:hover>span, .main-navigation .navbar-nav li a.red.here span  {
 	color: #FF214A;
+	border:1px solid #FF214A;
 	opacity:1;
 }
 
@@ -1555,17 +1565,17 @@ h2.home-page-subtitle-show {
 }
 
 @media (min-width: 768px) {
-	.navbar-nav {
+	.navbar-nav-center {
 		position: relative;
 		right: -50%;
 	}
 
-	.navbar-nav > li {
+	.navbar-nav-center > li {
 		position: relative;
 		left: -50%;
 	}
 
-	.navbar-nav > li a {
+	.navbar-nav-center > li a {
 		vertical-align: middle;
 	}
 }
@@ -1638,7 +1648,7 @@ h2.home-page-subtitle-show {
 }
 
 @media only screen and (max-width: 880px) {
-	.section-intro p {
+	.section-intro p, .section-txt p {
 		font-size: 18px;
 		margin: -5px auto 0 auto;
 	}
@@ -1664,6 +1674,9 @@ h2.home-page-subtitle-show {
 @media only screen and (max-width: 768px) {
 	.section-txt-services p {
 		font-size:20px;
+	}
+	.section-txt p {
+		font-size:18px;
 	}
 }
 
