@@ -37,7 +37,6 @@ http://lifeinsys.com
 $(function() {
     "use strict";
 	
-	
     $(window).on("load", function() {
         // 1. preloader
         $("#preloader").fadeOut(600);
@@ -73,6 +72,7 @@ $(function() {
         // 2.5. collapse navigation
         if ($(".navbar").offset().top > 50) {
             $(".navbar-bg-switch").addClass("main-navigation-bg");
+
         } else {
             $(".navbar-bg-switch").removeClass("main-navigation-bg");
         }
@@ -205,12 +205,12 @@ $(function() {
         center: true,
         items: 3,
         margin: 0,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 1000,
         autoplayTimeout: 5000,
         smartSpeed: 450,
         nav: true,
-        navText: ["<i class='owl-custom ion-chevron-left'></i>", "<i class='owl-custom ion-chevron-right'></i>"],
+        navText: ["<i class='owl-custom fa fa-chevron-left'></i>", "<i class='owl-custom fa fa-chevron-right'></i>"],
         responsive: {
             0: {
                 items: 1
@@ -294,6 +294,7 @@ $(function() {
 // объявляем переменные
 const background = $('.background');
 const modal = $('.modal');
+const search = $('.search-wrap');
 
 // инициализируем фидбэк
 hideFeedback(true);
@@ -302,10 +303,12 @@ hideFeedback(true);
 function hideFeedback(immediate = false) {
   if (immediate) {
     modal.hide();
+    search.hide();
     background.hide();
   } else {
     // тут можно какую-нидь анимацию скрытия поставить, но я использую стандартный fadeOut
     modal.fadeOut('fast');
+    search.fadeOut('fast');
     background.fadeOut('fast');
   }
 }
@@ -315,4 +318,135 @@ function showFeedback() {
   // тут можно какую-нидь анимацию показа поставить, но я использую стандартный fadeIn
   background.fadeIn('slow');
   modal.fadeIn('slow');
+}
+
+// 
+function search_open(){
+    background.fadeIn('slow');
+    search.fadeIn(200).find('.search-box input').focus();
+}
+
+search.hide();
+
+// wave
+$(function(){
+    "use strict";
+    var t=document.getElementById("wave"),
+        i=t.getContext("2d"),
+        n=t.width=window.innerWidth,
+        e=t.height=window.innerHeight,
+        r=[],
+        a=0,
+        o={
+            count:10,
+            range:{x:20,y:40},
+            duration:{min:10,max:200},
+            thickness:5,
+            strokeColor:"#FFF",
+            level:.2,
+            curved:!0
+        },
+        s=function(t,i){
+            return Math.floor(Math.random()*(i-t+1)+t)
+        },
+        h=function(t,i,n,e){
+            return(t/=e/2)<1?n/2*t*t+i:-n/2*(--t*(t-2)-1)+i
+            };
+
+        i.lineJoin="round",
+        i.lineWidth=o.thickness,
+        i.strokeStyle=o.strokeColor;
+
+        var u=function(t){
+                this.anchorX=t.x,
+                this.anchorY=t.y,
+                this.x=t.x,
+                this.y=t.y,
+                this.setTarget()
+            };
+            u.prototype.setTarget=function(){
+                this.initialX=this.x,
+                this.initialY=this.y,
+                this.targetX=this.anchorX+s(0,2*o.range.x)-o.range.x,
+                this.targetY=this.anchorY+s(0,2*o.range.y)-o.range.y,
+                this.tick=0,
+                this.duration=s(o.duration.min,o.duration.max)
+            },
+            u.prototype.update=function(){
+                var t=this.targetX-this.x,
+                    i=this.targetY-this.y,
+                    n=Math.sqrt(t*t+i*i);
+
+                if(Math.abs(n)<=0)this.setTarget();
+                else{var e=this.tick,r=this.initialY,a=this.targetY-this.initialY,o=this.duration;this.y=h(e,r,a,o),r=this.initialX,a=this.targetX-this.initialX,o=this.duration,this.x=h(e,r,a,o),this.tick++}},
+            u.prototype.render=function(){i.beginPath(),i.arc(this.x,this.y,3,0,2*Math.PI,!1),i.fillStyle="#000",i.fill()};
+
+            for(
+                var c=function(){
+                    for(var t=r.length;t--;)r[t].update()
+                },
+                    l=function(){
+                        i.beginPath();
+                        var t=r.length;i.moveTo(r[0].x,r[0].y);
+                        var a;
+                        for(a=0;a<t-1;a++){
+                            var s=(r[a].x+r[a+1].x)/2,
+                                h=(r[a].y+r[a+1].y)/2;
+                                i.quadraticCurveTo(r[a].x,r[a].y,s,h)}
+                                i.lineTo(-o.range.x-o.thickness,e+o.thickness),
+                                i.lineTo(n+o.range.x+o.thickness,e+o.thickness),
+                                i.closePath(),i.fillStyle="#000",i.fill(),
+                                i.stroke()},
+                                d=function(){i.clearRect(0,0,n,e)},
+                                f=function(){window.requestAnimFrame(f,t),a++,d(),c(),l()},
+                                g=o.count+2,
+                                m=(n+2*o.range.x)/(o.count-1);
+                                g--;)
+                r.push(new u({x:m*(g-1)-o.range.x,y:e-e*o.level}));
+                window.requestAnimFrame=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(t){window.setTimeout(t,1e3/60)},f()
+});
+
+function t602_init(recid){
+    var t602_lastCall,
+            t602_timeoutId,
+            t602_interval = 100;
+    $(window).scroll( function() {
+        var t602_now = new Date().getTime();
+        if (t602_lastCall && t602_now < (t602_lastCall + t602_interval) ) {
+                clearTimeout(t602_timeoutId);
+                t602_timeoutId = setTimeout(function () {
+                        t602_lastCall = t602_now;
+                        t602_setProgressBarWidth(recid);
+                }, t602_interval - (t602_now - t602_lastCall) );
+        } else {
+                t602_lastCall = t602_now;
+                t602_setProgressBarWidth(recid);
+        }
+    });
+}
+
+function t602_setProgressBarWidth(recid) {
+    var t602_windowScrollTop = $(window).scrollTop(),
+            t602_docHeight = $(document).height(),
+            t602_winHeight = $(window).height();
+            t602_scrollPercent = (t602_windowScrollTop / (t602_docHeight-t602_winHeight)) * 100;
+      startColor = [0,220,255]; //RGB
+      endColor = [255,32,73]; //RGB
+      currentColor = [
+        Math.round(startColor[0]+(endColor[0]-startColor[0])/100*t602_scrollPercent),
+        Math.round(startColor[1]+(endColor[1]-startColor[1])/100*t602_scrollPercent),
+        Math.round(startColor[2]+(endColor[2]-startColor[2])/100*t602_scrollPercent)
+      ];
+    $(".scroll-indicator").css('width', t602_scrollPercent + '%');
+  $(".scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
+}
+
+t602_init();
+t602_setProgressBarWidth();
+
+function feedOpen(){
+    $("#modal-content").html("Лента");
+}
+function galleryOpen(){
+    $("#modal-content").html("Галерея");
 }
