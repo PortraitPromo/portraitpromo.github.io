@@ -314,7 +314,7 @@ $(function() {
 });
 
 //12. LAUNCHER APP
-$('#launcher').load('launcher/index.html');
+$('#launcher').load('launcher/launcher.html');
 
 const launch = $('#launcher-modal');
 
