@@ -1,80 +1,6 @@
-<script>
-	class appLauncher{
-		constructor(obj){
-			this.modal = obj;
-			this.modal.hide();
-		}
-		hide(){
-			this.modal.fadeOut('fast');
-			try{
-				history.pushState(null, null, location.pathname);
-			}catch{}
-		}
-		update(section){
-			history.pushState(null, null, location.pathname+'?'+section);
-			$('#launcher-modal-content').html(section);
-			$('#launcher-modal-content').load(section+'.html');
-			$(".search-box span").each(function(i,e){
-				$(e).removeClass("red");
-			});
-			$(".search-box span[name='"+section+"']").addClass("red");
-			this.modal.fadeIn('slow');
-		}
-	}
-
-	const launcher = new appLauncher($('#launcher-modal'));
-	$(".search-box span").on("click", function(){
-		launcher.update($(this).attr('name'));
-	});
-	$("#launcher-widgets i").on("click", function(){
-		launcher.update($(this).attr('name'));
-	});
-	if (location.search){
-		launcher.update(location.search.substr(1));
-	}
-
-	// //1. INIT
-	// const launcherModal = $('#launcher-modal');
-	// modalHide(true);
-
-	// //2. CLOSE (immediate - плавно закрыть или моментально)
-	// function launcherModalHide(immediate = false) {
-	// 	if (immediate) {
-	// 		launcherModal.hide();
-	// 	} else {
-	// 		launcherModal.fadeOut('fast');
-	// 		try{
-	// 			history.pushState(null, null,location.pathname);
-	// 		}catch{}
-	// 	}
-	// }
-	// //3. OPEN
-	// //3.1 Обновление модального окна
-	// function launcherModalUpdate(section){
-	// 	history.pushState(null, null,location.pathname+'?'+section);
-	// 	$('#launcher-modal-content').html(section);
-	// 	$('#launcher-modal-content').load(section+'.html');
-	// 	$(".search-box span").each(function(i,e){
-	// 		$(e).removeClass("red");
-	// 	});
-	// 	$(".search-box span[name='"+section+"']").addClass("red");
-	// 	launcherModal.fadeIn('slow');
-	// }
-	// //3.2 События срабатывания
-	// $(".search-box span").on("click", function(){
-	// 	launcherModalUpdate($(this).attr('name'))
-	// });
-	// $("#launcher-widgets i").on("click", function(){
-	// 	launcherModalUpdate($(this).attr('name'));
-	// });
-	// if (location.search){
-	// 	launcherModalUpdate(location.search.substr(1));
-	// }
-</script>
-
 <!-- LAUNCHER MODAL start -->
 	<div id="launcher-modal">
-		<div class="launcher-modal-overlay" onclick="launcher.hide()">
+		<div class="launcher-modal-overlay">
 			<i class="fa fa-times launcher-widget-button"></i>
 		</div>
 		<div id="launcher-modal-panel">
@@ -102,3 +28,45 @@
 		<i name="spotlight" id="searh-launcher-widget" class="fa fa-search launcher-widget-button"></i>
 	</div>
 <!-- LAUNCHER WIDGETS end -->
+
+<script>
+	//LAUNCHER APP
+	class appLauncher{
+		constructor(obj){
+			this.modal = obj;
+			this.modal.hide();
+		}
+		hide(){
+			this.modal.fadeOut('fast');
+			try{
+				history.pushState(null, null, location.pathname);
+			}catch{}
+		}
+		update(section){
+			history.pushState(null, null, location.pathname+'?'+section);
+			$('#launcher-modal-content').html(section);
+			$('#launcher-modal-content').load(section+'.html');
+			$(".search-box span").each(function(i,e){
+				$(e).removeClass("red");
+			});
+			$(".search-box span[name='"+section+"']").addClass("red");
+			this.modal.fadeIn('slow');
+		}
+	}
+	//1. INIT
+	const launcher = new appLauncher($('#launcher-modal'));
+	//2. OPEN
+	$(".search-box span").on("click", function(){
+		launcher.update($(this).attr('name'));
+	});
+	$("#launcher-widgets i").on("click", function(){
+		launcher.update($(this).attr('name'));
+	});
+	if (location.search){
+		launcher.update(location.search.substr(1));
+	}
+	//3. CLOSE
+	$(".launcher-modal-overlay").on("click", function(){
+		launcher.hide();
+	});
+</script>
