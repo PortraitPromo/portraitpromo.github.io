@@ -85,6 +85,13 @@ http://dmitrydeltas.pro
 -------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------
+[Code Style]
+
+Notation: camelCase
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
 [Design Code]
 
 Colors:
@@ -99,8 +106,7 @@ z-index layers:
 	page
 
 Animation:
-	speed
-	type
+	units: 0.5s linear
 
 -----------------------------------------------------------------*/
 .red{
@@ -112,25 +118,27 @@ Animation:
 
 /* 1. MODAL-APP */
 /* 1.1. WIDGETS */
-.launcher-widget-button{
+.launcher-widgets{
+	position: fixed;
 	right: 0;
 	top: 50%;
 	right:11px;
 	z-index: 1000;
+	font-size:25px;
+	color:#FFF;
+}
+.launcher-widget-button{
 	-webkit-transition: all 0.5s linear;
 	-moz-transition: all 0.5s linear;
 	-ms-transition: all 0.5s linear;
 	-o-transition: all 0.5s linear;
 	transition: all 0.5s linear;
-	font-size:25px;
 	cursor: pointer;
 	background: #202020;
 	padding:9px;
 	border-radius:10px;
 	width:40px;
 	height: 40px;
-	color:#FFF;
-	position: fixed;
 }
 
 #contact-launcher-widget:hover{
