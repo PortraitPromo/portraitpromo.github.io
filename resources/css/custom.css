@@ -123,7 +123,6 @@ Animation:
 	top: 50%;
 	right:11px;
 	z-index: 1000;
-	font-size:25px;
 	color:#FFF;
 	width:40px;
 }
@@ -139,6 +138,7 @@ Animation:
 	border-radius:10px;
 	width:40px;
 	height:40px;
+	font-size:25px;
 }
 
 .launcher-widgets-button[name='contact']:hover{
@@ -209,8 +209,8 @@ Animation:
 #modal-search {width: 100%; padding-top: 10px; color: #000; position: fixed; z-index: 2222; 
 	top: 0; left: 50%; transform: translateX(-50%);}
 .search-title, .search-close {font-size: 30px;}
-.search-box {position:relative; margin-top: 10px;max-width: 500px;transform: translate(-50%, 0%);left: 50%;}
-.search-box input, .search-box input:focus {font-size: 15px;color:#000;padding:5px;width:90%;}
+.search-box {position:relative; margin-top: 10px;min-width:300px;}
+.search-box input, .search-box input:focus {font-size: 15px;color:#000;padding:5px;width:100%;}
 .search-box input:not(:focus)::placeholder {color:#000;text-align:center;}
 .search-box button {
 	position:absolute;
