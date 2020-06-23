@@ -44,14 +44,14 @@
 			$("#preloader").show();
 			$('#launcher-modal-content').css('opacity','0');
 
-			history.pushState(null, null, location.pathname+'?'+section);
-			$('body').css('overflow', 'hidden');
-			$('#launcher-modal-content').html(section);
-			$('#launcher-modal-content').load("launcher/"+section+'.html');
-			$(".search-box span").each(function(i,e){
-				$(e).removeClass("red");
-			});
-			$(".search-box span[name='"+section+"']").addClass("red");
+			// history.pushState(null, null, location.pathname+'?'+section);
+			// $('body').css('overflow', 'hidden');
+			// $('#launcher-modal-content').html(section);
+			// $('#launcher-modal-content').load("launcher/"+section+'.html');
+			// $(".search-box span").each(function(i,e){
+			// 	$(e).removeClass("red");
+			// });
+			// $(".search-box span[name='"+section+"']").addClass("red");
 
 			$("#preloader").fadeOut(600);
 			$('#launcher-modal-content').css('opacity','1');
