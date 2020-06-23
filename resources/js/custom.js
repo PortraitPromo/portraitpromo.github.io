@@ -357,6 +357,16 @@ function contactShow() {
 	$(".search-box .fa-phone").addClass("red");
 	launch.fadeIn('slow');
 }
+// ROUTING
+if (location.search){
+	$('#launcher-modal-content').load(location.search.substr(1)+'.html');
+	$(".search-box span").each(function(i,e){
+		$(e).removeClass("red");
+	});
+	$('.search-box span[name="'+location.search.substr(1)+'"]').addClass("red");
+	launch.fadeIn('slow');
+}
+console.log(location.search.substr(1));
 
 // wave
 $(function(){
@@ -474,12 +484,4 @@ function t602_setProgressBarWidth(recid) {
 t602_init();
 t602_setProgressBarWidth();
 
-if (location.search){
-	$('#launcher-modal-content').load(location.search.substr(1)+'.html');
-	$(".search-box span").each(function(i,e){
-		$(e).removeClass("red");
-	});
-	$('.search-box span[name="'+location.search.substr(1)+'"]').addClass("red");
-	launch.fadeIn('slow');
-}
-console.log(location.search.substr(1));
+$('#launcher').load('_launcher/launcher.html');
