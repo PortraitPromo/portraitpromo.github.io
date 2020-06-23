@@ -314,6 +314,8 @@ $(function() {
 });
 
 //12. LAUNCHER APP
+$('#launcher').load('launcher/index.html');
+
 const launch = $('#launcher-modal');
 
 hideModal(true);
@@ -483,5 +485,3 @@ function t602_setProgressBarWidth(recid) {
 
 t602_init();
 t602_setProgressBarWidth();
-
-$('#launcher').load('_launcher/launcher.html');
