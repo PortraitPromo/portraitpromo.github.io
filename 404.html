@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			Portrait.Promo - Главная
+		</title>
+		<meta content="" name="description">
+		<meta content="" name="author">
+		<meta content="" name="keywords">
+		<meta content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+		<!-- STYLE start -->
+			<link rel="shortcut icon" type="image/icon" href="resources\img\favicon.png">
+			<link href="resources\css\vendor.css" media="all" rel="stylesheet" type="text/css">
+			<link href="resources\css\custom.css" media="all" rel="stylesheet" type="text/css">
+		<!-- STYLE end -->
+	</head>
+	<body style="filter:grayscale(100%);">
+		<!-- PRELOADER start -->
+			<div class="preloader-bg"></div>
+			<div id="preloader">
+				<div id="preloader-status">
+					<div class="preloader-position loader">
+						<span></span>
+					</div>
+				</div>
+			</div>
+		<!-- PRELOADER end -->
+		<!-- LAUNCHER MODAL start -->
+			<div id="launcher-modal">
+				<div class="launcher-modal-overlay" onclick="hideModal()">
+					<i class="fa fa-times launcher-widget-button"></i>
+				</div>
+				<div id="launcher-modal-panel">
+					<form id="quicksearch" method="post">
+						<input type="hidden" name="do" value="search">
+						<input type="hidden" name="subaction" value="search">
+						<div class="search-box" style="color:#FFF">
+							<span name="spotlight" class="fa fa-fire" style="left:0px;font-size:25px;padding: 5px;margin-top: 2px;" title="Центр внимания"></span>
+							<span name="feed" class="fa fa-feed" title="Лента" style="border:0;font-size:25px;transform: scale(-1, 1);padding: 5px;margin-top:2px;"></span>
+							<span name="gallery" class="fa fa-caret-square-o-right" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Галерея"></span>
+							<span name="contact" class="fa fa-phone" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Контакты"></span>
+							<span name="faq" class="fa fa-question-circle" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Вопросы"></span>
+
+							<input id="story" name="story" placeholder="Поиск по сайту..." type="text">
+						</div>
+					</form>
+				</div>
+				<div id="launcher-modal-content" style="margin-top:250px;overflow: auto;height: 500px;">
+				</div>
+			</div>
+		<!-- LAUNCHER MODAL end -->
+		<!-- LAUNCHER WIDGETS start -->
+			<i id="contact-launcher-widget" class="fa fa-phone launcher-widget-button" onclick="contactShow()"></i>
+			<i id="searh-launcher-widget" class="fa fa-search launcher-widget-button" onclick="spotlightShow()"></i>
+		<!-- LAUNCHER WIDGETS end -->
+
+		<!-- PAGE start -->
+			<!-- HEADER start -->
+				<header id="header">
+					<div class="border-top"></div>
+					<div class="scroll-indicator"></div>
+					<!-- NAVIGATION start -->
+						<nav class="navbar navbar-fixed-top navbar-bg-switch">
+							<div class="container-fluid">
+								<div class="main-navigation">
+									<div class="navbar-header">
+										<button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle
+										navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+										<!-- logo mobile start -->
+											<a class="navbar-brand hidden-sm hidden-md hidden-lg logo page-scroll active" href="index.html"><img alt="Logo" class="logo-light" src="resources\img\log2_i.png"></a>
+										<!-- logo mobile end -->
+									</div>
+									<div class="collapse navbar-collapse" id="navbar-collapse">
+										<!-- menu start -->
+										<ul class="nav navbar-nav hidden-xs" style="position:absolute;left:0;top:0">
+										</ul>
+										<ul class="nav navbar-nav navbar-nav-center">
+										
+											<li class="hidden-xs">
+												<!-- logo desktop start -->
+													<a class="logo page-scroll active" href="index.html"><img alt="Logo" class="logo-light" src="resources\img\log2_i.png"></a>
+												<!-- logo desktop end -->
+											</li>
+											
+											<li class="hidden-md hidden-lg hidden-sm">
+												<a class="page-scroll link-underline-menu red" href="photo-video/index.html"><span>Photo &amp; Video</span></a>								</li>
+											<li class="hidden-md hidden-lg hidden-sm">
+												<a class="page-scroll link-underline-menu red" href="it/index.html"><span>IT</span></a>
+											</li>
+											<li class="hidden-md hidden-lg hidden-sm"> 
+												<a class="page-scroll link-underline-menu red" href="promo/index.html"><span>Promo</span></a>
+											</li>
+										</ul>
+										<ul class="nav navbar-nav hidden-xs" style="position:absolute;right:0;top:0">
+											<li>
+												<a class="page-scroll link-underline-menu red" href="photo-video/index.html"><span>Photo &amp; Video</span></a>
+											</li>
+											<li>
+												<a class="page-scroll link-underline-menu red" href="it/index.html"><span>IT</span></a>
+											</li>
+											<li> 
+												<a class="page-scroll link-underline-menu red" href="promo/index.html"><span>Promo</span></a>
+											</li>
+										</ul>
+										<!-- menu end -->
+									</div>
+								</div>
+							</div>
+						</nav>
+					<!-- NAVIGATION end -->
+				</header>
+			<!-- HEADER end -->
+			
+			<!-- CONTENT start -->
+				<!-- home start -->
+				<div class="upper-page" id="home">
+					<!-- wave start -->
+					<canvas id="wave"></canvas><!-- wave end -->
+					<!-- center container start -->
+					<div class="hero-center-container">
+						<!-- center block start -->
+						<div class="hero-center-block">
+							<!-- home page title start -->
+							<div class="introduction">
+								<h1 class="home-page-title">
+								   <span></span>404<span ></span>
+								</h1>
+								<h2 class="home-page-subtitle">
+									Страница не найдена
+								</h2>
+							</div><!-- home page title end -->
+						</div><!-- center block end -->
+					</div><!-- center container end -->
+					<!-- hero bg start -->
+					<div class="hero-fullscreen overlay overlay-top-bottom-dark-85">
+						<!-- hero fullscreen slider start -->
+						<div class="hero-bg slick-fullscreen-slideshow-zoom-fade">
+							<!-- fullscreen slider item 1 start -->
+							<div class="slick-fullscreen-item">
+								<div class="slick-fullscreen-img-fill">
+									<div class="bg-img bg-img-1"></div>
+								</div>
+							</div><!-- fullscreen slider item 1 end -->
+							<!-- fullscreen slider item 2 start -->
+							<div class="slick-fullscreen-item">
+								<div class="slick-fullscreen-img-fill">
+									<div class="bg-img bg-img-2"></div>
+								</div>
+							</div><!-- fullscreen slider item 2 end -->
+							<!-- fullscreen slider item 3 start -->
+							<div class="slick-fullscreen-item">
+								<div class="slick-fullscreen-img-fill">
+									<div class="bg-img bg-img-3"></div>
+								</div>
+							</div><!-- fullscreen slider item 3 end -->
+							<!-- fullscreen slider item 4 start -->
+							<div class="slick-fullscreen-item">
+								<div class="slick-fullscreen-img-fill">
+									<div class="bg-img bg-img-4"></div>
+								</div>
+							</div><!-- fullscreen slider item 4 end -->
+						</div><!-- hero fullscreen slider end -->
+					</div><!-- hero bg end -->
+				</div><!-- home end -->
+			<!-- CONTENT end -->
+		<!-- PAGE end -->
+
+		<!-- SCRIPTS start -->
+			<script src="resources\js\vendor.js"></script>
+			<script src="resources\js\custom.js"></script>
+		<!-- SCRIPTS end -->
+	</body>
+</html>
