@@ -101,9 +101,8 @@ Colors:
 z-index layers:
 	preloader: 999999
 	modal: 1111
-
-	widgets, header:
-	page
+	widgets, header: 1000
+	page: 1
 
 Animation:
 	units: 0.5s linear
