@@ -47,6 +47,7 @@
 			$(e).removeClass("red");
 		});
 	}
+
 	//Open
 	function modalUpdate(section){
 		history.pushState(null, null,location.pathname+'?'+section);
@@ -57,12 +58,14 @@
 		});
 		$(".search-box span[name='"+section+"']").addClass("red");
 	}
-
-	$(".search-box span").on("click", modalUpdate($(this).attr('name')));
+	$(".search-box span").on("click", function(){
+		modalUpdate($(this).attr('name'))
+	});
 	$("#launcher-widgets i").on("click", function(){
 		modalUpdate($(this).attr('name'));
 		launch.fadeIn('slow');
 	});
+	
 	// ROUTING
 	if (location.search){
 		$('#launcher-modal-content').load(location.search.substr(1)+'.html');
