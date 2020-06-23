@@ -41,6 +41,9 @@
 			}catch{}
 		}
 		update(section){
+			$("#preloader").show();
+			$(".preloader-bg").delay(400).show();
+
 			history.pushState(null, null, location.pathname+'?'+section);
 			$('body').css('overflow', 'hidden');
 			$('#launcher-modal-content').html(section);
@@ -49,6 +52,8 @@
 				$(e).removeClass("red");
 			});
 			$(".search-box span[name='"+section+"']").addClass("red");
+			$("#preloader").fadeOut(600);
+			$(".preloader-bg").delay(400).fadeOut(600);
 			this.modal.fadeIn('slow');
 		}
 	}
