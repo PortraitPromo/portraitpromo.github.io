@@ -53,8 +53,9 @@
 			setTimeout(() => $('#launcher-modal-content').load("launcher/spotlight.html", function(){
 				$('#launcher-modal-content').css('opacity','1');
 				$("#preloader").fadeOut(500);
-				this.modal.fadeIn('slow');
 			}), 500);
+			
+			this.modal.fadeIn('slow');
 		}
 	}
 	//1. INIT
