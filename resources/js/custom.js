@@ -322,13 +322,13 @@ hideModal(true);
 
 // ф-ия закрытия (immediate - плавно закрыть или моментально)
 function hideModal(immediate = false) {
-	try{
-		history.pushState(null, null,location.pathname);
-	}catch{}
 	if (immediate) {
 		launch.hide();
 	} else {
 		launch.fadeOut('fast');
+		// try{
+		// 	history.pushState(null, null,location.pathname);
+		// }catch{}
 	}
 	$(".search-box span").each(function(i,e) {
 		$(e).removeClass("red");
