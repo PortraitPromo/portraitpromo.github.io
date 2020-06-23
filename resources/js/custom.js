@@ -315,29 +315,23 @@ $(function() {
 
 //12. Modal widgets
 const launch = $('#launcher-modal');
-const background = $('.launcher-modal-overlay');
-const modal = $('#modal-contact');
-const search = $('#modal-search');
 
 hideModal(true);
-// launch.hide();
 
 // ф-ия закрытия (immediate - плавно закрыть или моментально)
 function hideModal(immediate = false) {
 	if (immediate) {
 		launch.hide();
-		$(".search-box span").each(function(e) {
-			$(e).removeClass("red");
-		});
 	} else {
 		launch.fadeOut('fast');
-		$(".search-box span").each(function(i,e) {
-			$(e).removeClass("red");
-		});
 	}
+	$(".search-box span").each(function(i,e) {
+		$(e).removeClass("red");
+	});
 }
 
 $(".search-box span").on("click", function(){
+	console.log($(this).attr('name'));
 	$('#launcher-modal-content').html($(this).attr('name'));
 	$('#launcher-modal-content').load($(this).attr('name')+'.html');
 	$(".search-box span").each(function(i,e){
