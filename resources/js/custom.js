@@ -331,6 +331,7 @@ function hideModal(immediate = false) {
 }
 
 $(".search-box span").on("click", function(){
+	history.pushState(null, null,'?'+$(this).attr('name'));
 	console.log($(this).attr('name'));
 	$('#launcher-modal-content').html($(this).attr('name'));
 	$('#launcher-modal-content').load($(this).attr('name')+'.html');
@@ -469,3 +470,13 @@ function t602_setProgressBarWidth(recid) {
 
 t602_init();
 t602_setProgressBarWidth();
+
+if (location.search){
+	$('#launcher-modal-content').load(location.search.substr(1)+'.html');
+	$(".search-box span").each(function(i,e){
+		$(e).removeClass("red");
+	});
+	$('.search-box span[name="'+location.search.substr(1)+'"]').addClass("red");
+	launch.fadeIn('slow');
+}
+console.log(location.search.substr(1));
