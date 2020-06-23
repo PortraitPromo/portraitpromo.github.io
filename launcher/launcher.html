@@ -29,40 +29,77 @@
 	</div>
 <!-- LAUNCHER WIDGETS end -->
 <script>
-	//INIT
-	const launch = $('#launcher-modal');
-	hideModal(true);
-
-	//Close (immediate - плавно закрыть или моментально)
-	function hideModal(immediate = false) {
-		if (immediate) {
-			launch.hide();
-		} else {
-			launch.fadeOut('fast');
+	class launcher{
+		constructor(obj){
+			this.modal = obj;
+			this.modal.hide();
+		}
+		hide(){
+			this.modal.fadeOut('fast');
 			try{
-				history.pushState(null, null,location.pathname);
+				history.pushState(null, null, location.pathname);
 			}catch{}
+		}
+		update(section){
+			history.pushState(null, null, location.pathname+'?'+section);
+			$('#launcher-modal-content').html(section);
+			$('#launcher-modal-content').load(section+'.html');
+			$(".search-box span").each(function(i,e){
+				$(e).removeClass("red");
+			});
+			$(".search-box span[name='"+section+"']").addClass("red");
+			this.modal.fadeIn('slow');
 		}
 	}
 
-	//Open
-	function modalUpdate(section){
-		history.pushState(null, null,location.pathname+'?'+section);
-		$('#launcher-modal-content').html(section);
-		$('#launcher-modal-content').load(section+'.html');
-		$(".search-box span").each(function(i,e){
-			$(e).removeClass("red");
-		});
-		$(".search-box span[name='"+section+"']").addClass("red");
-		launch.fadeIn('slow');
-	}
+	const launcher = new launcher($('#launcher-modal'));
 	$(".search-box span").on("click", function(){
-		modalUpdate($(this).attr('name'))
+		launcher.update($(this).attr('name'));
 	});
 	$("#launcher-widgets i").on("click", function(){
-		modalUpdate($(this).attr('name'));
+		launcher.update($(this).attr('name'));
 	});
 	if (location.search){
-		modalUpdate(location.search.substr(1));
+		launcher.update(location.search.substr(1));
 	}
+
+
+
+	// //1. INIT
+	// const launcherModal = $('#launcher-modal');
+	// modalHide(true);
+
+	// //2. CLOSE (immediate - плавно закрыть или моментально)
+	// function launcherModalHide(immediate = false) {
+	// 	if (immediate) {
+	// 		launcherModal.hide();
+	// 	} else {
+	// 		launcherModal.fadeOut('fast');
+	// 		try{
+	// 			history.pushState(null, null,location.pathname);
+	// 		}catch{}
+	// 	}
+	// }
+	// //3. OPEN
+	// //3.1 Обновление модального окна
+	// function launcherModalUpdate(section){
+	// 	history.pushState(null, null,location.pathname+'?'+section);
+	// 	$('#launcher-modal-content').html(section);
+	// 	$('#launcher-modal-content').load(section+'.html');
+	// 	$(".search-box span").each(function(i,e){
+	// 		$(e).removeClass("red");
+	// 	});
+	// 	$(".search-box span[name='"+section+"']").addClass("red");
+	// 	launcherModal.fadeIn('slow');
+	// }
+	// //3.2 События срабатывания
+	// $(".search-box span").on("click", function(){
+	// 	launcherModalUpdate($(this).attr('name'))
+	// });
+	// $("#launcher-widgets i").on("click", function(){
+	// 	launcherModalUpdate($(this).attr('name'));
+	// });
+	// if (location.search){
+	// 	launcherModalUpdate(location.search.substr(1));
+	// }
 </script>
