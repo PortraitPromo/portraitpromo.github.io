@@ -43,9 +43,6 @@
 				history.pushState(null, null,location.pathname);
 			}catch{}
 		}
-		$(".search-box span").each(function(i,e) {
-			$(e).removeClass("red");
-		});
 	}
 
 	//Open
@@ -57,22 +54,15 @@
 			$(e).removeClass("red");
 		});
 		$(".search-box span[name='"+section+"']").addClass("red");
+		launch.fadeIn('slow');
 	}
 	$(".search-box span").on("click", function(){
 		modalUpdate($(this).attr('name'))
 	});
 	$("#launcher-widgets i").on("click", function(){
 		modalUpdate($(this).attr('name'));
-		launch.fadeIn('slow');
 	});
-	
-	// ROUTING
 	if (location.search){
-		$('#launcher-modal-content').load(location.search.substr(1)+'.html');
-		$(".search-box span").each(function(i,e){
-			$(e).removeClass("red");
-		});
-		$('.search-box span[name="'+location.search.substr(1)+'"]').addClass("red");
-		launch.fadeIn('slow');
+		modalUpdate(location.search.substr(1));
 	}
 </script>
