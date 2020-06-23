@@ -201,9 +201,9 @@ Animation:
 }
 #launcher-modal>#launcher-modal-content{
 	overflow: auto;
-	margin-top:200px;
 	height:75%;
 	margin:40px;
+	margin-top:200px;
 }
 
 /* 1.3. SEARCH */
