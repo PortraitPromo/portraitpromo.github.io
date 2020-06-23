@@ -42,6 +42,7 @@
 		}
 		update(section){
 			$("#preloader").show();
+			$('#launcher-modal-content').css('opacity','0');
 
 			history.pushState(null, null, location.pathname+'?'+section);
 			$('body').css('overflow', 'hidden');
@@ -51,7 +52,9 @@
 				$(e).removeClass("red");
 			});
 			$(".search-box span[name='"+section+"']").addClass("red");
+
 			$("#preloader").fadeOut(600);
+			$('#launcher-modal-content').css('opacity','1');
 			this.modal.fadeIn('slow');
 		}
 	}
