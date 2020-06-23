@@ -314,8 +314,7 @@ $(function() {
 });
 
 //12. LAUNCHER APP
-$('#launcher').load('launcher/launcher.html');
-
+$('#launcher').load('launcher/index.html');
 
 // wave
 $(function(){
@@ -419,16 +418,21 @@ function t602_setProgressBarWidth(recid) {
 			t602_docHeight = $(document).height(),
 			t602_winHeight = $(window).height();
 			t602_scrollPercent = (t602_windowScrollTop / (t602_docHeight-t602_winHeight)) * 100;
-	  startColor = [0,220,255]; //RGB
-	  endColor = [255,32,73]; //RGB
-	  currentColor = [
-		Math.round(startColor[0]+(endColor[0]-startColor[0])/100*t602_scrollPercent),
-		Math.round(startColor[1]+(endColor[1]-startColor[1])/100*t602_scrollPercent),
-		Math.round(startColor[2]+(endColor[2]-startColor[2])/100*t602_scrollPercent)
-	  ];
+			startColor = [0,220,255]; //RGB
+			endColor = [255,32,73]; //RGB
+			currentColor = [
+				Math.round(startColor[0]+(endColor[0]-startColor[0])/100*t602_scrollPercent),
+				Math.round(startColor[1]+(endColor[1]-startColor[1])/100*t602_scrollPercent),
+				Math.round(startColor[2]+(endColor[2]-startColor[2])/100*t602_scrollPercent)
+			];
 	$(".scroll-indicator").css('width', t602_scrollPercent + '%');
   $(".scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
 }
 
 t602_init();
 t602_setProgressBarWidth();
+
+var modalContent_windowScrollTop = $("#launcher-modal-content").scrollTop(),
+	modalContent_winHeigh = $("#launcher-modal-content").height(),
+	modalContent_docHeight = document.getElementById('launcher-modal-content').scrollHeight;
+	modalContent_scrollPercent = (modalContent_windowScrollTop / (modalContent_docHeight-modalContent_winHeigh)) * 100;
