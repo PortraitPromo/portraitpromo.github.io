@@ -43,19 +43,18 @@
 		update(section){
 			$("#preloader").show();
 			$('#launcher-modal-content').css('opacity','0');
-
 			history.pushState(null, null, location.pathname+'?'+section);
 			$('body').css('overflow', 'hidden');
-			setTimeout(() => $('#launcher-modal-content').html(section), 500);
-			setTimeout(() => $('#launcher-modal-content').load("launcher/"+section+'.html'), 500);
 			$(".search-box span").each(function(i,e){
 				$(e).removeClass("red");
 			});
 			$(".search-box span[name='"+section+"']").addClass("red");
 
-			setTimeout(() => $('#launcher-modal-content').css('opacity','1'), 500);
-			$("#preloader").fadeOut(1500);
-			this.modal.fadeIn('slow');
+			setTimeout(() => $('#launcher-modal-content').load("launcher/spotlight.html", function(){
+				$('#launcher-modal-content').css('opacity','1');
+				$("#preloader").fadeOut(500);
+				this.modal.fadeIn('slow');
+			}), 500);
 		}
 	}
 	//1. INIT
