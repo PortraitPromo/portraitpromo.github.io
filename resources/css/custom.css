@@ -1,9 +1,8 @@
 ﻿/*-----------------------------------------------------------------
 [Legal Notice]
 
-Copyright (c) LifeInSYS
-Website Template by LifeInSYS
-http://lifeinsys.com
+Copyright (c) Dmitry Deltas
+http://dmitrydeltas.pro
 -------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------
@@ -83,9 +82,25 @@ http://lifeinsys.com
   34. wave
   36. divider
 
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Design Code]
+
 Colors:
 	#26C9FF
 	#FF214A
+
+z-index layers:
+	preloader: 999999
+	modal: 1111
+
+	widgets, header:
+	page
+
+Animation:
+	speed
+	type
 
 -----------------------------------------------------------------*/
 .red{
@@ -95,7 +110,9 @@ Colors:
 	color:#26C9FF;
 }
 
-.widget-button{
+/* 1. MODAL-APP */
+/* 1.1. WIDGETS */
+.launcher-widget-button{
 	right: 0;
 	top: 50%;
 	right:11px;
@@ -113,77 +130,125 @@ Colors:
 	width:40px;
 	height: 40px;
 	color:#FFF;
-}
-#searh-widget{
 	position: fixed;
-	padding-top:7px;
 }
-#searh-widget:hover{
+
+#contact-launcher-widget:hover{
+	color:#26C9FF;
+}
+
+#searh-launcher-widget{
+	padding-top:7px;
+	margin-top:50px;
+}
+
+#searh-launcher-widget:hover{
 	color:#FF214A;
 }
 
-#contacts-widget {
-  align-items: center;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  left: 0;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 1111;
+/* 1.2. MODAL */
+#launcher-modal{
+	align-items: center;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	pointer-events: none;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1111;
+	height: 100%;
 }
 
-#contacts-widget>* {
+#launcher-modal>* {
   pointer-events: auto;
 }
 
-.start{
-  position: absolute;
-  top: 50%;
-  right:11px;
+#launcher-modal>.launcher-modal-overlay{
+	background-color: rgba(0, 0, 0, .9);
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 111111;
+	color:#202020;
 }
-
-.start:hover{
-  color:#26C9FF;
+.launcher-modal-overlay>i{
+	position: relative;
+	top:0;
+	right:0;
+	margin: 0 auto;
+	background: transparent;
+	color:#202020;
 }
-
-#contacts-widget>.background {
-  background-color: rgba(0, 0, 0, .9);
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  z-index: 111111;
-  color:#202020;
-}
-
-#contacts-widget>.modal {
-  background-color: #000;
-  border:5px solid #FFF;
-  z-index: 111111;
-  margin: 0 auto;
-  margin-top:70px;
-}
-
-#close-modal{
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -ms-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-    background:transparent;
-    font-size:25px;
-}
-
-#close-modal:hover{
-    
-}
-
-.background:hover>i, .background:hover{
+.launcher-modal-overlay:hover>i, .launcher-modal-overlay:hover{
 	color:#FF214A;
 	cursor:pointer;
 }
+
+#launcher-modal>#launcher-modal-panel, #launcher-modal>#launcher-modal-content{
+	z-index: 111111;
+	margin: 0 auto;
+	margin-top:40px;
+	overflow: auto;
+	height: 90%;
+	position: absolute;
+}
+
+/* 1.3. SEARCH */
+.btn-login, .btn-search, .btn-menu {cursor: pointer; width: 60px; height: 60px; line-height: 60px; 
+	text-align: center; font-size: 18px;}
+#modal-search {width: 100%; padding-top: 10px; color: #000; position: fixed; z-index: 2222; 
+	top: 0; left: 50%; transform: translateX(-50%);}
+.search-title, .search-close {font-size: 30px;}
+.search-box {position:relative; margin-top: 10px;max-width: 500px;transform: translate(-50%, 0%);left: 50%;}
+.search-box input, .search-box input:focus {font-size: 15px;color:#000;padding:5px;width:90%;}
+.search-box input:not(:focus)::placeholder {color:#000;text-align:center;}
+.search-box button {
+	position:absolute;
+	z-index:10;
+	width: 30px;
+	font-size: 16px !important;
+	padding: 0 !important;
+	background:transparent;
+	border:0;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+	margin-top: 2px;
+}
+.search-box span{
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+.search-box button:hover>span{
+	color:#FF214A;
+}
+.search-box span:hover{
+	color:#FF214A;
+	cursor:pointer;
+}
+
+.search-page {margin-bottom:20px;}
+.searchstyle { width: 480px }
+.search { padding: 0 }
+#searchtable, #searchtable td { vertical-align: top; text-align: left }
+#searchtable fieldset { font-size: 11px; border: 1px solid #d7d7d7; padding: 10px; text-align: left; 
+margin: 0 4px 4px 0 !important; border-radius: 6px }
+fieldset legend { font-size: 11px; font-weight: bold; color: #696969; }
+#searchtable table, #searchtable form { margin: 0; width:100%;}
+#searchtable select { background-color: #fff }
+#searchuser, #searchinput { width: 90% !important; }
+.search > div {margin-bottom:10px;}
+.search input[type="text"], .search select {display:block; width:100% !important; margin-bottom:10px;}
+.search input[type="checkbox"], .search input[type="radio"] {margin-right:5px;}
+#searchinput + br, #searchinput + br + br {display:none;}
+
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. single IMG BACKGROUND */
 .bg-img-SINGLE {
@@ -204,6 +269,9 @@ Colors:
 /* 1.2. facts parallax IMG BACKGROUND */
 .parallax-facts {
 	background-image: url(../img/background/parallax-facts-bg.jpg);
+}
+.parallax-facts2 {
+	background-image: url(../img/background/parallax-facts2-bg.jpg);
 }
 
 /* 1.3. services skills IMG BACKGROUND */
@@ -320,6 +388,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 html, body {
 	height: 100%;
 	line-height: 170%;
+
 }
 
 body {
@@ -514,7 +583,7 @@ strong {
 #services,
 #projects,
 #news,
-#contact {
+#modal-contact {
 	position: relative;
 	height: auto;
 	min-height: inherit;
@@ -2561,9 +2630,7 @@ h2.section-heading.section-heading-all {
 	overflow: hidden;
 	background: #000;
 	z-index: 999999;
-	background: url(../img/log2_i.png);
-	background-repeat: no-repeat;
-	background-position: center;
+	background: url(../img/log2_i.png) no-repeat center;
 }
 
 #preloader-status {

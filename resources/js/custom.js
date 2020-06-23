@@ -67,9 +67,6 @@ $(function() {
 		$(this).addClass("active");
 	});
 	
-
-
-
 	// 2.5. collapse navigation
 	if ($(".navbar").offset().top > 50) {
 		$(".navbar-bg-switch").addClass("main-navigation-bg");
@@ -99,7 +96,7 @@ $(function() {
 		$(".scroll-indicator-wrapper").removeClass("scroll-indicator-wrapper-position-secondary");
 		$(".to-top-arrow").removeClass("show");
 	}
-	
+
 	$(window).on("scroll", function() {
 		// 2.5. collapse navigation
 		if ($(".navbar").offset().top > 50) {
@@ -130,16 +127,6 @@ $(function() {
 			$(".scroll-indicator-wrapper").removeClass("scroll-indicator-wrapper-position-secondary");
 			$(".to-top-arrow").removeClass("show");
 		}
-	});
-	// 4. facts counter
-	$(".facts-counter-number").appear(function() {
-		var count = $(this);
-		count.countTo({
-			from: 0,
-			to: count.html(),
-			speed: 2000,
-			refreshInterval: 60
-		});
 	});
 	
 	// 5. forms
@@ -326,43 +313,52 @@ $(function() {
 	});
 });
 
-//12. Contacts widget
-// объявляем переменные
-const background = $('.background');
-const modal = $('.modal');
-const search = $('.search-wrap');
+//12. Modal widgets
+const launch = $('#launcher-modal');
+const background = $('.launcher-modal-overlay');
+const modal = $('#modal-contact');
+const search = $('#modal-search');
 
-// инициализируем фидбэк
-hideFeedback(true);
+hideModal(true);
+// launch.hide();
 
 // ф-ия закрытия (immediate - плавно закрыть или моментально)
-function hideFeedback(immediate = false) {
-  if (immediate) {
-	modal.hide();
-	search.hide();
-	background.hide();
-  } else {
-	// тут можно какую-нидь анимацию скрытия поставить, но я использую стандартный fadeOut
-	modal.fadeOut('fast');
-	search.fadeOut('fast');
-	background.fadeOut('fast');
-  }
+function hideModal(immediate = false) {
+	if (immediate) {
+		launch.hide();
+		$(".search-box span").each(function(e) {
+			$(e).removeClass("red");
+		});
+	} else {
+		launch.fadeOut('fast');
+		$(".search-box span").each(function(i,e) {
+			$(e).removeClass("red");
+		});
+	}
 }
 
-// ф-ия показа
-function showFeedback() {
-  // тут можно какую-нидь анимацию показа поставить, но я использую стандартный fadeIn
-  background.fadeIn('slow');
-  modal.fadeIn('slow');
+$(".search-box span").on("click", function(){
+	$('#launcher-modal-content').html($(this).attr('name'));
+	$('#launcher-modal-content').load($(this).attr('name')+'.html');
+	$(".search-box span").each(function(i,e){
+		$(e).removeClass("red");
+	});
+	$(this).addClass("red");
+});
+
+function spotlightShow() {
+	$('#launcher-modal-content').load('spotlight.html');
+	$(".search-box .fa-fire").addClass("red");
+	launch.fadeIn('slow');
+	launch.find('.search-box input').focus();
 }
 
-// 
-function search_open(){
-	background.fadeIn('slow');
-	search.fadeIn(200).find('.search-box input').focus();
+function contactShow() {
+	$('#launcher-modal-content').load('contact.html');
+	$("#contacts-launcher-button").addClass("red");
+	$(".search-box .fa-phone").addClass("red");
+	launch.fadeIn('slow');
 }
-
-search.hide();
 
 // wave
 $(function(){
@@ -479,10 +475,3 @@ function t602_setProgressBarWidth(recid) {
 
 t602_init();
 t602_setProgressBarWidth();
-
-function feedOpen(){
-	$("#modal-content").html("Лента");
-}
-function galleryOpen(){
-	$("#modal-content").html("Галерея");
-}
