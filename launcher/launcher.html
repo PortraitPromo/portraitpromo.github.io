@@ -1,6 +1,6 @@
 <!-- LAUNCHER MODAL start -->
 	<div id="launcher-modal">
-		<div class="launcher-modal-overlay" onclick="hideModal()">
+		<div class="launcher-modal-overlay" onclick="launcher.hide()">
 			<i class="fa fa-times launcher-widget-button"></i>
 		</div>
 		<div id="launcher-modal-panel">
@@ -29,7 +29,7 @@
 	</div>
 <!-- LAUNCHER WIDGETS end -->
 <script>
-	class launcher{
+	class appLauncher{
 		constructor(obj){
 			this.modal = obj;
 			this.modal.hide();
@@ -52,7 +52,7 @@
 		}
 	}
 
-	const launcher = new launcher($('#launcher-modal'));
+	const launcher = new appLauncher($('#launcher-modal'));
 	$(".search-box span").on("click", function(){
 		launcher.update($(this).attr('name'));
 	});
