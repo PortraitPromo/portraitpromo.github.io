@@ -48,20 +48,19 @@
 		});
 	}
 	//Open
-	function modalUpdate(){
-		history.pushState(null, null,location.pathname+'?'+$(this).attr('name'));
-		console.log($(this).attr('name'));
-		$('#launcher-modal-content').html($(this).attr('name'));
-		$('#launcher-modal-content').load($(this).attr('name')+'.html');
+	function modalUpdate(section){
+		history.pushState(null, null,location.pathname+'?'+section);
+		$('#launcher-modal-content').html(section);
+		$('#launcher-modal-content').load(section+'.html');
 		$(".search-box span").each(function(i,e){
 			$(e).removeClass("red");
 		});
-		$(this).addClass("red");
+		$(".search-box span[name='"+section+"']").addClass("red");
 	}
 
-	$(".search-box span").on("click", modalUpdate());
-	$("#launcher-widgets i").on("click", function(e){
-		modalUpdate(e);
+	$(".search-box span").on("click", modalUpdate($(this).attr('name')));
+	$("#launcher-widgets i").on("click", function(){
+		modalUpdate($(this).attr('name'));
 		launch.fadeIn('slow');
 	});
 	// ROUTING
