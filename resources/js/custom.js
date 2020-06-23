@@ -320,6 +320,9 @@ hideModal(true);
 
 // ф-ия закрытия (immediate - плавно закрыть или моментально)
 function hideModal(immediate = false) {
+	try{
+		history.pushState(null, null,'/');
+	}catch{}
 	if (immediate) {
 		launch.hide();
 	} else {
