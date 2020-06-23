@@ -118,7 +118,7 @@ Animation:
 
 /* 1. MODAL-APP */
 /* 1.1. WIDGETS */
-.launcher-widgets{
+#launcher-widgets-panel{
 	position: fixed;
 	right: 0;
 	top: 50%;
@@ -127,7 +127,7 @@ Animation:
 	font-size:25px;
 	color:#FFF;
 }
-.launcher-widget-button{
+.launcher-widgets-button{
 	-webkit-transition: all 0.5s linear;
 	-moz-transition: all 0.5s linear;
 	-ms-transition: all 0.5s linear;
@@ -141,16 +141,16 @@ Animation:
 	height: 40px;
 }
 
-#contact-launcher-widget:hover{
+.launcher-widgets-button[name='contact']:hover{
 	color:#26C9FF;
 }
 
-#searh-launcher-widget{
+.launcher-widgets-button[name='spotlight']{
 	padding-top:7px;
 	margin-top:50px;
 }
 
-#searh-launcher-widget:hover{
+.launcher-widgets-button[name='spotlight']:hover{
 	color:#FF214A;
 }
 
