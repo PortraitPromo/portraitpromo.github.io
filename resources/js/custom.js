@@ -313,7 +313,7 @@ $(function() {
 	});
 });
 
-//12. Modal widgets
+//12. LAUNCHER APP
 const launch = $('#launcher-modal');
 
 hideModal(true);
@@ -321,7 +321,7 @@ hideModal(true);
 // ф-ия закрытия (immediate - плавно закрыть или моментально)
 function hideModal(immediate = false) {
 	try{
-		history.pushState(null, null,'/');
+		history.pushState(null, null,location.pathname);
 	}catch{}
 	if (immediate) {
 		launch.hide();
@@ -334,7 +334,7 @@ function hideModal(immediate = false) {
 }
 
 $(".search-box span").on("click", function(){
-	history.pushState(null, null,'?'+$(this).attr('name'));
+	history.pushState(null, null,location.pathname+'?'+$(this).attr('name'));
 	console.log($(this).attr('name'));
 	$('#launcher-modal-content').html($(this).attr('name'));
 	$('#launcher-modal-content').load($(this).attr('name')+'.html');
