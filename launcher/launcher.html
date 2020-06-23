@@ -61,7 +61,7 @@
 
 	$(".search-box span").on("click", modalUpdate());
 	$("#launcher-widgets i").on("click", function(e){
-		modalUpdate();
+		modalUpdate(e);
 		launch.fadeIn('slow');
 	});
 	// ROUTING
@@ -73,5 +73,4 @@
 		$('.search-box span[name="'+location.search.substr(1)+'"]').addClass("red");
 		launch.fadeIn('slow');
 	}
-	console.log(location.search.substr(1));
 </script>

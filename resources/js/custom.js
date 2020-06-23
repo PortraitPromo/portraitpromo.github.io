@@ -316,59 +316,6 @@ $(function() {
 //12. LAUNCHER APP
 $('#launcher').load('launcher/launcher.html');
 
-const launch = $('#launcher-modal');
-
-hideModal(true);
-
-// ф-ия закрытия (immediate - плавно закрыть или моментально)
-function hideModal(immediate = false) {
-	if (immediate) {
-		launch.hide();
-	} else {
-		launch.fadeOut('fast');
-		// try{
-		// 	history.pushState(null, null,location.pathname);
-		// }catch{}
-	}
-	$(".search-box span").each(function(i,e) {
-		$(e).removeClass("red");
-	});
-}
-
-$(".search-box span").on("click", function(){
-	history.pushState(null, null,location.pathname+'?'+$(this).attr('name'));
-	console.log($(this).attr('name'));
-	$('#launcher-modal-content').html($(this).attr('name'));
-	$('#launcher-modal-content').load($(this).attr('name')+'.html');
-	$(".search-box span").each(function(i,e){
-		$(e).removeClass("red");
-	});
-	$(this).addClass("red");
-});
-
-function spotlightShow() {
-	$('#launcher-modal-content').load('spotlight.html');
-	$(".search-box .fa-fire").addClass("red");
-	launch.fadeIn('slow');
-	launch.find('.search-box input').focus();
-}
-
-function contactShow() {
-	$('#launcher-modal-content').load('contact.html');
-	$("#contacts-launcher-button").addClass("red");
-	$(".search-box .fa-phone").addClass("red");
-	launch.fadeIn('slow');
-}
-// ROUTING
-if (location.search){
-	$('#launcher-modal-content').load(location.search.substr(1)+'.html');
-	$(".search-box span").each(function(i,e){
-		$(e).removeClass("red");
-	});
-	$('.search-box span[name="'+location.search.substr(1)+'"]').addClass("red");
-	launch.fadeIn('slow');
-}
-console.log(location.search.substr(1));
 
 // wave
 $(function(){
