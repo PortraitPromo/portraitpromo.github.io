@@ -1,33 +1,3 @@
-<!-- LAUNCHER MODAL start -->
-	<div id="launcher-modal">
-		<div class="launcher-modal-overlay" onclick="launcher.hide()">
-			<i class="fa fa-times launcher-widget-button"></i>
-		</div>
-		<div id="launcher-modal-panel">
-			<form id="quicksearch" method="post">
-				<input type="hidden" name="do" value="search">
-				<input type="hidden" name="subaction" value="search">
-				<div class="search-box" style="color:#FFF">
-					<span name="spotlight" class="fa fa-fire" style="left:0px;font-size:25px;padding: 5px;margin-top: 2px;" title="Центр внимания"></span>
-					<span name="feed" class="fa fa-feed" title="Лента" style="border:0;font-size:25px;transform: scale(-1, 1);padding: 5px;margin-top:2px;"></span>
-					<span name="gallery" class="fa fa-caret-square-o-right" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Галерея"></span>
-					<span name="contact" class="fa fa-phone" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Контакты"></span>
-					<span name="faq" class="fa fa-question-circle" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Вопросы"></span>
-
-					<input id="story" name="story" placeholder="Поиск по сайту..." type="text">
-				</div>
-			</form>
-		</div>
-		<div id="launcher-modal-content" style="margin-top:250px;overflow: auto;height: 500px;">
-		</div>
-	</div>
-<!-- LAUNCHER MODAL end -->
-<!-- LAUNCHER WIDGETS start -->
-	<div id="launcher-widgets">
-		<i name="contact" id="contact-launcher-widget" class="fa fa-phone launcher-widget-button" onclick="contactShow()"></i>
-		<i name="spotlight" id="searh-launcher-widget" class="fa fa-search launcher-widget-button" onclick="spotlightShow()"></i>
-	</div>
-<!-- LAUNCHER WIDGETS end -->
 <script>
 	class appLauncher{
 		constructor(obj){
@@ -62,8 +32,6 @@
 	if (location.search){
 		launcher.update(location.search.substr(1));
 	}
-
-
 
 	// //1. INIT
 	// const launcherModal = $('#launcher-modal');
@@ -103,3 +71,34 @@
 	// 	launcherModalUpdate(location.search.substr(1));
 	// }
 </script>
+
+<!-- LAUNCHER MODAL start -->
+	<div id="launcher-modal">
+		<div class="launcher-modal-overlay" onclick="launcher.hide()">
+			<i class="fa fa-times launcher-widget-button"></i>
+		</div>
+		<div id="launcher-modal-panel">
+			<form id="quicksearch" method="post">
+				<input type="hidden" name="do" value="search">
+				<input type="hidden" name="subaction" value="search">
+				<div class="search-box" style="color:#FFF">
+					<span name="spotlight" class="fa fa-fire" style="left:0px;font-size:25px;padding: 5px;margin-top: 2px;" title="Центр внимания"></span>
+					<span name="feed" class="fa fa-feed" title="Лента" style="border:0;font-size:25px;transform: scale(-1, 1);padding: 5px;margin-top:2px;"></span>
+					<span name="gallery" class="fa fa-caret-square-o-right" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Галерея"></span>
+					<span name="contact" class="fa fa-phone" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Контакты"></span>
+					<span name="faq" class="fa fa-question-circle" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Вопросы"></span>
+
+					<input id="story" name="story" placeholder="Поиск по сайту..." type="text">
+				</div>
+			</form>
+		</div>
+		<div id="launcher-modal-content" style="margin-top:250px;overflow: auto;height: 500px;">
+		</div>
+	</div>
+<!-- LAUNCHER MODAL end -->
+<!-- LAUNCHER WIDGETS start -->
+	<div id="launcher-widgets">
+		<i name="contact" id="contact-launcher-widget" class="fa fa-phone launcher-widget-button"></i>
+		<i name="spotlight" id="searh-launcher-widget" class="fa fa-search launcher-widget-button"></i>
+	</div>
+<!-- LAUNCHER WIDGETS end -->
