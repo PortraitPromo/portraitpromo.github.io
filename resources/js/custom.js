@@ -173,9 +173,9 @@ $(function() {
 });
 
 //12. TEMPLATER
-$('#launcher').load('launcher/app.html');
-$('header').load('header.html');
-$('footer').load('footer.html');
+$('#launcher').load('/launcher/app.html');
+$('header').load('/header.html');
+$('footer').load('/footer.html');
 
 // wave
 $(function(){
