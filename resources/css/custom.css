@@ -185,6 +185,7 @@ Animation:
 	margin: 0 auto;
 	background: transparent;
 	color:#202020;
+	display: none;
 }
 .launcher-modal-overlay:hover>i, .launcher-modal-overlay:hover{
 	color:#FF214A;
@@ -197,7 +198,14 @@ Animation:
 	-moz-transform: translate(-50%, 0%);
 	-ms-transform: translate(-50%, 0%);
 	transform: translate(-50%, 0%);
-	margin-top:40px;
+}
+@media only screen and (max-width: 480px) {
+	.launcher-modal-overlay>i{
+		display: block;
+	}
+	#launcher-modal>#launcher-modal-panel{
+		margin-top:40px;
+	}
 }
 #launcher-modal>#launcher-modal-content{
 	overflow: auto;
