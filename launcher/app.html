@@ -1,7 +1,7 @@
 <!-- LAUNCHER MODAL start -->
 	<div id="launcher-modal">
 		<div class="launcher-modal-overlay">
-			<div class="scroll-indicator scroll-indicator-modal"></div>
+			<div id="launcher-scroll-indicator" class="scroll-indicator"></div>
 			<i class="fa fa-times launcher-widgets-button"></i>
 		</div>
 		<div id="launcher-modal-panel">
@@ -99,11 +99,17 @@
 	function modalContent_setProgressBarWidth(recid) {
 		var modalContent_windowScrollTop = $("#launcher-modal-content").scrollTop(),
 			modalContent_winHeigh = $("#launcher-modal-content").height(),
-			modalContent_docHeight = document.getElementById('launcher-modal-content').scrollHeight;
-			modalContent_scrollPercent = (modalContent_windowScrollTop / (modalContent_docHeight-modalContent_winHeigh)) * 100;
-
-		$(".scroll-indicator.scroll-indicator-modal").css('width', modalContent_scrollPercent + '%');
-  		$(".scroll-indicator.scroll-indicator-modal").css('background', "#FF214A");
+			modalContent_docHeight = document.getElementById('launcher-modal-content').scrollHeight,
+			modalContent_scrollPercent = (modalContent_windowScrollTop / (modalContent_docHeight-modalContent_winHeigh)) * 100,
+			startColor = [0,220,255], //RGB
+			endColor = [255,32,73], //RGB
+			currentColor = [
+				Math.round(startColor[0]+(endColor[0]-startColor[0])/100*t602_scrollPercent),
+				Math.round(startColor[1]+(endColor[1]-startColor[1])/100*t602_scrollPercent),
+				Math.round(startColor[2]+(endColor[2]-startColor[2])/100*t602_scrollPercent)
+			];
+		$("#launcher-scroll-indicator").css('width', modalContent_scrollPercent + '%');
+  		$("#launcher-scroll-indicator").css('background', "rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+")");
 	}
 
 	modalContent_init();
