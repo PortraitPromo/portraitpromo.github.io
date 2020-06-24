@@ -199,17 +199,7 @@ Animation:
 	-ms-transform: translate(-50%, 0%);
 	transform: translate(-50%, 0%);
 }
-@media only screen and (max-width: 480px) {
-	.launcher-modal-overlay>i{
-		display: block;
-	}
-	#launcher-modal>#launcher-modal-panel{
-		margin-top:40px;
-	}
-	#launcher-modal>#launcher-modal-content{
-		margin-top:150px;
-	}
-}
+
 #launcher-modal>#launcher-modal-content{
 	overflow: auto;
 	height:75%;
@@ -222,6 +212,18 @@ Animation:
 	-ms-transition: all 0.5s linear;
 	-o-transition: all 0.5s linear;
 	transition: all 0.5s linear;
+}
+
+@media only screen and (max-width: 480px) {
+	.launcher-modal-overlay>i{
+		display: block;
+	}
+	#launcher-modal>#launcher-modal-panel{
+		margin-top:40px;
+	}
+	#launcher-modal>#launcher-modal-content{
+		margin-top:150px;
+	}
 }
 
 /* 1.3. SEARCH */
