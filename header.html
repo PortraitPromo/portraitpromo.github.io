@@ -56,11 +56,16 @@
 	//MENU CONSTRUCTOR
 
 	function menuConstructor(listMenu){
-		var localMenu = '';
+		var localMenu = '',
+			localMenuMobile = '';
+
 		for (var x=0;x<listMenu.length;x+=2){
-			localMenu += "<li><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>"
+			localMenu += "<li><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
+			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm'><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
 		}
-		$("#localMenu").html(localMenu)
+		
+		$("#localMenu").html(localMenu);
+		$("#localMenuMobile").html(localMenuMobile);
 	}
 	switch(location.pathname){
 		case "/":
