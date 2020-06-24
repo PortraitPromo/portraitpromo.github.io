@@ -313,8 +313,9 @@ $(function() {
 	});
 });
 
-//12. LAUNCHER APP
-$('#launcher').load('launcher/index.html');
+//12. TEMPLATER
+$('#launcher').load('launcher/app.html');
+$('footer').load('footer.html');
 
 // wave
 $(function(){
