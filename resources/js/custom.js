@@ -286,8 +286,8 @@ function t602_setProgressBarWidth(recid) {
 				Math.round(startColor[1]+(endColor[1]-startColor[1])/100*t602_scrollPercent),
 				Math.round(startColor[2]+(endColor[2]-startColor[2])/100*t602_scrollPercent)
 			];
-	$(".scroll-indicator").css('width', t602_scrollPercent + '%');
-  	$(".scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
+	$("#page-scroll-indicator").css('width', t602_scrollPercent + '%');
+  	$("#page-scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
 }
 
 t602_init();
