@@ -1,7 +1,7 @@
 <!-- LAUNCHER MODAL start -->
 	<div id="launcher-modal">
 		<div class="launcher-modal-overlay">
-			<div class="scroll-indicator modal"></div>
+			<div class="scroll-indicator scroll-indicator-modal"></div>
 			<i class="fa fa-times launcher-widgets-button"></i>
 		</div>
 		<div id="launcher-modal-panel">
@@ -102,8 +102,8 @@
 			modalContent_docHeight = document.getElementById('launcher-modal-content').scrollHeight;
 			modalContent_scrollPercent = (modalContent_windowScrollTop / (modalContent_docHeight-modalContent_winHeigh)) * 100;
 
-		$(".scroll-indicator.modal").css('width', modalContent_scrollPercent + '%');
-  		$(".scroll-indicator.modal").css('background', "#FF214A");
+		$(".scroll-indicator.scroll-indicator-modal").css('width', modalContent_scrollPercent + '%');
+  		$(".scroll-indicator.scroll-indicator-modal").css('background', "#FF214A");
 	}
 
 	modalContent_init();
