@@ -53,6 +53,21 @@
 	</nav>
 <!-- NAVIGATION end -->
 <script>
+	//MENU CONSTRUCTOR
+
+	function menuConstructor(listMenu){
+		var localMenu = '';
+		for (var x=0;x<listMenu.length;x+=2){
+			localMenu += "<li><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>"
+		}
+		$("#localMenu").html(localMenu)
+	}
+	switch(location.pathname){
+		case "/":
+			menuConstructor(['target','Цели','problem','Проблемы','solution','Решения']);
+			break;
+	}
+	
 	// 2. navigation
 	// 2.1. page scroll
 	$(".page-scroll").on("click", function(e) {
