@@ -1628,12 +1628,14 @@ h2.home-page-subtitle-show {
 .navbar-nav li.active,
 .navbar-nav > .active > a {
 	color: #26C9FF !important;
+	border-color:#26C9FF;
 	text-decoration: none;
 }
 
 .navbar-nav li.active,
 .navbar-nav > .active > a.red {
 	color: #FF214A !important;
+	border-color:#FF214A;
 	text-decoration: none;
 }
 

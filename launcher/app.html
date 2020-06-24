@@ -15,6 +15,7 @@
 					<input id="story" name="story" placeholder="Поиск по сайту..." type="text">
 				</div>
 			</form>
+			<div class="scroll-indicator">123</div>
 		</div>
 		<div id="launcher-modal-content"></div>
 	</div>
@@ -74,4 +75,36 @@
 	$(".launcher-modal-overlay").on("click", function(){
 		launcher.hide();
 	});
+
+	//PROGRESS-BAR
+	function t602_init(recid){
+		var t602_lastCall,
+				t602_timeoutId,
+				t602_interval = 100;
+		$(window).scroll( function() {
+			var t602_now = new Date().getTime();
+			if (t602_lastCall && t602_now < (t602_lastCall + t602_interval) ) {
+					clearTimeout(t602_timeoutId);
+					t602_timeoutId = setTimeout(function () {
+							t602_lastCall = t602_now;
+							modalContent_setProgressBarWidth(recid);
+					}, t602_interval - (t602_now - t602_lastCall) );
+			} else {
+					t602_lastCall = t602_now;
+					modalContent_setProgressBarWidth(recid);
+			}
+		});
+	}
+
+	function modalContent_setProgressBarWidth(recid) {
+		var modalContent_windowScrollTop = $("#launcher-modal-content").scrollTop(),
+			modalContent_winHeigh = $("#launcher-modal-content").height(),
+			modalContent_docHeight = document.getElementById('launcher-modal-content').scrollHeight;
+			modalContent_scrollPercent = (modalContent_windowScrollTop / (modalContent_docHeight-modalContent_winHeigh)) * 100;
+		$(".scroll-indicator").css('width', t602_scrollPercent + '%');
+  		$(".scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
+	}
+
+	t602_init();
+	modalContent_setProgressBarWidth();
 </script>

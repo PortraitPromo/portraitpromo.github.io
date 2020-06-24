@@ -287,13 +287,8 @@ function t602_setProgressBarWidth(recid) {
 				Math.round(startColor[2]+(endColor[2]-startColor[2])/100*t602_scrollPercent)
 			];
 	$(".scroll-indicator").css('width', t602_scrollPercent + '%');
-  $(".scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
+  	$(".scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
 }
 
 t602_init();
 t602_setProgressBarWidth();
-
-var modalContent_windowScrollTop = $("#launcher-modal-content").scrollTop(),
-	modalContent_winHeigh = $("#launcher-modal-content").height(),
-	modalContent_docHeight = document.getElementById('launcher-modal-content').scrollHeight;
-	modalContent_scrollPercent = (modalContent_windowScrollTop / (modalContent_docHeight-modalContent_winHeigh)) * 100;
