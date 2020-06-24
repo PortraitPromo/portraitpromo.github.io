@@ -50,7 +50,7 @@
 			});
 			$(".search-box span[name='"+section+"']").addClass("red");
 
-			setTimeout(() => $('#launcher-modal-content').load("launcher/"+section+".html", function(){
+			setTimeout(() => $('#launcher-modal-content').load("/launcher/"+section+".html", function(){
 				$('#launcher-modal-content').css('opacity','1');
 				$("#preloader").fadeOut(500);
 			}), 500);
