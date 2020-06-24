@@ -42,120 +42,6 @@ $(function() {
 		$(".preloader-bg").delay(400).fadeOut(600);
 	});
 	
-	// 2. navigation
-	// 2.1. page scroll
-	$(".page-scroll").on("click", function(e) {
-		var $anchor = $(this);
-		$("html, body").stop().animate({
-			scrollTop: $($anchor.attr("href")).offset().top - 65
-		}, 1500, 'easeInOutExpo');
-		e.preventDefault();
-	});
-	// 2.2. spy navigation
-	$("body").scrollspy({
-		target: ".navbar",
-		// offset: 70
-		offset: 80
-	});
-	// 2.3. close mobile menu
-	$(".navbar-collapse ul li a").on("click", function() {
-		$(".navbar-toggle:visible").click();
-	});
-	// 2.4. highlight navigation
-	$(".link-underline-menu").on("click", function() {
-		$(".link-underline-menu").removeClass("active");
-		$(this).addClass("active");
-	});
-	
-	// 2.5. collapse navigation
-	if ($(".navbar").offset().top > 50) {
-		$(".navbar-bg-switch").addClass("main-navigation-bg");
-
-	} else {
-		$(".navbar-bg-switch").removeClass("main-navigation-bg");
-	}
-	// 3. animate elements
-	if ($(this).scrollTop() > 10) {
-		$(".border-top").addClass("top-position-primary");
-		$(".main-navigation-bg").addClass("main-navigation-bg-position-primary");
-		$(".navbar-collapse").addClass("navbar-collapse-position-primary");
-		$(".logo").addClass("logo-home-call");
-		$(".main-navigation").addClass("main-navigation-home-call");
-		$("h1.home-page-title").addClass("home-page-title-hide").removeClass("home-page-title-show");
-		$("h2.home-page-subtitle").addClass("home-page-subtitle-hide").removeClass("home-page-subtitle-show");
-		$(".scroll-indicator-wrapper").addClass("scroll-indicator-wrapper-position-secondary");
-		$(".to-top-arrow").addClass("show");
-	} else {
-		$(".border-top").removeClass("top-position-primary");
-		$(".main-navigation-bg").removeClass("main-navigation-bg-position-primary");
-		$(".navbar-collapse").removeClass("navbar-collapse-position-primary");
-		$(".logo").removeClass("logo-home-call");
-		$(".main-navigation").removeClass("main-navigation-home-call");
-		$("h1.home-page-title").removeClass("home-page-title-hide").addClass("home-page-title-show");
-		$("h2.home-page-subtitle").removeClass("home-page-subtitle-hide").addClass("home-page-subtitle-show");
-		$(".scroll-indicator-wrapper").removeClass("scroll-indicator-wrapper-position-secondary");
-		$(".to-top-arrow").removeClass("show");
-	}
-
-	$(window).on("scroll", function() {
-		// 2.5. collapse navigation
-		if ($(".navbar").offset().top > 50) {
-			$(".navbar-bg-switch").addClass("main-navigation-bg");
-
-		} else {
-			$(".navbar-bg-switch").removeClass("main-navigation-bg");
-		}
-		// 3. animate elements
-		if ($(this).scrollTop() > 10) {
-			$(".border-top").addClass("top-position-primary");
-			$(".main-navigation-bg").addClass("main-navigation-bg-position-primary");
-			$(".navbar-collapse").addClass("navbar-collapse-position-primary");
-			$(".logo").addClass("logo-home-call");
-			$(".main-navigation").addClass("main-navigation-home-call");
-			$("h1.home-page-title").addClass("home-page-title-hide").removeClass("home-page-title-show");
-			$("h2.home-page-subtitle").addClass("home-page-subtitle-hide").removeClass("home-page-subtitle-show");
-			$(".scroll-indicator-wrapper").addClass("scroll-indicator-wrapper-position-secondary");
-			$(".to-top-arrow").addClass("show");
-		} else {
-			$(".border-top").removeClass("top-position-primary");
-			$(".main-navigation-bg").removeClass("main-navigation-bg-position-primary");
-			$(".navbar-collapse").removeClass("navbar-collapse-position-primary");
-			$(".logo").removeClass("logo-home-call");
-			$(".main-navigation").removeClass("main-navigation-home-call");
-			$("h1.home-page-title").removeClass("home-page-title-hide").addClass("home-page-title-show");
-			$("h2.home-page-subtitle").removeClass("home-page-subtitle-hide").addClass("home-page-subtitle-show");
-			$(".scroll-indicator-wrapper").removeClass("scroll-indicator-wrapper-position-secondary");
-			$(".to-top-arrow").removeClass("show");
-		}
-	});
-	
-	// 5. forms
-	// 5.1. contact form
-	$("form#form").on("submit", function() {
-		$("form#form .error").remove();
-		var s = !1;
-		if ($(".requiredField").each(function() {
-				if ("" === jQuery.trim($(this).val())) $(this).prev("label").text(), $(this).parent().append('<span class="error">This field is required</span>'), $(this).addClass(
-					"inputError"), s = !0;
-				else if ($(this).hasClass("email")) {
-					var r = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-					r.test(jQuery.trim($(this).val())) || ($(this).prev("label").text(), $(this).parent().append('<span class="error">Invalid email address</span>'), $(this).addClass(
-						"inputError"), s = !0);
-				}
-			}), !s) {
-			$("form#form input.submit").fadeOut("normal", function() {
-				$(this).parent().append("");
-			});
-			var r = $(this).serialize();
-			$.post($(this).attr("action"), r, function() {
-				$("form#form").slideUp("fast", function() {
-					$(this).before('<div class="success">Your email was sent successfully.</div>');
-				});
-			});
-		}
-		return !1;
-	});
-	
 	// 6. slick slider
 	// 6.1. slick testimonials slideshow, slick fullscreen slideshow
 	$(".testimonials-slideshow, .slick-fullscreen-slideshow").slick({
@@ -215,32 +101,6 @@ $(function() {
 	// 7. YouTube player
 	$("#bgndVideo").YTPlayer();
 	
-	// 8. owl carousel
-	// 8.1. owl news carousel
-	$("#news-carousel").owlCarousel({
-		loop: true,
-		center: true,
-		items: 3,
-		margin: 0,
-		autoplay: true,
-		autoplaySpeed: 1000,
-		autoplayTimeout: 5000,
-		smartSpeed: 450,
-		nav: true,
-		navText: ["<i class='owl-custom fa fa-chevron-left'></i>", "<i class='owl-custom fa fa-chevron-right'></i>"],
-		responsive: {
-			0: {
-				items: 1
-			},
-			768: {
-				items: 2
-			},
-			1170: {
-				items: 3
-			}
-		}
-	});
-	
 	// 9. magnificPopup
 	// 9.1. magnificPopup projects gallery
 	$(".popup-photo").magnificPopup({
@@ -297,14 +157,13 @@ $(function() {
 	});
 	swipersliderTop.params.control = swipersliderBottom;
 	swipersliderBottom.params.control = swipersliderTop;
-	
+
+	// 11. typed text
 	var sringsAll = ["#Маркетинг", "#Креатив", "#Упаковка идей", "Созидание впечатления", "#Фотосессия", "#Social Media Marketing", "Web-разработка"],
 		stringsContent = ["#Рекламные фото и ролики", "#Съемка музыкальных клипов"],
 		stringsIT = ["#Разработка сайтов и приложений", "#SEO-оптимизация", "#Контент-план"],
 		sringsPromo = ["Организация мероприятий", "Продюсирование бренда", ""];
 
-
-	// 11. typed text
 	$(".typed-title").typed({
 		strings: sringsAll,
 		typeSpeed: 25,
