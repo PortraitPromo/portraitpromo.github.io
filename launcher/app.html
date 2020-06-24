@@ -1,6 +1,7 @@
 <!-- LAUNCHER MODAL start -->
 	<div id="launcher-modal">
 		<div class="launcher-modal-overlay">
+			<div class="scroll-indicator"></div>
 			<i class="fa fa-times launcher-widgets-button"></i>
 		</div>
 		<div id="launcher-modal-panel">
@@ -15,7 +16,6 @@
 					<input id="story" name="story" placeholder="Поиск по сайту..." type="text">
 				</div>
 			</form>
-			<div class="scroll-indicator">123</div>
 		</div>
 		<div id="launcher-modal-content"></div>
 	</div>
@@ -77,20 +77,20 @@
 	});
 
 	//PROGRESS-BAR
-	function t602_init(recid){
-		var t602_lastCall,
-				t602_timeoutId,
-				t602_interval = 100;
-		$(window).scroll( function() {
-			var t602_now = new Date().getTime();
-			if (t602_lastCall && t602_now < (t602_lastCall + t602_interval) ) {
-					clearTimeout(t602_timeoutId);
-					t602_timeoutId = setTimeout(function () {
-							t602_lastCall = t602_now;
+	function modalContent_init(recid){
+		var modalContent_lastCall,
+				modalContent_timeoutId,
+				modalContent_interval = 100;
+		$("#launcher-modal-content").scroll( function() {
+			var modalContent_now = new Date().getTime();
+			if (modalContent_lastCall && modalContent_now < (modalContent_lastCall + modalContent_interval) ) {
+					clearTimeout(modalContent_timeoutId);
+					modalContent_timeoutId = setTimeout(function () {
+							modalContent_lastCall = modalContent_now;
 							modalContent_setProgressBarWidth(recid);
-					}, t602_interval - (t602_now - t602_lastCall) );
+					}, modalContent_interval - (modalContent_now - modalContent_lastCall) );
 			} else {
-					t602_lastCall = t602_now;
+					modalContent_lastCall = modalContent_now;
 					modalContent_setProgressBarWidth(recid);
 			}
 		});
@@ -101,10 +101,18 @@
 			modalContent_winHeigh = $("#launcher-modal-content").height(),
 			modalContent_docHeight = document.getElementById('launcher-modal-content').scrollHeight;
 			modalContent_scrollPercent = (modalContent_windowScrollTop / (modalContent_docHeight-modalContent_winHeigh)) * 100;
-		$(".scroll-indicator").css('width', t602_scrollPercent + '%');
+			startColor = [0,220,255]; //RGB
+			endColor = [255,32,73]; //RGB
+			currentColor = [
+				Math.round(startColor[0]+(endColor[0]-startColor[0])/100*modalContent_scrollPercent),
+				Math.round(startColor[1]+(endColor[1]-startColor[1])/100*modalContent_scrollPercent),
+				Math.round(startColor[2]+(endColor[2]-startColor[2])/100*modalContent_scrollPercent)
+			];
+
+		$(".scroll-indicator").css('width', modalContent_scrollPercent + '%');
   		$(".scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
 	}
 
-	t602_init();
+	modalContent_init();
 	modalContent_setProgressBarWidth();
 </script>
