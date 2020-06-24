@@ -2978,7 +2978,17 @@ textarea {
 	margin-right: 15px;
 }
 
-.link-underline-light {
+.contact-info p {
+	font-size: 16px;
+}
+
+.contact-info .contact-email-link {
+	font-size: 16px;
+	color: #26C9FF;
+	font-weight: 700;
+}
+
+.contact-info .contact-email-link .link-underline-light {
 	text-decoration: none;
 	color:#26C9FF;
 }
@@ -2997,14 +3007,14 @@ textarea {
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 }
-.social ul li a, .icon {
+.social ul li a, a.icon {
 	padding-left: 8px;
 	padding-right: 8px;
 	font-size: 30px;
 	color:#FFF;
 }
 
-.social ul li a:hover, .icon:hover {
+.social ul li a:hover, a.icon:hover {
 	color:#26C9FF;
 }
 
