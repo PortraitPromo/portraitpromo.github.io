@@ -1,7 +1,7 @@
 <!-- LAUNCHER MODAL start -->
 	<div id="launcher-modal">
 		<div class="launcher-modal-overlay">
-			<div class="scroll-indicator"></div>
+			<div class="scroll-indicator modal"></div>
 			<i class="fa fa-times launcher-widgets-button"></i>
 		</div>
 		<div id="launcher-modal-panel">
@@ -101,16 +101,9 @@
 			modalContent_winHeigh = $("#launcher-modal-content").height(),
 			modalContent_docHeight = document.getElementById('launcher-modal-content').scrollHeight;
 			modalContent_scrollPercent = (modalContent_windowScrollTop / (modalContent_docHeight-modalContent_winHeigh)) * 100;
-			startColor = [0,220,255]; //RGB
-			endColor = [255,32,73]; //RGB
-			currentColor = [
-				Math.round(startColor[0]+(endColor[0]-startColor[0])/100*modalContent_scrollPercent),
-				Math.round(startColor[1]+(endColor[1]-startColor[1])/100*modalContent_scrollPercent),
-				Math.round(startColor[2]+(endColor[2]-startColor[2])/100*modalContent_scrollPercent)
-			];
 
-		$(".scroll-indicator").css('width', modalContent_scrollPercent + '%');
-  		$(".scroll-indicator").css('background', " linear-gradient(90deg, rgb("+startColor[0]+","+startColor[1]+","+startColor[2]+") 0%, rgb("+currentColor[0]+","+currentColor[1]+","+currentColor[2]+") 100%)");
+		$(".scroll-indicator.modal").css('width', modalContent_scrollPercent + '%');
+  		$(".scroll-indicator.modal").css('background', "#FF214A");
 	}
 
 	modalContent_init();
