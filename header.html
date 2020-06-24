@@ -65,12 +65,14 @@
 
 		$("#localMenu").html(localMenu);
 		$("#localMenuMobile").html(localMenuMobile);
+		$(".link-underline-menu[href='"+location.pathname+"']").addClass('here');
 	}
 	switch(location.pathname){
 		case "/":
 			menuConstructor(['target','Цели','problem','Проблемы','solution','Решения']);
 			$(".navbar-brand").attr('href','#home');
 			$(".logo").attr('href','#home');
+			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			break;
 		case "/photo-video/":
 			menuConstructor(['photo','Фото','photostudio','Фотостудия','video','Видео']);
