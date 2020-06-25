@@ -86,6 +86,16 @@
 		height: 100%;
 		overflow: hidden;
 		/*background: #ecf0f1;*/
+		-webkit-transition: all 0.5s linear;
+		-moz-transition: all 0.5s linear;
+		-ms-transition: all 0.5s linear;
+		-o-transition: all 0.5s linear;
+		transition: all 0.5s linear;
+	}
+
+	.picture-item__inner:hover {
+		/*border:solid #FF214A;*/
+		box-shadow:0 0 5px 2px #FF214A;
 	}
 
 	.picture-item__details {
@@ -646,7 +656,7 @@
 		}
 	}
 </style>
-<!-- <link rel='stylesheet' id='photography-modulobox-css' href='https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/themes/photography/js/modulobox/modulobox.css' type='text/css' media='all'> -->
+<link rel='stylesheet' id='photography-modulobox-css' href='https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/themes/photography/js/modulobox/modulobox.css' type='text/css' media='all'>
 
 <div class="container">
 	<div class="row">
@@ -683,25 +693,27 @@
 	<div id="grid" class="row my-shuffle-container">
 		<figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo1">
 			<div class="picture-item__inner">
-<!-- 				<a
+				<a
 					data-rel="photography_gallery_367"
 					data-title=""
 					data-desc=""
 					data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/ashim-d-silva-162286-300x200.jpg"
 					href="/resources/img/gallery/1.jpg"
-					class="fancy-gallery"> -->
+					class="fancy-gallery">
 					<div class="aspect aspect--9x16">
 						<div class="aspect__inner">
 							<img src="/resources/img/gallery/1.jpg"/>
 						</div>
 					</div>
           			<div class="picture-item__details">
-						<figcaption class="picture-item__title"><a href="#" target="_blank" rel="noopener">Photo1</a></figcaption>
-						<p class="picture-item__tags hidden@xs">portrait</p>
+						<figcaption class="picture-item__title">
+							<!-- <a href="#" target="_blank" rel="noopener">Photo1</a> -->
+						</figcaption>
+						<!-- <p class="picture-item__tags hidden@xs">portrait</p> -->
 					</div>
-<!-- 				</a>
+				</a>
 				<a data-rel="photography_gallery_367" data-title="Relax, Recharge and Reflect. Sometimes it’s OK to do nothing" data-desc="&lt;a href=&quot;https://themes.themegoods.com/photography/demo3/product/vadim-sherbakov/&quot; class=&quot;button ghost&quot;&gt;&lt;i class=&quot;fa fa-shopping-cart marginright&quot;&gt;&lt;/i&gt;Purchase&lt;/a&gt;" data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-114286-300x199.jpg" href="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-114286.jpg" class="fancy-gallery">
-				</a> -->
+				</a>
 			</div>
 		</figure>
 		<figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo2">
@@ -1082,7 +1094,7 @@
 	$('#story').attr("placeholder","Поиск по галерее");
 </script>
 
-<!-- <script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
+<script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
 <script type='text/javascript'>
 	mobx = new ModuloBox({
 			// options
@@ -1120,4 +1132,4 @@
 	
 	// initialize the instance  
 	mobx.init();
-</script> -->
+</script>
