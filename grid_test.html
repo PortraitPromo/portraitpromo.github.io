@@ -13,7 +13,7 @@
     }
 
     body {
-      color: #202020;
+      color: #34495e;
       padding-bottom: 100px;
     }
 
@@ -33,7 +33,7 @@
 
     a,
     a:visited {
-      color: #26C9FF;
+      color: #3498db;
     }
 
     a:hover {
@@ -91,7 +91,7 @@
       position: relative;
       height: 100%;
       overflow: hidden;
-      /*background: #ecf0f1;*/
+      background: #ecf0f1;
     }
 
     .picture-item__details {
@@ -221,14 +221,12 @@
       padding: .75em .8em;
       text-align: center;
       border-radius: 3px;
-      /*border: 1px solid #202020*/
-;
-      color: #202020
-;
+      border: 1px solid #34495e;
+      color: #34495e;
       font-size: 1rem;
-      /*background-color: rgba(52, 73, 94, 0);*/
-      -webkit-transition: .5s ease-out;
-      transition: .5s ease-out;
+      background-color: rgba(52, 73, 94, 0);
+      -webkit-transition: .2s ease-out;
+      transition: .2s ease-out;
       cursor: pointer;
       -webkit-appearance: none;
     }
@@ -237,60 +235,57 @@
       .btn:hover {
         color: #fff;
         text-decoration: none;
-        background-color: #202020
-;
+        background-color: #34495e;
       }
     }
     .btn:focus {
       outline-width: 0;
-      /*box-shadow: 0 0 0 2px #202020A0*/
+      box-shadow: 0 0 0 2px rgba(52, 73, 94, 0.4);
     }
 
     .btn.active, .btn:active {
-      /*box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);*/
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
       color: #fff;
-      background-color: #202020
-;
+      background-color: #34495e;
     }
 
     .btn:focus.active {
-      /*box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px #202020A0;*/
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(52, 73, 94, 0.4);
     }
 
     .btn:disabled {
       cursor: not-allowed;
       opacity: .7;
-      color: #202020
-;
-      background-color: #20202000;
+      color: #34495e;
+      background-color: rgba(52, 73, 94, 0);
     }
 
     .btn--primary {
-      /*color: #26C9FF;*/
-      border: none;
-      background-color: transparent ;
+      color: #3498db;
+      border-color: #3498db;
+      background-color: rgba(52, 152, 219, 0);
     }
 
     @media (-moz-touch-enabled: 0), (pointer: fine) {
       .btn--primary:hover {
-        color: #26C9FF;
+        background-color: #3498db;
       }
     }
     .btn--primary:focus {
-      /*box-shadow: 0 0 0 2px #26C9FFA0;*/
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.4);
     }
 
     .btn--primary.active, .btn--primary:active {
-      color: #FF214A;
+      background-color: #3498db;
     }
 
     .btn--primary:focus.active {
-      /*box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px #26C9FFA0;*/
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(52, 152, 219, 0.4);
     }
 
     .btn--primary:disabled {
-      color: #26C9FF;
-      /*background-color: rgba(52, 152, 219, 0);*/
+      color: #3498db;
+      background-color: rgba(52, 152, 219, 0);
     }
 
     @media screen and (max-width: 767px) {
@@ -306,8 +301,7 @@
       border-radius: 4px;
       padding: .5em;
       font-size: 1rem;
-      color: #202020
-;
+      color: #34495e;
       -webkit-transition: 0.15s;
       transition: 0.15s;
     }
@@ -370,33 +364,27 @@
 
     .textfield:focus {
       outline-width: 0;
-      border-color: #202020
-;
+      border-color: #34495e;
     }
 
     .textfield:focus::-webkit-input-placeholder {
-      color: #202020
-;
+      color: #34495e;
     }
 
     .textfield:focus:-ms-input-placeholder {
-      color: #202020
-;
+      color: #34495e;
     }
 
     .textfield:focus::-ms-input-placeholder {
-      color: #202020
-;
+      color: #34495e;
     }
 
     .textfield:focus::-moz-placeholder {
-      color: #202020
-;
+      color: #34495e;
     }
 
     .textfield:focus::placeholder {
-      color: #202020
-;
+      color: #34495e;
     }
 
     .container {
@@ -664,33 +652,31 @@
       }
     }
   </style>
-  <link rel='stylesheet' id='photography-modulobox-css' href='https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/themes/photography/js/modulobox/modulobox.css' type='text/css' media='all'>
 </head>
 <body>
-
-<input type="hidden" id="tg_lightbox_skin" name="tg_lightbox_skin" value="metro-black">
-<input type="hidden" id="tg_lightbox_thumbnails" name="tg_lightbox_thumbnails" value="horizontal">
-<input type="hidden" id="tg_lightbox_opacity" name="tg_lightbox_opacity" value="0.95">
-<input type="hidden" id="tg_lightbox_enable" name="tg_lightbox_enable" value="1">
-<input type="hidden" id="tg_lightbox_plugin" name="tg_lightbox_plugin" value="modulobox">
-<input type="hidden" id="tg_lightbox_timer" name="tg_lightbox_timer" value="7000">
-<input type="hidden" id="tg_modulobox_thumbnails" name="tg_modulobox_thumbnails" value="thumbnail">
-
 <div class="container">
+  <div class="row">
+    <div class="col-4@sm col-3@md">
+      <div class="filters-group">
+        <label for="filters-search-input" class="filter-label">Поиск</label>
+        <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input" />
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-12@sm filters-group-wrap">
       <div class="filters-group">
-        <!-- <p class="filter-label">Фильтрация</p> -->
+        <p class="filter-label">Фильтрация</p>
         <div class="btn-group filter-options">
-          <button class="btn btn--primary" data-group="photo">#Фото</button>
-          <button class="btn btn--primary" data-group="space">#Космос</button>
-          <button class="btn btn--primary" data-group="nature">#Природа</button>
-          <button class="btn btn--primary" data-group="animal">#Животные</button>
-          <button class="btn btn--primary" data-group="city">#Город</button>
+          <button class="btn btn--primary" data-group="photo">Фото</button>
+          <button class="btn btn--primary" data-group="space">Космос</button>
+          <button class="btn btn--primary" data-group="nature">Природа</button>
+          <button class="btn btn--primary" data-group="animal">Животные</button>
+          <button class="btn btn--primary" data-group="city">Город</button>
         </div>
       </div>
       <fieldset class="filters-group">
-        <!-- <legend class="filter-label">Сортировка</legend> -->
+        <legend class="filter-label">Сортировка</legend>
         <div class="btn-group sort-options">
           <label class="btn active">
             <input type="radio" name="sort-value" value="dom" checked /> По умолчанию
@@ -709,87 +695,20 @@
 
 <div class="container">
   <div id="grid" class="row my-shuffle-container">
-    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo1">
-      <div class="picture-item__inner">
-
-        <a
-          data-rel="photography_gallery_367"
-          data-title=""
-          data-desc=""
-          data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/ashim-d-silva-162286-300x200.jpg"
-          href="/resources/img/gallery/1.jpg"
-          class="fancy-gallery">
-
-          <div class="aspect aspect--16x9">
-            <div class="aspect__inner">
-              <img src="/resources/img/gallery/1.jpg"/>
-            </div>
-          </div>
-<!--           <div class="picture-item__details">
-            <figcaption class="picture-item__title"><a href="#" target="_blank" rel="noopener">Photo1</a></figcaption>
-            <p class="picture-item__tags hidden@xs">portrait</p>
-          </div> -->
-
-        </a>
-        <a data-rel="photography_gallery_367" data-title="Relax, Recharge and Reflect. Sometimes it’s OK to do nothing" data-desc="&lt;a href=&quot;https://themes.themegoods.com/photography/demo3/product/vadim-sherbakov/&quot; class=&quot;button ghost&quot;&gt;&lt;i class=&quot;fa fa-shopping-cart marginright&quot;&gt;&lt;/i&gt;Purchase&lt;/a&gt;" data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-114286-300x199.jpg" href="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-114286.jpg" class="fancy-gallery">
-        </a>
-
-      </div>
-    </figure>
-    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo2">
+    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Lake Walchen">
       <div class="picture-item__inner">
         <div class="aspect aspect--16x9">
           <div class="aspect__inner">
-            <img src="/resources/img/gallery/2.jpg"/>
+            <img src="https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190" srcset="https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190 1x, https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190 2x"
+              alt="A deep blue lake sits in the middle of vast hills covered with evergreen trees" />
           </div>
         </div>
         <div class="picture-item__details">
-          <figcaption class="picture-item__title"><a href="#" target="_blank" rel="noopener">Photo2</a></figcaption>
-          <p class="picture-item__tags hidden@xs">portrait</p>
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/zshyCr6HGw0" target="_blank" rel="noopener">Lake Walchen</a></figcaption>
+          <p class="picture-item__tags hidden@xs">nature</p>
         </div>
       </div>
     </figure>
-    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo3">
-      <div class="picture-item__inner">
-        <div class="aspect aspect--16x9">
-          <div class="aspect__inner">
-            <img src="/resources/img/gallery/3.jpg"/>
-          </div>
-        </div>
-        <div class="picture-item__details">
-          <figcaption class="picture-item__title"><a href="#" target="_blank" rel="noopener">Photo3</a></figcaption>
-          <p class="picture-item__tags hidden@xs">portrait</p>
-        </div>
-      </div>
-    </figure>
-    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo4">
-      <div class="picture-item__inner">
-        <div class="aspect aspect--16x9">
-          <div class="aspect__inner">
-            <img src="/resources/img/gallery/4.jpg"/>
-          </div>
-        </div>
-        <div class="picture-item__details">
-          <figcaption class="picture-item__title"><a href="#" target="_blank" rel="noopener">Photo4</a></figcaption>
-          <p class="picture-item__tags hidden@xs">portrait</p>
-        </div>
-      </div>
-    </figure>
-    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo5">
-      <div class="picture-item__inner">
-        <div class="aspect aspect--16x9">
-          <div class="aspect__inner">
-            <img src="/resources/img/gallery/5.jpg"/>
-          </div>
-        </div>
-        <div class="picture-item__details">
-          <figcaption class="picture-item__title"><a href="#" target="_blank" rel="noopener">Photo5</a></figcaption>
-          <p class="picture-item__tags hidden@xs">portrait</p>
-        </div>
-      </div>
-    </figure>
-
-
     <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["nature"]' data-date-created="2017-04-30" data-title="Lake Walchen">
       <div class="picture-item__inner">
         <div class="aspect aspect--16x9">
@@ -955,7 +874,7 @@
     <div class="col-1@sm col-1@xs my-sizer-element"></div>
   </div>
 </div>
-<!-- <script src="/launcher/shuffle.js"></script> -->
+<script src="https://unpkg.com/shufflejs@5"></script>
 <script>
   var Shuffle = window.Shuffle;
 
@@ -1078,7 +997,7 @@
 
     // Advanced filtering
     addSearchFilter() {
-      const searchInput = document.querySelector('#story');
+      const searchInput = document.querySelector('.js-shuffle-search');
       if (!searchInput) {
         return;
       }
@@ -1108,12 +1027,10 @@
       });
     }}
 
-    window.demo = new Demo(document.getElementById('grid'));
-    $('#story').attr("placeholder","Поиск по галерее");
-</script>
 
-<!-- <script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
-<script type='text/javascript' src='../wp-content/themes/photography/js/custom_plugins.js'></script>
-<script type='text/javascript' src='../wp-content/themes/photography/js/custom.js'></script> -->
+  document.addEventListener('DOMContentLoaded', () => {
+    window.demo = new Demo(document.getElementById('grid'));
+  });
+</script>
 </body>
 </html>
