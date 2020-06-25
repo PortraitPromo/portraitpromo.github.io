@@ -1079,13 +1079,14 @@
 				const titleText = titleElement.textContent.toLowerCase().trim();
 				return titleText.indexOf(searchText) !== -1;
 			});
-		}}
+		}
+	}
 
-		window.demo = new Demo(document.getElementById('grid'));
-		$('#story').attr("placeholder","Поиск по галерее");
+	window.demo = new Demo(document.getElementById('grid'));
+	$('#story').attr("placeholder","Поиск по галерее");
 </script>
 
-<script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
+<!-- <script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
 <script type='text/javascript'>
 	mobx = new ModuloBox({
 			// options
@@ -1123,4 +1124,4 @@
 	
 	// initialize the instance  
 	mobx.init();
-</script>
+</script> -->
