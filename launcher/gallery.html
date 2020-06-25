@@ -13,7 +13,7 @@
     }
 
     body {
-      color: #34495e;
+      color: #202020;
       padding-bottom: 100px;
     }
 
@@ -33,7 +33,7 @@
 
     a,
     a:visited {
-      color: #3498db;
+      color: #26C9FF;
     }
 
     a:hover {
@@ -91,7 +91,7 @@
       position: relative;
       height: 100%;
       overflow: hidden;
-      background: #ecf0f1;
+      /*background: #ecf0f1;*/
     }
 
     .picture-item__details {
@@ -221,12 +221,14 @@
       padding: .75em .8em;
       text-align: center;
       border-radius: 3px;
-      border: 1px solid #34495e;
-      color: #34495e;
+      /*border: 1px solid #202020*/
+;
+      color: #202020
+;
       font-size: 1rem;
-      background-color: rgba(52, 73, 94, 0);
-      -webkit-transition: .2s ease-out;
-      transition: .2s ease-out;
+      /*background-color: rgba(52, 73, 94, 0);*/
+      -webkit-transition: .5s ease-out;
+      transition: .5s ease-out;
       cursor: pointer;
       -webkit-appearance: none;
     }
@@ -235,57 +237,60 @@
       .btn:hover {
         color: #fff;
         text-decoration: none;
-        background-color: #34495e;
+        background-color: #202020
+;
       }
     }
     .btn:focus {
       outline-width: 0;
-      box-shadow: 0 0 0 2px rgba(52, 73, 94, 0.4);
+      box-shadow: 0 0 0 2px #202020A0
     }
 
     .btn.active, .btn:active {
       box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
       color: #fff;
-      background-color: #34495e;
+      background-color: #202020
+;
     }
 
     .btn:focus.active {
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(52, 73, 94, 0.4);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px #202020A0;
     }
 
     .btn:disabled {
       cursor: not-allowed;
       opacity: .7;
-      color: #34495e;
-      background-color: rgba(52, 73, 94, 0);
+      color: #202020
+;
+      background-color: #20202000;
     }
 
     .btn--primary {
-      color: #3498db;
-      border-color: #3498db;
-      background-color: rgba(52, 152, 219, 0);
+      /*color: #26C9FF;*/
+      border: none;
+      background-color: transparent ;
     }
 
     @media (-moz-touch-enabled: 0), (pointer: fine) {
       .btn--primary:hover {
-        background-color: #3498db;
+        color: #26C9FF;
       }
     }
     .btn--primary:focus {
-      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.4);
+      box-shadow: 0 0 0 2px #26C9FFA0;
     }
 
     .btn--primary.active, .btn--primary:active {
-      background-color: #3498db;
+      color: #FF214A;
     }
 
     .btn--primary:focus.active {
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(52, 152, 219, 0.4);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px #26C9FFA0;
     }
 
     .btn--primary:disabled {
-      color: #3498db;
-      background-color: rgba(52, 152, 219, 0);
+      color: #26C9FF;
+      /*background-color: rgba(52, 152, 219, 0);*/
     }
 
     @media screen and (max-width: 767px) {
@@ -301,7 +306,8 @@
       border-radius: 4px;
       padding: .5em;
       font-size: 1rem;
-      color: #34495e;
+      color: #202020
+;
       -webkit-transition: 0.15s;
       transition: 0.15s;
     }
@@ -364,27 +370,33 @@
 
     .textfield:focus {
       outline-width: 0;
-      border-color: #34495e;
+      border-color: #202020
+;
     }
 
     .textfield:focus::-webkit-input-placeholder {
-      color: #34495e;
+      color: #202020
+;
     }
 
     .textfield:focus:-ms-input-placeholder {
-      color: #34495e;
+      color: #202020
+;
     }
 
     .textfield:focus::-ms-input-placeholder {
-      color: #34495e;
+      color: #202020
+;
     }
 
     .textfield:focus::-moz-placeholder {
-      color: #34495e;
+      color: #202020
+;
     }
 
     .textfield:focus::placeholder {
-      color: #34495e;
+      color: #202020
+;
     }
 
     .container {
@@ -658,7 +670,7 @@
   <div class="row">
     <div class="col-12@sm filters-group-wrap">
       <div class="filters-group">
-        <p class="filter-label">Фильтрация</p>
+        <!-- <p class="filter-label">Фильтрация</p> -->
         <div class="btn-group filter-options">
           <button class="btn btn--primary" data-group="photo">Фото</button>
           <button class="btn btn--primary" data-group="space">Космос</button>
@@ -668,7 +680,7 @@
         </div>
       </div>
       <fieldset class="filters-group">
-        <legend class="filter-label">Сортировка</legend>
+        <!-- <legend class="filter-label">Сортировка</legend> -->
         <div class="btn-group sort-options">
           <label class="btn active">
             <input type="radio" name="sort-value" value="dom" checked /> По умолчанию
