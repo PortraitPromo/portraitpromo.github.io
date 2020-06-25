@@ -3,8 +3,7 @@
 	<link rel='stylesheet' id='photography-screen-css' href='../wp-content/themes/photography/css/screen.css' type='text/css' media='all'>
 	<!-- <link rel='stylesheet' id='photography-custom-css-css' href='..\wp-admin\admin-ajax.css?action=photography_custom_css' type='text/css' media='all'> -->
 	
-	<!-- <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js'></script>
-	<script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js'></script> -->
+	<script type='text/javascript' src='../resources/js/vendor.js'></script>
 
 	
 	<input type="hidden" id="tg_lightbox_skin" name="tg_lightbox_skin" value="metro-black">
@@ -24,7 +23,7 @@
 		data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/ashim-d-silva-162286-300x200.jpg"
 		href="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/ashim-d-silva-162286.jpg"
 		class="fancy-gallery">
-		<img src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-162286-705x529.jpg" alt="Culture &amp; Traditional" class="preview">
+		<img src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/ashim-d-silva-162286-300x200.jpg" alt="Culture &amp; Traditional" class="preview">
 	</a>
 
 	<a data-rel="photography_gallery_367" data-title="Relax, Recharge and Reflect. Sometimes it’s OK to do nothing" data-desc="&lt;a href=&quot;https://themes.themegoods.com/photography/demo3/product/vadim-sherbakov/&quot; class=&quot;button ghost&quot;&gt;&lt;i class=&quot;fa fa-shopping-cart marginright&quot;&gt;&lt;/i&gt;Purchase&lt;/a&gt;" data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-114286-300x199.jpg" href="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-114286.jpg" class="fancy-gallery">
@@ -33,7 +32,7 @@
 
 
 	<a data-rel="photography_gallery_366" data-title="" data-desc="" data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/geran-de-klerk-136351-300x225.jpg" href="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/geran-de-klerk-136351.jpg" class="fancy-gallery">
-		456
+		<img src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/tom-ritson-351710-300x240.jpg" alt="">
 		</a>
 
     <a data-rel="photography_gallery_366" data-title="The first step towards true enlightenment is to lighten up on yourself." data-desc="" data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/tom-ritson-351710-300x240.jpg" href="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/tom-ritson-351710.jpg" class="fancy-gallery">
@@ -47,6 +46,103 @@
     </a>
 		
 	
-<!-- 	<script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
-	<script type='text/javascript' src='../wp-content/themes/photography/js/custom_plugins.js'></script>
-	<script type='text/javascript' src='../wp-content/themes/photography/js/custom.js'></script> -->
+	<script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
+	<script type='text/javascript'>
+		//Get default lightbox plugin setting
+		var lightboxTimer = $('#tg_lightbox_timer').val();
+		if($('#tg_lightbox_plugin').val() == 'ilightbox')
+		{
+			$.fn.setLightbox = function(){
+				if($('#tg_lightbox_thumbnails').val() == 'no_thumbnail')
+				{
+					var iLightboxapi = $('a.fancy-gallery, .pp_gallery a, .img_frame, .fancy_video, .lightbox_vimeo, .lightbox_youtube, .woocommerce-product-gallery__image a').iLightBox({
+						skin: $('#tg_lightbox_skin').val(),
+						type: 'inline, video, image',
+						maxScale: 1,
+						slideshow: {
+						  pauseTime: parseInt(lightboxTimer)
+						},
+					  	controls: {
+						  slideshow: true,
+						  arrows: true,
+						  thumbnail : false
+						},
+						overlay: {
+						  opacity: $('#tg_lightbox_opacity').val()
+						}
+					});
+				}
+				else
+				{
+					var iLightboxapi = $('a.fancy-gallery, .pp_gallery a, .img_frame, .fancy_video, .lightbox_vimeo, .lightbox_youtube, .woocommerce-product-gallery__image a').iLightBox({
+						skin: $('#tg_lightbox_skin').val(),
+						path: $('#tg_lightbox_thumbnails').val(),
+						type: 'inline, video, image',
+						maxScale: 1,
+						slideshow: {
+						  pauseTime: parseInt(lightboxTimer)
+						},
+					  	controls: {
+						  slideshow: true,
+						  arrows: true
+						},
+						overlay: {
+						  opacity: $('#tg_lightbox_opacity').val()
+						}
+					});
+				}
+				
+				iLightboxapi.refresh();
+			}
+		}
+		else if($('#tg_lightbox_plugin').val() == 'modulobox')
+		{
+			var moduloControls = $('#tg_modulobox_controls').val()
+			var moduloThumbnail = false;
+			if($('#tg_modulobox_thumbnails').val() == 'thumbnail')
+			{
+				moduloThumbnail = true;
+			}
+			
+			$.fn.setLightbox = function(){
+				// create instance of ModuloBox
+				mobx = new ModuloBox({
+				    // options
+				    mediaSelector : 'a.fancy-gallery, .pp_gallery a, .img_frame, .fancy_video, .lightbox_vimeo, .lightbox_youtube, .woocommerce-product-gallery__image a',
+				    scrollToZoom  : true,
+				    controls : ['zoom', 'play', 'fullScreen', 'share', 'close'],
+				    shareButtons  : ['facebook', 'googleplus', 'twitter', 'pinterest', 'linkedin'],
+				    slideShowInterval : parseInt(lightboxTimer),
+				    countTimer: true,
+				    thumbnails: moduloThumbnail,
+				    videoAutoPlay: true,
+				    thumbnailSizes : {
+					    1920 : {          // browser width in 'px'
+					        width  : 110, // thumbnail width in 'px' - 0 in width will hide thumbnails
+					        height : 80,  // thumbnail height in 'px' - 0 in height will hide thumbnails
+					        gutter : 10   // gutter width in 'px' between thumbnails
+					    },
+					    1280 : {
+					        width  : 90,
+					        height : 65,
+					        gutter : 10
+					    },
+					    680 : {
+					        width  : 70,
+					        height : 50,
+					        gutter : 8
+					    },
+					    480 : {
+					        width  : 60,
+					        height : 44,
+					        gutter : 5
+					    }
+					}
+				});
+				
+				// initialize the instance	
+				mobx.init();
+			}
+		}
+		$(document).setLightbox();
+	</script>
