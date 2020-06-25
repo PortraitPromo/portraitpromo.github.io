@@ -1,771 +1,1036 @@
-    <style type="text/css">
-        img.wp-smiley,
-        img.emoji {
-            display: inline !important;
-            border: none !important;
-            box-shadow: none !important;
-            height: 1em !important;
-            width: 1em !important;
-            margin: 0 .07em !important;
-            vertical-align: -0.1em !important;
-            background: none !important;
-            padding: 0 !important;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+  <style>
+    /* Small reset */
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      color: #34495e;
+      padding-bottom: 100px;
+    }
+
+    figure {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a,
+    a:visited {
+      color: #3498db;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a:active {
+      color: #2ecc71;
+    }
+
+    p {
+      margin: 1em 0;
+      line-height: 1.4;
+    }
+
+    /*
+      Shuffle needs either relative or absolute positioning on the container
+      It will set it for you, but it'll cause another style recalculation and layout.
+      AKA worse performance - so just set it here
+     */
+    .my-shuffle-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .my-sizer-element {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .picture-item {
+      height: 220px;
+      margin-top: 24px;
+    }
+    .picture-item img {
+      display: block;
+      width: 100%;
+    }
+
+    @supports ((-o-object-fit: cover) or (object-fit: cover)) {
+      .picture-item img {
+        max-width: none;
+        height: 100%;
+        -o-object-fit: cover;
+           object-fit: cover;
+      }
+    }
+    .picture-item--h2 {
+      height: 464px;
+      /* 2x the height + 1 gutter */
+    }
+
+    .picture-item__inner {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      background: #ecf0f1;
+    }
+
+    .picture-item__details {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: baseline;
+              align-items: baseline;
+      -webkit-box-pack: justify;
+              justify-content: space-between;
+      width: 100%;
+      padding: 1em;
+    }
+
+    .picture-item__description {
+      width: 100%;
+      padding: 0 2em 1em 1em;
+      margin: 0;
+    }
+
+    .picture-item__title {
+      flex-shrink: 0;
+      margin-right: 4px;
+    }
+
+    .picture-item__tags {
+      flex-shrink: 1;
+      text-align: right;
+      margin: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      .picture-item--overlay .picture-item__details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        -webkit-backdrop-filter: blur(7px);
+                backdrop-filter: blur(7px);
+        color: white;
+        overflow: hidden;
+      }
+      .picture-item--overlay .picture-item__description {
+        display: none;
+      }
+      .picture-item--overlay a {
+        color: white;
+        text-shadow: 0 0 1px black;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .picture-item {
+        height: auto;
+        margin-top: 20px;
+      }
+
+      .picture-item__details,
+      .picture-item__description {
+        font-size: 0.875em;
+        padding: 0.625em;
+      }
+
+      .picture-item__description {
+        padding-right: 0.875em;
+        padding-bottom: 1.25em;
+      }
+
+      .picture-item--h2 {
+        height: auto;
+      }
+    }
+    .filter-label {
+      display: block;
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 4px;
+      color: #95a5a6;
+    }
+
+    .filters-group {
+      padding: 0;
+      margin: 0 0 4px;
+      border: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      .filters-group-wrap {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: justify;
+                justify-content: space-between;
+      }
+    }
+    .btn-group:after, .btn-group:before {
+      content: " ";
+      display: table;
+    }
+
+    .btn-group:after {
+      clear: both;
+    }
+
+    .btn-group .btn {
+      float: left;
+      border-radius: 0;
+    }
+
+    .btn-group .btn:first-child {
+      border-radius: 3px 0 0 3px;
+    }
+
+    .btn-group .btn:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    .btn-group .btn:last-child {
+      border-radius: 0 3px 3px 0;
+    }
+
+    .btn-group label.btn input[type=radio] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+      pointer-events: none;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .75em .8em;
+      text-align: center;
+      border-radius: 3px;
+      border: 1px solid #34495e;
+      color: #34495e;
+      font-size: 1rem;
+      background-color: rgba(52, 73, 94, 0);
+      -webkit-transition: .2s ease-out;
+      transition: .2s ease-out;
+      cursor: pointer;
+      -webkit-appearance: none;
+    }
+
+    @media (-moz-touch-enabled: 0), (pointer: fine) {
+      .btn:hover {
+        color: #fff;
+        text-decoration: none;
+        background-color: #34495e;
+      }
+    }
+    .btn:focus {
+      outline-width: 0;
+      box-shadow: 0 0 0 2px rgba(52, 73, 94, 0.4);
+    }
+
+    .btn.active, .btn:active {
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      background-color: #34495e;
+    }
+
+    .btn:focus.active {
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(52, 73, 94, 0.4);
+    }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: .7;
+      color: #34495e;
+      background-color: rgba(52, 73, 94, 0);
+    }
+
+    .btn--primary {
+      color: #3498db;
+      border-color: #3498db;
+      background-color: rgba(52, 152, 219, 0);
+    }
+
+    @media (-moz-touch-enabled: 0), (pointer: fine) {
+      .btn--primary:hover {
+        background-color: #3498db;
+      }
+    }
+    .btn--primary:focus {
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.4);
+    }
+
+    .btn--primary.active, .btn--primary:active {
+      background-color: #3498db;
+    }
+
+    .btn--primary:focus.active {
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(52, 152, 219, 0.4);
+    }
+
+    .btn--primary:disabled {
+      color: #3498db;
+      background-color: rgba(52, 152, 219, 0);
+    }
+
+    @media screen and (max-width: 767px) {
+      .btn {
+        font-size: 0.875rem;
+      }
+    }
+    .textfield {
+      -webkit-appearance: none;
+      box-sizing: border-box;
+      width: 100%;
+      border: 2px solid #95a5a6;
+      border-radius: 4px;
+      padding: .5em;
+      font-size: 1rem;
+      color: #34495e;
+      -webkit-transition: 0.15s;
+      transition: 0.15s;
+    }
+
+    .textfield::-webkit-input-placeholder {
+      color: #95a5a6;
+      -webkit-transition: 0.15s;
+      transition: 0.15s;
+    }
+
+    .textfield:-ms-input-placeholder {
+      color: #95a5a6;
+      -ms-transition: 0.15s;
+      transition: 0.15s;
+    }
+
+    .textfield::-ms-input-placeholder {
+      color: #95a5a6;
+      -ms-transition: 0.15s;
+      transition: 0.15s;
+    }
+
+    .textfield::-moz-placeholder {
+      color: #95a5a6;
+      -moz-transition: 0.15s;
+      transition: 0.15s;
+    }
+
+    .textfield::placeholder {
+      color: #95a5a6;
+      -webkit-transition: 0.15s;
+      transition: 0.15s;
+    }
+
+    .textfield:hover {
+      outline-width: 0;
+      color: #5d6d77;
+      border-color: #5d6d77;
+    }
+
+    .textfield:hover::-webkit-input-placeholder {
+      color: #5d6d77;
+    }
+
+    .textfield:hover:-ms-input-placeholder {
+      color: #5d6d77;
+    }
+
+    .textfield:hover::-ms-input-placeholder {
+      color: #5d6d77;
+    }
+
+    .textfield:hover::-moz-placeholder {
+      color: #5d6d77;
+    }
+
+    .textfield:hover::placeholder {
+      color: #5d6d77;
+    }
+
+    .textfield:focus {
+      outline-width: 0;
+      border-color: #34495e;
+    }
+
+    .textfield:focus::-webkit-input-placeholder {
+      color: #34495e;
+    }
+
+    .textfield:focus:-ms-input-placeholder {
+      color: #34495e;
+    }
+
+    .textfield:focus::-ms-input-placeholder {
+      color: #34495e;
+    }
+
+    .textfield:focus::-moz-placeholder {
+      color: #34495e;
+    }
+
+    .textfield:focus::placeholder {
+      color: #34495e;
+    }
+
+    .container {
+      padding-left: 3.5%;
+      padding-right: 3.5%;
+    }
+
+    .container:after,
+    .container:before {
+      content: " ";
+      display: table;
+    }
+
+    .container:after {
+      clear: both;
+    }
+
+    .row {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .row:after,
+    .row:before {
+      content: " ";
+      display: table;
+    }
+
+    .row:after {
+      clear: both;
+    }
+
+    .row .row {
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    /* Ensure images take up the same space when they load */
+    /* https://vestride.github.io/Shuffle/images */
+    .aspect {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      overflow: hidden;
+    }
+
+    .aspect__inner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .aspect--16x9 {
+      padding-bottom: 56.25%;
+    }
+
+    .col-1\@xs,
+    .col-2\@xs,
+    .col-3\@xs,
+    .col-4\@xs,
+    .col-5\@xs,
+    .col-6\@xs,
+    .col-1\@sm,
+    .col-2\@sm,
+    .col-3\@sm,
+    .col-4\@sm,
+    .col-5\@sm,
+    .col-6\@sm,
+    .col-7\@sm,
+    .col-8\@sm,
+    .col-9\@sm,
+    .col-10\@sm,
+    .col-11\@sm,
+    .col-12\@sm,
+    .col-1\@md,
+    .col-2\@md,
+    .col-3\@md,
+    .col-4\@md,
+    .col-5\@md,
+    .col-6\@md,
+    .col-7\@md,
+    .col-8\@md,
+    .col-9\@md,
+    .col-10\@md,
+    .col-11\@md,
+    .col-12\@md {
+      position: relative;
+      box-sizing: border-box;
+      min-height: 1px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .col-1\@xs,
+    .col-2\@xs,
+    .col-3\@xs,
+    .col-4\@xs,
+    .col-5\@xs,
+    .col-6\@xs {
+      float: left;
+    }
+
+    .col-1\@xs {
+      width: 16.66667%;
+    }
+
+    .col-2\@xs {
+      width: 33.33333%;
+    }
+
+    .col-3\@xs {
+      width: 50%;
+    }
+
+    .col-4\@xs {
+      width: 66.66667%;
+    }
+
+    .col-5\@xs {
+      width: 83.33333%;
+    }
+
+    .col-6\@xs {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 768px) {
+      .col-1\@sm,
+      .col-2\@sm,
+      .col-3\@sm,
+      .col-4\@sm,
+      .col-5\@sm,
+      .col-6\@sm,
+      .col-7\@sm,
+      .col-8\@sm,
+      .col-9\@sm,
+      .col-10\@sm,
+      .col-11\@sm,
+      .col-12\@sm {
+        float: left;
+      }
+
+      .col-1\@sm {
+        width: 8.33333%;
+      }
+
+      .col-2\@sm {
+        width: 16.66667%;
+      }
+
+      .col-3\@sm {
+        width: 25%;
+      }
+
+      .col-4\@sm {
+        width: 33.33333%;
+      }
+
+      .col-5\@sm {
+        width: 41.66667%;
+      }
+
+      .col-6\@sm {
+        width: 50%;
+      }
+
+      .col-7\@sm {
+        width: 58.33333%;
+      }
+
+      .col-8\@sm {
+        width: 66.66667%;
+      }
+
+      .col-9\@sm {
+        width: 75%;
+      }
+
+      .col-10\@sm {
+        width: 83.33333%;
+      }
+
+      .col-11\@sm {
+        width: 91.66667%;
+      }
+
+      .col-12\@sm {
+        width: 100%;
+      }
+
+      .container {
+        padding-left: 7%;
+        padding-right: 7%;
+      }
+
+      .row {
+        max-width: 1200px;
+      }
+    }
+    @media screen and (min-width: 1024px) {
+      .col-1\@md,
+      .col-2\@md,
+      .col-3\@md,
+      .col-4\@md,
+      .col-5\@md,
+      .col-6\@md,
+      .col-7\@md,
+      .col-8\@md,
+      .col-9\@md,
+      .col-10\@md,
+      .col-11\@md,
+      .col-12\@md {
+        float: left;
+      }
+
+      .col-1\@md {
+        width: 8.33333%;
+      }
+
+      .col-2\@md {
+        width: 16.66667%;
+      }
+
+      .col-3\@md {
+        width: 25%;
+      }
+
+      .col-4\@md {
+        width: 33.33333%;
+      }
+
+      .col-5\@md {
+        width: 41.66667%;
+      }
+
+      .col-6\@md {
+        width: 50%;
+      }
+
+      .col-7\@md {
+        width: 58.33333%;
+      }
+
+      .col-8\@md {
+        width: 66.66667%;
+      }
+
+      .col-9\@md {
+        width: 75%;
+      }
+
+      .col-10\@md {
+        width: 83.33333%;
+      }
+
+      .col-11\@md {
+        width: 91.66667%;
+      }
+
+      .col-12\@md {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-4@sm col-3@md">
+      <div class="filters-group">
+        <label for="filters-search-input" class="filter-label">Поиск</label>
+        <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12@sm filters-group-wrap">
+      <div class="filters-group">
+        <p class="filter-label">Фильтрация</p>
+        <div class="btn-group filter-options">
+          <button class="btn btn--primary" data-group="photo">Фото</button>
+          <button class="btn btn--primary" data-group="space">Космос</button>
+          <button class="btn btn--primary" data-group="nature">Природа</button>
+          <button class="btn btn--primary" data-group="animal">Животные</button>
+          <button class="btn btn--primary" data-group="city">Город</button>
+        </div>
+      </div>
+      <fieldset class="filters-group">
+        <legend class="filter-label">Сортировка</legend>
+        <div class="btn-group sort-options">
+          <label class="btn active">
+            <input type="radio" name="sort-value" value="dom" checked /> По умолчанию
+          </label>
+          <label class="btn">
+            <input type="radio" name="sort-value" value="title" /> Заголовок
+          </label>
+          <label class="btn">
+            <input type="radio" name="sort-value" value="date-created" /> Дата создания
+          </label>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div id="grid" class="row my-shuffle-container">
+    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Lake Walchen">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190" srcset="https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190 1x, https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190 2x"
+              alt="A deep blue lake sits in the middle of vast hills covered with evergreen trees" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/zshyCr6HGw0" target="_blank" rel="noopener">Lake Walchen</a></figcaption>
+          <p class="picture-item__tags hidden@xs">nature</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["nature"]' data-date-created="2017-04-30" data-title="Lake Walchen">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190" srcset="https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190 1x, https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6ef0f8984525fc4500d43ffa53fe8190 2x"
+              alt="A deep blue lake sits in the middle of vast hills covered with evergreen trees" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/zshyCr6HGw0" target="_blank" rel="noopener">Lake Walchen</a></figcaption>
+          <p class="picture-item__tags hidden@xs">nature</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-8@sm col-6@md picture-item picture-item--overlay" data-groups='["city"]' data-date-created="2016-07-01" data-title="Golden Gate Bridge">
+      <div class="picture-item__inner">
+
+        <img src="https://images.unsplash.com/photo-1467348733814-f93fc480bec6?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=2590c736835ec6555e952e19bb37f06e" srcset="https://images.unsplash.com/photo-1467348733814-f93fc480bec6?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=2590c736835ec6555e952e19bb37f06e 1x, https://images.unsplash.com/photo-1467348733814-f93fc480bec6?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=2590c736835ec6555e952e19bb37f06e 2x"
+          alt="Looking down over one of the pillars of the Golden Gate Bridge to the roadside and water below" />
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/RRNbMiPmTZY" target="_blank" rel="noopener">Golden Gate Bridge</a></figcaption>
+          <p class="picture-item__tags hidden@xs">city</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["animal"]' data-date-created="2016-08-12" data-title="Crocodile">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=bd8b952c4c983d4bde5e2018c90c9124" srcset="https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=bd8b952c4c983d4bde5e2018c90c9124 1x, https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=bd8b952c4c983d4bde5e2018c90c9124 2x"
+              alt="A close, profile view of a crocodile looking directly into the camera" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/YOX8ZMTo7hk" target="_blank" rel="noopener">Crocodile</a></figcaption>
+          <p class="picture-item__tags hidden@xs">animal</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--h2" data-groups='["space"]' data-date-created="2016-03-07" data-title="SpaceX">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=3d0e3e8d72fc5667fd9fbe354e80957b" srcset="https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=3d0e3e8d72fc5667fd9fbe354e80957b 1x, https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=3d0e3e8d72fc5667fd9fbe354e80957b 2x"
+              alt="SpaceX launches a Falcon 9 rocket from Cape Canaveral Air Force Station" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/GDdRP7U5ct0" target="_blank" rel="noopener">SpaceX</a></figcaption>
+          <p class="picture-item__tags hidden@xs">space</p>
+        </div>
+        <p class="picture-item__description">SpaceX launches a Falcon 9 rocket from Cape Canaveral Air Force Station</p>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["city"]' data-date-created="2016-06-09" data-title="Crossroads">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=7d97e22d36a9a73beb639a936e6774e9" srcset="https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=7d97e22d36a9a73beb639a936e6774e9 1x, https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=7d97e22d36a9a73beb639a936e6774e9 2x"
+              alt="A multi-level highway stack interchange in Puxi, Shanghai" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/7nrsVjvALnA" target="_blank" rel="noopener">Crossroads</a></figcaption>
+          <p class="picture-item__tags hidden@xs">city</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-6@xs col-8@sm col-6@md picture-item picture-item--overlay" data-groups='["space","nature"]' data-date-created="2016-06-29" data-title="Milky Way">
+      <div class="picture-item__inner">
+
+        <img src="https://images.unsplash.com/photo-1467173572719-f14b9fb86e5f?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=e641d6b3c4c2c967e80e998d02a4d03b" srcset="https://images.unsplash.com/photo-1467173572719-f14b9fb86e5f?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=e641d6b3c4c2c967e80e998d02a4d03b 1x, https://images.unsplash.com/photo-1467173572719-f14b9fb86e5f?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=e641d6b3c4c2c967e80e998d02a4d03b 2x"
+          alt="Dimly lit mountains give way to a starry night showing the Milky Way" />
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/_4Ib-a8g9aA" target="_blank" rel="noopener">Milky Way</a></figcaption>
+          <p class="picture-item__tags hidden@xs">space, nature</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-6@xs col-8@sm col-6@md picture-item picture-item--h2" data-groups='["space"]' data-date-created="2015-11-06" data-title="Earth">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=f4856588634def31d5885dc396fe9a2e" srcset="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=f4856588634def31d5885dc396fe9a2e 1x, https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=f4856588634def31d5885dc396fe9a2e 2x"
+              alt="NASA Satellite view of Earth" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/yZygONrUBe8" target="_blank" rel="noopener">Earth</a></figcaption>
+          <p class="picture-item__tags hidden@xs">space</p>
+        </div>
+        <p class="picture-item__description">NASA Satellite view of Earth</p>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--h2" data-groups='["animal"]' data-date-created="2015-07-23" data-title="Turtle">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=bc4e1180b6b8789d38c614edc8d0dd01" srcset="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=bc4e1180b6b8789d38c614edc8d0dd01 1x, https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=bc4e1180b6b8789d38c614edc8d0dd01 2x"
+              alt="A close up of a turtle underwater" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/L-2p8fapOA8" target="_blank" rel="noopener">Turtle</a></figcaption>
+          <p class="picture-item__tags hidden@xs">animal</p>
+        </div>
+        <p class="picture-item__description">A close up of a turtle underwater</p>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["nature"]' data-date-created="2014-10-12" data-title="Stanley Park">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/uploads/1413142095961484763cf/d141726c?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6141097da144d759176d77b4024c064b" srcset="https://images.unsplash.com/uploads/1413142095961484763cf/d141726c?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6141097da144d759176d77b4024c064b 1x, https://images.unsplash.com/uploads/1413142095961484763cf/d141726c?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=6141097da144d759176d77b4024c064b 2x"
+              alt="Many trees stand alonside a hill which overlooks a pedestrian path, next to the ocean at Stanley Park in Vancouver, Canada" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/b-yEdfrvQ50" target="_blank" rel="noopener">Stanley Park</a></figcaption>
+          <p class="picture-item__tags hidden@xs">nature</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["animal"]' data-date-created="2017-01-12" data-title="Astronaut Cat">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1484244233201-29892afe6a2c?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=98423596f72d9f0913a4d44f0580a34c" srcset="https://images.unsplash.com/photo-1484244233201-29892afe6a2c?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=98423596f72d9f0913a4d44f0580a34c 1x, https://images.unsplash.com/photo-1484244233201-29892afe6a2c?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=98423596f72d9f0913a4d44f0580a34c 2x"
+              alt="An intrigued cat sits in grass next to a flag planted in front of it with an astronaut space kitty sticker on beige fabric." />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/FqkBXo2Nkq0" target="_blank" rel="noopener">Astronaut Cat</a></figcaption>
+          <p class="picture-item__tags hidden@xs">animal</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-8@sm col-6@md picture-item picture-item--overlay" data-groups='["city"]' data-date-created="2017-01-19" data-title="San Francisco">
+      <div class="picture-item__inner">
+
+        <img src="https://images.unsplash.com/photo-1484851050019-ca9daf7736fb?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=05325a7cc678f7f765cbbdcf7159ab89" srcset="https://images.unsplash.com/photo-1484851050019-ca9daf7736fb?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=05325a7cc678f7f765cbbdcf7159ab89 1x, https://images.unsplash.com/photo-1484851050019-ca9daf7736fb?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=584&h=329&fit=crop&s=05325a7cc678f7f765cbbdcf7159ab89 2x"
+          alt="Pier 14 at night, looking towards downtown San Francisco's brightly lit buildings" />
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/h3jarbNzlOg" target="_blank" rel="noopener">San Francisco</a></figcaption>
+          <p class="picture-item__tags hidden@xs">city</p>
+        </div>
+      </div>
+    </figure>
+    <figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["nature","city"]' data-date-created="2015-10-20" data-title="Central Park">
+      <div class="picture-item__inner">
+        <div class="aspect aspect--16x9">
+          <div class="aspect__inner">
+            <img src="https://images.unsplash.com/photo-1445346366695-5bf62de05412?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=1822bfd69c4021973a3d926e9294b70f" srcset="https://images.unsplash.com/photo-1445346366695-5bf62de05412?ixlib=rb-0.3.5&auto=format&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=1822bfd69c4021973a3d926e9294b70f 1x, https://images.unsplash.com/photo-1445346366695-5bf62de05412?ixlib=rb-0.3.5&auto=format&q=55&fm=jpg&dpr=2&crop=entropy&cs=tinysrgb&w=284&h=160&fit=crop&s=1822bfd69c4021973a3d926e9294b70f 2x"
+              alt="Looking down on central park and the surrounding builds from the Rockefellar Center" />
+          </div>
+        </div>
+        <div class="picture-item__details">
+          <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/utwYoEu9SU8" target="_blank" rel="noopener">Central Park</a></figcaption>
+          <p class="picture-item__tags hidden@xs">nature, city</p>
+        </div>
+      </div>
+    </figure>
+    <div class="col-1@sm col-1@xs my-sizer-element"></div>
+  </div>
+</div>
+<script src="https://unpkg.com/shufflejs@5"></script>
+<script>
+  var Shuffle = window.Shuffle;
+
+  class Demo {
+    constructor(element) {
+      this.element = element;
+      this.shuffle = new Shuffle(element, {
+        itemSelector: '.picture-item',
+        speed: 1000,
+        roundTransforms: true,
+        // easing: 'ease-in-out',
+        sizer: element.querySelector('.my-sizer-element') });
+
+
+      // Log events.
+      this.addShuffleEventListeners();
+      this._activeFilters = [];
+      this.addFilterButtons();
+      this.addSorting();
+      this.addSearchFilter();
+    }
+
+    /**
+       * Shuffle uses the CustomEvent constructor to dispatch events. You can listen
+       * for them like you normally would (with jQuery for example).
+       */
+    addShuffleEventListeners() {
+      this.shuffle.on(Shuffle.EventType.LAYOUT, data => {
+        console.log('layout. data:', data);
+      });
+      this.shuffle.on(Shuffle.EventType.REMOVED, data => {
+        console.log('removed. data:', data);
+      });
+    }
+
+    addFilterButtons() {
+      const options = document.querySelector('.filter-options');
+      if (!options) {
+        return;
+      }
+
+      const filterButtons = Array.from(options.children);
+      const onClick = this._handleFilterClick.bind(this);
+      filterButtons.forEach(button => {
+        button.addEventListener('click', onClick, false);
+      });
+    }
+
+    _handleFilterClick(evt) {
+      const btn = evt.currentTarget;
+      const isActive = btn.classList.contains('active');
+      const btnGroup = btn.getAttribute('data-group');
+
+      this._removeActiveClassFromChildren(btn.parentNode);
+
+      let filterGroup;
+      if (isActive) {
+        btn.classList.remove('active');
+        filterGroup = Shuffle.ALL_ITEMS;
+      } else {
+        btn.classList.add('active');
+        filterGroup = btnGroup;
+      }
+
+      this.shuffle.filter(filterGroup);
+    }
+
+    _removeActiveClassFromChildren(parent) {
+      const { children } = parent;
+      for (let i = children.length - 1; i >= 0; i--) {
+        // if (window.CP.shouldStopExecution(0)) break;
+        children[i].classList.remove('active');
+      }
+      // window.CP.exitedLoop(0);
+    }
+
+    addSorting() {
+      const buttonGroup = document.querySelector('.sort-options');
+      if (!buttonGroup) {
+        return;
+      }
+      buttonGroup.addEventListener('change', this._handleSortChange.bind(this));
+    }
+
+    _handleSortChange(evt) {
+      // Add and remove `active` class from buttons.
+      const buttons = Array.from(evt.currentTarget.children);
+      buttons.forEach(button => {
+        if (button.querySelector('input').value === evt.target.value) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
         }
-    </style>
-    <link rel='stylesheet' id='kanter_plugins-css'  href='/wp-content/themes/kanter/assets/css/libs.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='kanter_main-css'  href='/wp-content/themes/kanter/assets/css/main.css' type='text/css' media='all' />
-    <script src="/resources/js/vendor.js"></script>
-
-
-
-                        <!--Navigation start-->
-                        <div class="al-controls-portfolio center">
-                            <ul id="al-control-portfolio" class="text-center">
-                                <li id="liact" class="filter select-cat active" data-filter="*">All </li>
-                                <li class="filter" data-filter=".folio-logo">Logo</li>
-                                <li class="filter" data-filter=".folio-photography">Photography</li>
-                                <li class="filter" data-filter=".folio-video">Video</li>
-                                <li class="filter" data-filter=".folio-design">Design</li>
-                                <li class="filter" data-filter=".folio-apps">Apps</li>
-                            </ul>
-                        </div><!--Navigation end-->
-                        <div style="" class="al-portfolio-layout">
-                            <div id="alian4x_el_5ee7838812acc" data-size="4" class="al-posts al-masonry-posts">
-                                <div class="gutter-sizer"></div>
-                                
-                                <article class=" folio-apps al-gallery-folio">
-
-                                    <a href="#1047"  title="Images Gallery" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-sliders"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Images Gallery</h2>
-                                                        <p>Gallery with content</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1047" style="max-width:900px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="slider-wrap gallery-slide"><div class="slider-portfolio-single"><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11.jpg" alt=""></div><div class="prev-next-block-rotate opacity-control al-control-portfolio-slider">
-                                                                <div class="wrap-prev">
-                                                                  <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
-                                                                </div>
-                                                                <div class="wrap-next">
-                                                                  <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
-                                                                </div>
-                                                              </div>
-                                                            <!--Control sliders-->
-                                                            <div class="dots-control-carousel al-dots-control"></div></div></div>            <div class="modal-box-content">
-
-                                                <h2>Images Gallery</h2>
-                                                <p>Veniam veritus eum ei. Mea no offendit repudiandae, no per dicam tation gloriatur, case paulo corpora ex est. Has mutat noluisse in, prima accumsan vis ut, prima nullam legere sed at. Ea duo quis civibus dissentias. Est eu legimus feugait. Vel ut mentitum verterem vulputate, id choro consequat sit, nisl option integre eos ad.</p>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  Amiran</li><li><b>Date: </b>  April 29, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/images-gallery/" title="Images Gallery" class="btn accent-br-btn large-btn">See project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-video">
-
-                                    <a href="#1046"  title="Single Image" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-picture-o"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Single Image</h2>
-                                                        <p>Hello there!</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1046" style="max-width:810px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14.jpg" alt="Single Image" ></div>            <div class="modal-box-content">
-
-                                                <h2>Single Image</h2>
-                                                <p><img class="size-medium wp-image-1255 alignleft" src="http://kanter.fidex.com.ua/wp-content/uploads/2018/04/ser-300x168.jpg" alt="" width="300" height="168" /></p>
-                                    <ul class="list">
-                                    <li>Competitor analysis</li>
-                                    <li>Creating a prototype</li>
-                                    <li>Design</li>
-                                    <li>Filling out information</li>
-                                    <li>Configure components</li>
-                                    <li>Range of products</li>
-                                    <li>Optimization SEO</li>
-                                    </ul>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  Amiran</li><li><b>Date: </b>  April 19, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/single-image/" title="Single Image" class="btn accent-br-btn large-btn">See project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-photography folio-video">
-                                    <a href="#1045"  title="Video &#8211; Single" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-play"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Video &#8211; Single</h2>
-                                                        <p>Video Single</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1045" style="max-width:1080px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="embed-responsive"><div class="al-iframe-content" data-height=700> <iframe width="1170" height="658" src="https://www.youtube.com/embed/6Fg8733eOkg?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div></div>            <div class="modal-box-content">
-
-                                                <h2>Video &#8211; Single</h2>
-                                                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                    <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  movato</li><li><b>Date: </b>  April 26, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/video-single/" title="Video &#8211; Single" class="btn accent-br-btn large-btn">See project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps folio-logo folio-photography">
-                                    <a href="#1044"  title="Audio &#8211; Single" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-music"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Audio &#8211; Single</h2>
-                                                        <p>Hello there!</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1044" style="max-width:620px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="al-audio-gallery"><!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-                                    <audio class="wp-audio-shortcode" id="audio-1044-1" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3?_=1" /><a href="https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3">https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3</a></audio></div></div>            <div class="modal-box-content">
-
-                                                <h2>Audio &#8211; Single</h2>
-                                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum?</p>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  movato</li><li><b>Date: </b>  April 4, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/audio-single/" title="Audio &#8211; Single" class="btn accent-br-btn large-btn">Listen project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps folio-logo al-gallery-folio">
-
-                                    <a href="#1043"  title="Videos &#8211; Gallery" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-youtube-play"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Videos &#8211; Gallery</h2>
-                                                        <p>Without popup content</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1043" style="max-width:890px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="slider-wrap gallery-slide"><div class="slider-portfolio-single"><div class="al-iframe-content" data-height=600> <iframe width="1170" height="658" src="https://www.youtube.com/embed/tcHJodG5hX8?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="al-iframe-content" data-height=600> <iframe width="1170" height="658" src="https://www.youtube.com/embed/X5n9OwR6taQ?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="al-iframe-content" data-height=600> <iframe width="1170" height="658" src="https://www.youtube.com/embed/ZLohS_HScwc?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="prev-next-block-rotate opacity-control al-control-portfolio-slider">
-                                                                <div class="wrap-prev">
-                                                                  <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
-                                                                </div>
-                                                                <div class="wrap-next">
-                                                                  <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
-                                                                </div>
-                                                              </div>
-                                                            <!--Control sliders-->
-                                                            <div class="al-dots-control dots-control-carousel"></div></div></div>            <div class="modal-box-content">
-
-                                                
-                                                
-                                                
-                                                
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps folio-photography">
-
-                                    <a href="#1042"  title="Sound &#8211; Iframe" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-music"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Sound &#8211; Iframe</h2>
-                                                        <p>Soundcloud</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1042" style="max-width:620px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/316445942&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></div>            <div class="modal-box-content">
-
-                                                
-                                                <p>Current trends continues under we seds ut should be looking to seds others solutions sed, Complete, comprehensive prefabrications off components is complicated because it is difficult ut too integrated water, electricity ut and heatings uts systems in elements is a long established but if currents trends continue seds we should be looking too other our solutions comprehensive seds prefabrication of components our off complicated.</p>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  Amiran</li><li><b>Date: </b>  April 18, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/sound-iframe/" title="Sound &#8211; Iframe" class="btn accent-br-btn large-btn">See project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps folio-design al-gallery-folio">
-                                    <a href="#1041"  title="Gallery &#8211; Images #2" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-sliders"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Gallery &#8211; Images #2</h2>
-                                                        <p>Without content - big</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                        <div id="1041" style="max-width:1060px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="slider-wrap gallery-slide"><div class="slider-portfolio-single"><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_9.jpg" alt=""></div><div class="prev-next-block-rotate opacity-control al-control-portfolio-slider">
-                                                                <div class="wrap-prev">
-                                                                  <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
-                                                                </div>
-                                                                <div class="wrap-next">
-                                                                  <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
-                                                                </div>
-                                                              </div>
-                                                            <!--Control sliders-->
-                                                            <div class="dots-control-carousel al-dots-control"></div></div></div>            <div class="modal-box-content">
-
-                                                
-                                                
-                                                
-                                                
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                    <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-design folio-photography folio-video al-gallery-folio">
-                                    <a href="#1040"  title="Audio &#8211; Gallery" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-                                            <div class="post-thumb">
-                                                <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />
-                                            </div>
-                                            <div class="content dh-overlay">
-                                                <div class="tizer-circle">
-                                                    <i class="fa fa-music"></i>
-                                                </div>
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Audio &#8211; Gallery</h2>
-                                                        <p>Audio Gallery</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <!-- Start Modal project-->
-                                        <div id="1040" style="max-width:620px" class="modal-box mfp-hide">
-                                            <div class="post-thumb">
-                                                <div class="slider-wrap gallery-slide">
-                                                    <div class="slider-portfolio-single">
-                                                        <div class="al-audio-gallery">
-                                                            <p>The Strongest One</p>
-                                                            <audio class="wp-audio-shortcode" id="audio-1040-2" preload="none" style="width: 100%;" controls="controls">
-                                                                <source type="audio/mpeg" src="https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3?_=2" />
-                                                                <a href="https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3">https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3</a>
-                                                            </audio>
-                                                        </div>
-                                                        <div class="al-audio-gallery">
-                                                            <p>2018-04-13 11.29.18</p> 
-                                                            <audio class="wp-audio-shortcode" id="audio-1040-3" preload="none" style="width: 100%;" controls="controls">
-                                                                <source type="audio/mpeg" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/2018-04-13-11.29.18.mp3?_=3" />
-                                                                <a href="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/2018-04-13-11.29.18.mp3">https://kanter.fidex.com.ua/wp-content/uploads/2018/03/2018-04-13-11.29.18.mp3</a>
-                                                            </audio>
-                                                        </div>
-                                                    </div>
-                                                    <div class="al-dots-control dots-control-carousel"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-box-content">
-                                                <p>Current trends continues under we seds ut should be looking to seds others solutions sed, Complete, comprehensive prefabrications off components is complicated because it is difficult ut too integrated water, electricity ut and heatings uts systems in elements is a long established but if currents trends continue seds we should be looking too other our solutions comprehensive seds prefabrication of components our off complicated.</p>
-                                                <hr>
-                                                <div class="buttons-section center">
-                                                    <a href="https://kanter.fidex.com.ua/folio/audio-gallery/" title="Audio &#8211; Gallery" class="btn accent-br-btn large-btn">Listen project</a>
-                                                </div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                    <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps al-gallery-folio">
-
-                                    <a href="#1047"  title="Images Gallery" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-sliders"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Images Gallery</h2>
-                                                        <p>Gallery with content</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1047" style="max-width:900px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="slider-wrap gallery-slide"><div class="slider-portfolio-single"><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_7.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11.jpg" alt=""></div><div class="prev-next-block-rotate opacity-control al-control-portfolio-slider">
-                                                                <div class="wrap-prev">
-                                                                  <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
-                                                                </div>
-                                                                <div class="wrap-next">
-                                                                  <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
-                                                                </div>
-                                                              </div>
-                                                            <!--Control sliders-->
-                                                            <div class="dots-control-carousel al-dots-control"></div></div></div>            <div class="modal-box-content">
-
-                                                <h2>Images Gallery</h2>
-                                                <p>Veniam veritus eum ei. Mea no offendit repudiandae, no per dicam tation gloriatur, case paulo corpora ex est. Has mutat noluisse in, prima accumsan vis ut, prima nullam legere sed at. Ea duo quis civibus dissentias. Est eu legimus feugait. Vel ut mentitum verterem vulputate, id choro consequat sit, nisl option integre eos ad.</p>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  Amiran</li><li><b>Date: </b>  April 29, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/images-gallery/" title="Images Gallery" class="btn accent-br-btn large-btn">See project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-video">
-
-                                    <a href="#1046"  title="Single Image" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-picture-o"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Single Image</h2>
-                                                        <p>Hello there!</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1046" style="max-width:810px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_14.jpg" alt="Single Image" ></div>            <div class="modal-box-content">
-
-                                                <h2>Single Image</h2>
-                                                <p><img class="size-medium wp-image-1255 alignleft" src="http://kanter.fidex.com.ua/wp-content/uploads/2018/04/ser-300x168.jpg" alt="" width="300" height="168" /></p>
-                                    <ul class="list">
-                                    <li>Competitor analysis</li>
-                                    <li>Creating a prototype</li>
-                                    <li>Design</li>
-                                    <li>Filling out information</li>
-                                    <li>Configure components</li>
-                                    <li>Range of products</li>
-                                    <li>Optimization SEO</li>
-                                    </ul>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  Amiran</li><li><b>Date: </b>  April 19, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/single-image/" title="Single Image" class="btn accent-br-btn large-btn">See project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-photography folio-video">
-                                    <a href="#1045"  title="Video &#8211; Single" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-play"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Video &#8211; Single</h2>
-                                                        <p>Video Single</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1045" style="max-width:1080px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="embed-responsive"><div class="al-iframe-content" data-height=700> <iframe width="1170" height="658" src="https://www.youtube.com/embed/6Fg8733eOkg?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div></div>            <div class="modal-box-content">
-
-                                                <h2>Video &#8211; Single</h2>
-                                                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                    <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  movato</li><li><b>Date: </b>  April 26, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/video-single/" title="Video &#8211; Single" class="btn accent-br-btn large-btn">See project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps folio-logo folio-photography">
-                                    <a href="#1044"  title="Audio &#8211; Single" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-music"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Audio &#8211; Single</h2>
-                                                        <p>Hello there!</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1044" style="max-width:620px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="al-audio-gallery"><!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-                                    <audio class="wp-audio-shortcode" id="audio-1044-1" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3?_=1" /><a href="https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3">https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3</a></audio></div></div>            <div class="modal-box-content">
-
-                                                <h2>Audio &#8211; Single</h2>
-                                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum?</p>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  movato</li><li><b>Date: </b>  April 4, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/audio-single/" title="Audio &#8211; Single" class="btn accent-br-btn large-btn">Listen project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps folio-logo al-gallery-folio">
-
-                                    <a href="#1043"  title="Videos &#8211; Gallery" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-youtube-play"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Videos &#8211; Gallery</h2>
-                                                        <p>Without popup content</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1043" style="max-width:890px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="slider-wrap gallery-slide"><div class="slider-portfolio-single"><div class="al-iframe-content" data-height=600> <iframe width="1170" height="658" src="https://www.youtube.com/embed/tcHJodG5hX8?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="al-iframe-content" data-height=600> <iframe width="1170" height="658" src="https://www.youtube.com/embed/X5n9OwR6taQ?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="al-iframe-content" data-height=600> <iframe width="1170" height="658" src="https://www.youtube.com/embed/ZLohS_HScwc?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="prev-next-block-rotate opacity-control al-control-portfolio-slider">
-                                                                <div class="wrap-prev">
-                                                                  <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
-                                                                </div>
-                                                                <div class="wrap-next">
-                                                                  <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
-                                                                </div>
-                                                              </div>
-                                                            <!--Control sliders-->
-                                                            <div class="al-dots-control dots-control-carousel"></div></div></div>            <div class="modal-box-content">
-
-                                                
-                                                
-                                                
-                                                
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps folio-photography">
-
-                                    <a href="#1042"  title="Sound &#8211; Iframe" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_8.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-music"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Sound &#8211; Iframe</h2>
-                                                        <p>Soundcloud</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                            <div id="1042" style="max-width:620px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/316445942&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></div>            <div class="modal-box-content">
-
-                                                
-                                                <p>Current trends continues under we seds ut should be looking to seds others solutions sed, Complete, comprehensive prefabrications off components is complicated because it is difficult ut too integrated water, electricity ut and heatings uts systems in elements is a long established but if currents trends continue seds we should be looking too other our solutions comprehensive seds prefabrication of components our off complicated.</p>
-
-                                                                    <hr>
-                                                    <h3>Detalis</h3>
-                                                    <ul class="list-project">
-                                                        <li><b>Client:</b>  Amiran</li><li><b>Date: </b>  April 18, 2018</li><li><b>Live:</b>  <a href="#">View project<i aria-hidden="true" class="fa fa-external-link"></i></a></li>                    </ul>
-                                                
-                                                <hr><div class="buttons-section center"><a href="https://kanter.fidex.com.ua/folio/sound-iframe/" title="Sound &#8211; Iframe" class="btn accent-br-btn large-btn">See project</a></div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                        <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-apps folio-design al-gallery-folio">
-                                    <a href="#1041"  title="Gallery &#8211; Images #2" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-
-                                                            <div class="post-thumb">
-                                                    <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_2.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />                </div>
-                                            
-
-                                            <div class="content dh-overlay">
-                                                                    <div class="tizer-circle">
-                                                        <i class="fa fa-sliders"></i>
-                                                    </div>
-                                                
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Gallery &#8211; Images #2</h2>
-                                                        <p>Without content - big</p>                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- Start Modal project-->
-                                        <div id="1041" style="max-width:1060px"  class="modal-box mfp-hide">
-                                            <div class="post-thumb"><div class="slider-wrap gallery-slide"><div class="slider-portfolio-single"><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_13.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_12.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_11.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10.jpg" alt=""><img src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_9.jpg" alt=""></div><div class="prev-next-block-rotate opacity-control al-control-portfolio-slider">
-                                                                <div class="wrap-prev">
-                                                                  <div class="prev"><i aria-hidden="true" class="fa fa-angle-left"></i></div>
-                                                                </div>
-                                                                <div class="wrap-next">
-                                                                  <div class="next"><i aria-hidden="true" class="fa fa-angle-right"></i></div>
-                                                                </div>
-                                                              </div>
-                                                            <!--Control sliders-->
-                                                            <div class="dots-control-carousel al-dots-control"></div></div></div>            <div class="modal-box-content">
-
-                                                
-                                                
-                                                
-                                                
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                    <!-- End Modal project-->
-                                </article>
-                                <article class=" folio-design folio-photography folio-video al-gallery-folio">
-                                    <a href="#1040"  title="Audio &#8211; Gallery" target=_blank data-toggle=modal data-target=.modal1 class=image-modal>
-                                        <div class="item-wrap dh-container">
-                                            <div class="post-thumb">
-                                                <img width="600" height="450" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-600x450.jpg" class="attachment-kanter_portfolio_popup size-kanter_portfolio_popup wp-post-image" alt="" srcset="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-600x450.jpg 600w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-300x225.jpg 300w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-768x576.jpg 768w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-1024x768.jpg 1024w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-500x375.jpg 500w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10-800x600.jpg 800w, https://kanter.fidex.com.ua/wp-content/uploads/2018/03/pro_dn_10.jpg 1200w" sizes="(max-width: 600px) 100vw, 600px" />
-                                            </div>
-                                            <div class="content dh-overlay">
-                                                <div class="tizer-circle">
-                                                    <i class="fa fa-music"></i>
-                                                </div>
-                                                <div class="content-wrap">
-                                                    <div class="content-va">
-                                                        <h2>Audio &#8211; Gallery</h2>
-                                                        <p>Audio Gallery</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <!-- Start Modal project-->
-                                        <div id="1040" style="max-width:620px" class="modal-box mfp-hide">
-                                            <div class="post-thumb">
-                                                <div class="slider-wrap gallery-slide">
-                                                    <div class="slider-portfolio-single">
-                                                        <div class="al-audio-gallery">
-                                                            <p>The Strongest One</p>
-                                                            <audio class="wp-audio-shortcode" id="audio-1040-2" preload="none" style="width: 100%;" controls="controls">
-                                                                <source type="audio/mpeg" src="https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3?_=2" />
-                                                                <a href="https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3">https://kanter.fidex.com.ua/wp-content/uploads/2017/04/Where_Is_My_Brain-The_Strongest_One-spaces.ru_.mp3</a>
-                                                            </audio>
-                                                        </div>
-                                                        <div class="al-audio-gallery">
-                                                            <p>2018-04-13 11.29.18</p> 
-                                                            <audio class="wp-audio-shortcode" id="audio-1040-3" preload="none" style="width: 100%;" controls="controls">
-                                                                <source type="audio/mpeg" src="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/2018-04-13-11.29.18.mp3?_=3" />
-                                                                <a href="https://kanter.fidex.com.ua/wp-content/uploads/2018/03/2018-04-13-11.29.18.mp3">https://kanter.fidex.com.ua/wp-content/uploads/2018/03/2018-04-13-11.29.18.mp3</a>
-                                                            </audio>
-                                                        </div>
-                                                    </div>
-                                                    <div class="al-dots-control dots-control-carousel"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-box-content">
-                                                <p>Current trends continues under we seds ut should be looking to seds others solutions sed, Complete, comprehensive prefabrications off components is complicated because it is difficult ut too integrated water, electricity ut and heatings uts systems in elements is a long established but if currents trends continue seds we should be looking too other our solutions comprehensive seds prefabrication of components our off complicated.</p>
-                                                <hr>
-                                                <div class="buttons-section center">
-                                                    <a href="https://kanter.fidex.com.ua/folio/audio-gallery/" title="Audio &#8211; Gallery" class="btn accent-br-btn large-btn">Listen project</a>
-                                                </div>
-                                            </div>
-                                            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                                        </div>
-                                    <!-- End Modal project-->
-                                </article>
-                            </div> 
-                        </div>
-
-    <script type='text/javascript' src='https://kanter.fidex.com.ua//wp-content/themes/kanter/assets/scripts/libs.js?ver=1.0.0'></script>
-    <script type='text/javascript' src='https://kanter.fidex.com.ua//wp-content/themes/kanter/assets/scripts/common.js?ver=1.0.0'></script>
-
+      });
+
+      // Create the sort options to give to Shuffle.
+      const { value } = evt.target;
+      let options = {};
+
+      function sortByDate(element) {
+        return element.getAttribute('data-created');
+      }
+
+      function sortByTitle(element) {
+        return element.getAttribute('data-title').toLowerCase();
+      }
+
+      if (value === 'date-created') {
+        options = {
+          reverse: true,
+          by: sortByDate };
+
+      } else if (value === 'title') {
+        options = {
+          by: sortByTitle };
+
+      }
+      this.shuffle.sort(options);
+    }
+
+    // Advanced filtering
+    addSearchFilter() {
+      const searchInput = document.querySelector('.js-shuffle-search');
+      if (!searchInput) {
+        return;
+      }
+      searchInput.addEventListener('keyup', this._handleSearchKeyup.bind(this));
+    }
+
+    /**
+       * Filter the shuffle instance by items with a title that matches the search input.
+       * @param {Event} evt Event object.
+       */
+    _handleSearchKeyup(evt) {
+      const searchText = evt.target.value.toLowerCase();
+      this.shuffle.filter((element, shuffle) => {
+        // If there is a current filter applied, ignore elements that don't match it.
+        if (shuffle.group !== Shuffle.ALL_ITEMS) {
+          // Get the item's groups.
+          const groups = JSON.parse(element.getAttribute('data-groups'));
+          const isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1;
+          // Only search elements in the current group
+          if (!isElementInCurrentGroup) {
+            return false;
+          }
+        }
+        const titleElement = element.querySelector('.picture-item__title');
+        const titleText = titleElement.textContent.toLowerCase().trim();
+        return titleText.indexOf(searchText) !== -1;
+      });
+    }}
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    window.demo = new Demo(document.getElementById('grid'));
+  });
+</script>
+</body>
+</html>
