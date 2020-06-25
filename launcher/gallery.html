@@ -652,17 +652,8 @@
 			}
 		}
 	</style>
-	<link rel='stylesheet' id='photography-modulobox-css' href='https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/themes/photography/js/modulobox/modulobox.css' type='text/css' media='all'>
 </head>
 <body>
-
-<input type="hidden" id="tg_lightbox_skin" name="tg_lightbox_skin" value="metro-black">
-<input type="hidden" id="tg_lightbox_thumbnails" name="tg_lightbox_thumbnails" value="horizontal">
-<input type="hidden" id="tg_lightbox_opacity" name="tg_lightbox_opacity" value="0.95">
-<input type="hidden" id="tg_lightbox_enable" name="tg_lightbox_enable" value="1">
-<input type="hidden" id="tg_lightbox_plugin" name="tg_lightbox_plugin" value="modulobox">
-<input type="hidden" id="tg_lightbox_timer" name="tg_lightbox_timer" value="7000">
-<input type="hidden" id="tg_modulobox_thumbnails" name="tg_modulobox_thumbnails" value="thumbnail">
 
 <div class="container">
 	<div class="row">
@@ -697,33 +688,6 @@
 
 <div class="container">
 	<div id="grid" class="row my-shuffle-container">
-		<figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo1">
-			<div class="picture-item__inner">
-
-				<a
-					data-rel="photography_gallery_367"
-					data-title=""
-					data-desc=""
-					data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/ashim-d-silva-162286-300x200.jpg"
-					href="/resources/img/gallery/1.jpg"
-					class="fancy-gallery">
-
-					<div class="aspect aspect--16x9">
-						<div class="aspect__inner">
-							<img src="/resources/img/gallery/1.jpg"/>
-						</div>
-					</div>
-<!--           <div class="picture-item__details">
-						<figcaption class="picture-item__title"><a href="#" target="_blank" rel="noopener">Photo1</a></figcaption>
-						<p class="picture-item__tags hidden@xs">portrait</p>
-					</div> -->
-
-				</a>
-				<a data-rel="photography_gallery_367" data-title="Relax, Recharge and Reflect. Sometimes it’s OK to do nothing" data-desc="&lt;a href=&quot;https://themes.themegoods.com/photography/demo3/product/vadim-sherbakov/&quot; class=&quot;button ghost&quot;&gt;&lt;i class=&quot;fa fa-shopping-cart marginright&quot;&gt;&lt;/i&gt;Purchase&lt;/a&gt;" data-thumb="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-114286-300x199.jpg" href="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/uploads/2017/10/camila-cordeiro-114286.jpg" class="fancy-gallery">
-				</a>
-
-			</div>
-		</figure>
 		<figure class="col-3@xs col-4@sm col-3@md picture-item" data-groups='["photo"]' data-date-created="2017-04-30" data-title="Photo2">
 			<div class="picture-item__inner">
 				<div class="aspect aspect--16x9">
@@ -1101,44 +1065,5 @@
 		$('#story').attr("placeholder","Поиск по галерее");
 </script>
 
-<script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
-<script type='text/javascript'>
-	mobx = new ModuloBox({
-			// options
-			mediaSelector : 'a.fancy-gallery, .pp_gallery a, .img_frame, .fancy_video, .lightbox_vimeo, .lightbox_youtube, .woocommerce-product-gallery__image a',
-			scrollToZoom  : true,
-			controls : ['zoom', 'play', 'fullScreen', 'share', 'close'],
-			shareButtons  : ['facebook', 'googleplus', 'twitter', 'pinterest', 'linkedin'],
-			slideShowInterval : parseInt(7000),
-			countTimer: true,
-			thumbnails: true,
-			videoAutoPlay: true,
-			thumbnailSizes : {
-				1920 : {          // browser width in 'px'
-						width  : 110, // thumbnail width in 'px' - 0 in width will hide thumbnails
-						height : 80,  // thumbnail height in 'px' - 0 in height will hide thumbnails
-						gutter : 10   // gutter width in 'px' between thumbnails
-				},
-				1280 : {
-						width  : 90,
-						height : 65,
-						gutter : 10
-				},
-				680 : {
-						width  : 70,
-						height : 50,
-						gutter : 8
-				},
-				480 : {
-						width  : 60,
-						height : 44,
-						gutter : 5
-				}
-		}
-	});
-	
-	// initialize the instance  
-	mobx.init();
-</script>
 </body>
 </html>
