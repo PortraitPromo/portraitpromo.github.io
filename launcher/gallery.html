@@ -997,7 +997,7 @@
 
     // Advanced filtering
     addSearchFilter() {
-      const searchInput = document.querySelector('.js-shuffle-search');
+      const searchInput = document.querySelector('#story');
       if (!searchInput) {
         return;
       }
@@ -1028,6 +1028,7 @@
     }}
 
     window.demo = new Demo(document.getElementById('grid'));
+    $('#story').attr("placeholder","Поиск по галерее");
 </script>
 </body>
 </html>
