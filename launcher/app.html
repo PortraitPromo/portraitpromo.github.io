@@ -47,7 +47,18 @@
 			$('#launcher-modal-content').css('opacity','0');
 			history.pushState(null, null, location.pathname+'?'+section);
 			$('body').css('overflow', 'hidden');
+
 			$('.mobx-holder').remove();
+			let search_area = "сайту";
+			switch(section){
+				case "gallery":
+					search_area = "галерее";
+					break;
+				case "feed":
+					search_area = "ленте";
+					break;
+			}
+			$('#story').attr("placeholder","Поиск по "+search_area);
 			$(".search-box span").each(function(i,e){
 				$(e).removeClass("red");
 			});
@@ -56,9 +67,8 @@
 			setTimeout(() => $('#launcher-modal-content').load("/launcher/"+section+".html", function(){
 				$('#launcher-modal-content').css('opacity','1');
 				$("#preloader").fadeOut(500);
+				this.modal.fadeIn('slow');
 			}), 500);
-
-			this.modal.fadeIn('slow');
 		}
 	}
 	//1. INIT
