@@ -1026,10 +1026,8 @@
 		slideShowAutoPlay  : false,   // Automatically start slideShow mode on opening
 		slideShowAutoStop  : false,   // Stop slideshow when the last item is reached (only if slider loop)
 		countTimer         : true,    // Show a circular countdown timer next to the counter message when autoplay (slideshow)
-		// countTimerBg       : 'rgba(255,255,255,0.25)', // Background color of the circular timer stroke
-		// countTimerColor    : 'rgba(255,255,255,0.75)', // Color of the circular timer stroke
-		countTimerBg       : 'rgba(0,220,255,1)', // Background color of the circular timer stroke
-		countTimerColor    : 'rgba(255,32,73,1)', // Color of the circular timer stroke
+		countTimerBg       : 'rgba(255,255,255,0.25)', // Background color of the circular timer stroke
+		countTimerColor    : 'rgba(255,255,255,0.75)', // Color of the circular timer stroke
 		mediaelement       : false,   // Play HTML5 videos with mediaelement (jQuery library required & mediaelement.js script)
 		videoRatio         : 16 / 9,  // Video aspect ratio
 		videoMaxWidth      : 1180,    // Video max width allowed in a slide
@@ -1252,7 +1250,7 @@
 	proto.socialMedia = function() {
 
 		return {
-			vk			: 'https://vk.com/share.php?url={url}',
+			vk			: 'https://vk.com/share.php?url=[url]',
 			facebook    : 'https://www.facebook.com/sharer/sharer.php?u=[url]',
 			googleplus  : 'https://plus.google.com/share?url=[url]',
 			twitter     : 'https://twitter.com/intent/tweet?text=[text]&url=[url]',
@@ -3663,8 +3661,8 @@
 
 			var fragment = document.createDocumentFragment();
 
-			loader = utils.createEl( 'div', this.pre + '-loader' );
-			// loader = $('#preloader');
+			// loader = utils.createEl( 'div', this.pre + '-loader' );
+			loader = $('#preloader');
 			fragment.appendChild( loader );
 			fragment.appendChild( media.dom );
 			holder.appendChild( fragment );
@@ -3847,7 +3845,7 @@
 		var slide   = this.slides[slide_index],
 			gallery = this.gallery,
 			holder  = slide.firstChild,
-			// loader  = holder.firstChild,
+			loader  = holder.firstChild,
 			preload = this.options.preload;
 
 		// set media size
