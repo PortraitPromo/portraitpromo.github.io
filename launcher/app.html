@@ -36,21 +36,23 @@
 			this.init();
 		}
 		init(){
+			var launcher = this;
+			
 			//1. CLOSE
 			this.modal.hide();
 			$(".launcher-modal-overlay").on("click", function(){
-				this.hide();
+				launcher.hide();
 			});
 
 			//2. OPEN
 			$(".search-box span").on("click", function(){
-				this.update($(this).attr('name'));
+				launcher.update($(this).attr('name'));
 			});
 			$("#launcher-widgets-panel i").on("click", function(){
-				this.update($(this).attr('name'));
+				launcher.update($(this).attr('name'));
 			});
 			if (location.search){
-				this.update(location.search.substr(1));
+				launcher.update(location.search.substr(1));
 			}
 		}
 		hide(){
