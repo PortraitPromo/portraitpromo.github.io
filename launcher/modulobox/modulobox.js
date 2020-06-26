@@ -1026,8 +1026,10 @@
 		slideShowAutoPlay  : false,   // Automatically start slideShow mode on opening
 		slideShowAutoStop  : false,   // Stop slideshow when the last item is reached (only if slider loop)
 		countTimer         : true,    // Show a circular countdown timer next to the counter message when autoplay (slideshow)
-		countTimerBg       : 'rgba(255,255,255,0.25)', // Background color of the circular timer stroke
-		countTimerColor    : 'rgba(255,255,255,0.75)', // Color of the circular timer stroke
+		// countTimerBg       : 'rgba(255,255,255,0.25)', // Background color of the circular timer stroke
+		// countTimerColor    : 'rgba(255,255,255,0.75)', // Color of the circular timer stroke
+		countTimerBg       : 'rgba(0,220,255,1)', // Background color of the circular timer stroke
+		countTimerColor    : 'rgba(255,32,73,1)', // Color of the circular timer stroke
 		mediaelement       : false,   // Play HTML5 videos with mediaelement (jQuery library required & mediaelement.js script)
 		videoRatio         : 16 / 9,  // Video aspect ratio
 		videoMaxWidth      : 1180,    // Video max width allowed in a slide
