@@ -37,7 +37,7 @@
 		}
 		init(){
 			var launcher = this;
-			
+
 			//1. CLOSE
 			this.modal.hide();
 			$(".launcher-modal-overlay").on("click", function(){
@@ -87,6 +87,7 @@
 			setTimeout(() => $('#launcher-modal-content').load("/launcher/"+section+".html", function(){
 				$('#launcher-modal-content').css('opacity','1');
 				$("#preloader").fadeOut(500);
+				$(".preloader-bg").delay(400).fadeOut(600);
 			}), 500);
 
 			this.modal.fadeIn('slow');
