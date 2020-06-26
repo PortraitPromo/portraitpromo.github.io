@@ -1476,7 +1476,7 @@
 			var type = buttons[i];
 
 			// create and append button
-			this.buttons[type] = utils.createEl( 'BUTTON', this.pre + '-' + type.toLowerCase() + ' fa fa-' + type.toLowerCase());
+			this.buttons[type] = utils.createEl( 'BUTTON', this.pre + '-' + type.toLowerCase());
 			dom.appendChild( this.buttons[type] );
 
 			// attach event if button have a corresponding prototype event
@@ -1487,6 +1487,7 @@
 
 				if ( event === 'shareOn' ) {
 					this.buttons[type].setAttribute( 'title', type.charAt( 0 ).toUpperCase() + type.slice( 1 ) );
+					this.buttons[type].setAttribute( 'class', 'fa fa-' + type.toLowerCase() );
 				}
 
 			}
