@@ -131,7 +131,7 @@
 .mobx-thumb-video:after,
 .mobx-ui button,
 .mobx-share-tooltip *:after {
-	background-image: url(../icons/modulobox.svg);
+	background-image: url(modulobox.svg);
 	background-repeat: no-repeat;
 	background-color: transparent;
 }
