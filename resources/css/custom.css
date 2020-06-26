@@ -145,12 +145,12 @@ Animation:
 	color:#26C9FF;
 }
 
-.launcher-widgets-button[name='spotlight']{
+.launcher-widgets-button[name='spotlight'], .launcher-widgets-button[name='gallery']{
 	padding-top:7px;
 	margin-top:7px;
 }
 
-.launcher-widgets-button[name='spotlight']:hover{
+.launcher-widgets-button[name='spotlight']:hover, .launcher-widgets-button[name='gallery']:hover{
 	color:#FF214A;
 }
 
