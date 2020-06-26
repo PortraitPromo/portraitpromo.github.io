@@ -658,7 +658,7 @@
 		}
 	}
 </style>
-<link rel='stylesheet' id='photography-modulobox-css' href='https://themegoods-cdn-pzbycso8wng.stackpathdns.com/photography/demo3/wp-content/themes/photography/js/modulobox/modulobox.css' type='text/css' media='all'>
+<link rel='stylesheet' id='photography-modulobox-css' href='/launcher/modulobox/modulobox.css' type='text/css' media='all'>
 
 <div class="container">
 	<div class="row">
@@ -1093,17 +1093,16 @@
 	}
 
 	window.demo = new Demo(document.getElementById('grid'));
-	$('#story').attr("placeholder","Поиск по галерее");
 </script>
 
-<script type='text/javascript' src='../wp-content/themes/photography/js/modulobox/modulobox.js'></script>
+<script type='text/javascript' src='/launcher/modulobox/modulobox.js'></script>
 <script type='text/javascript'>
-	mobx = new ModuloBox({
+	new ModuloBox({
 			// options
 			mediaSelector : 'a.fancy-gallery, .pp_gallery a, .img_frame, .fancy_video, .lightbox_vimeo, .lightbox_youtube, .woocommerce-product-gallery__image a',
 			scrollToZoom  : true,
 			controls : ['zoom', 'play', 'fullScreen', 'share', 'close'],
-			shareButtons  : ['facebook', 'googleplus', 'twitter', 'pinterest', 'linkedin'],
+			shareButtons  : ['vk', 'facebook', 'twitter', 'pinterest', 'linkedin'],
 			slideShowInterval : parseInt(7000),
 			countTimer: true,
 			thumbnails: true,
@@ -1130,8 +1129,5 @@
 						gutter : 5
 				}
 		}
-	});
-	
-	// initialize the instance  
-	mobx.init();
+	}).init();
 </script>

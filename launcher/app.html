@@ -35,6 +35,22 @@
 			this.modal = obj;
 			this.modal.hide();
 		}
+		init(){
+			//2. OPEN
+			$(".search-box span").on("click", function(){
+				launcher.update($(this).attr('name'));
+			});
+			$("#launcher-widgets-panel i").on("click", function(){
+				launcher.update($(this).attr('name'));
+			});
+			if (location.search){
+				launcher.update(location.search.substr(1));
+			}
+			//3. CLOSE
+			$(".launcher-modal-overlay").on("click", function(){
+				launcher.hide();
+			});
+		}
 		hide(){
 			$('body').css('overflow', 'auto');
 			this.modal.fadeOut('fast');
@@ -68,26 +84,13 @@
 				$('#launcher-modal-content').css('opacity','1');
 				$("#preloader").fadeOut(500);
 			}), 500);
-			
+
 			this.modal.fadeIn('slow');
 		}
 	}
 	//1. INIT
-	const launcher = new appLauncher($('#launcher-modal'));
-	//2. OPEN
-	$(".search-box span").on("click", function(){
-		launcher.update($(this).attr('name'));
-	});
-	$("#launcher-widgets-panel i").on("click", function(){
-		launcher.update($(this).attr('name'));
-	});
-	if (location.search){
-		launcher.update(location.search.substr(1));
-	}
-	//3. CLOSE
-	$(".launcher-modal-overlay").on("click", function(){
-		launcher.hide();
-	});
+	new appLauncher($('#launcher-modal')).init();
+
 
 	//PROGRESS-BAR
 	function modalContent_init(recid){
