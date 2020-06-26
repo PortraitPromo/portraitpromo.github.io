@@ -3660,8 +3660,9 @@
 
 			var fragment = document.createDocumentFragment();
 
-			loader = utils.createEl( 'div', this.pre + '-loader' );
-			fragment.appendChild( loader );
+			// loader = utils.createEl( 'div', this.pre + '-loader' );
+			loader = $('#preloader');
+			// fragment.appendChild( loader );
 			fragment.appendChild( media.dom );
 			holder.appendChild( fragment );
 
@@ -3669,7 +3670,7 @@
 		} else {
 
 			var oldMedia = holder.lastChild;
-			loader = holder.firstChild;
+			// loader = holder.firstChild;
 
 			loader.style.visibility = '';
 
@@ -3843,7 +3844,7 @@
 		var slide   = this.slides[slide_index],
 			gallery = this.gallery,
 			holder  = slide.firstChild,
-			loader  = holder.firstChild,
+			// loader  = holder.firstChild,
 			preload = this.options.preload;
 
 		// set media size
