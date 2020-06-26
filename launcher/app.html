@@ -47,6 +47,7 @@
 			$('#launcher-modal-content').css('opacity','0');
 			history.pushState(null, null, location.pathname+'?'+section);
 			$('body').css('overflow', 'hidden');
+			$('.mobx-holder').remove();
 			$(".search-box span").each(function(i,e){
 				$(e).removeClass("red");
 			});
