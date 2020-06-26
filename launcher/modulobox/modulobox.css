@@ -674,13 +674,9 @@ button.mobx-next {
 	background-position: 12px -472px;	
 }
 .mobx-vk {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: "\f189";
 }
 .mobx-vk:after {
-	background-color: #1da1f2;
-	font: normal normal normal 14px/1 FontAwesome;
-	content: "\f189";
+	background-color: #4680C2;
 }
 .mobx-twitter {
 	background-position: -32px -516px;

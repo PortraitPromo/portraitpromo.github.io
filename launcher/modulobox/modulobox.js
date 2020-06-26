@@ -1476,7 +1476,7 @@
 			var type = buttons[i];
 
 			// create and append button
-			this.buttons[type] = utils.createEl( 'BUTTON', this.pre + '-' + type.toLowerCase() );
+			this.buttons[type] = utils.createEl( 'BUTTON', this.pre + '-' + type.toLowerCase() + ' fa fa-' + type.toLowerCase());
 			dom.appendChild( this.buttons[type] );
 
 			// attach event if button have a corresponding prototype event
@@ -3660,9 +3660,9 @@
 
 			var fragment = document.createDocumentFragment();
 
-			// loader = utils.createEl( 'div', this.pre + '-loader' );
-			loader = $('#preloader');
-			// fragment.appendChild( loader );
+			loader = utils.createEl( 'div', this.pre + '-loader' );
+			// loader = $('#preloader');
+			fragment.appendChild( loader );
 			fragment.appendChild( media.dom );
 			holder.appendChild( fragment );
 
@@ -3670,7 +3670,7 @@
 		} else {
 
 			var oldMedia = holder.lastChild;
-			// loader = holder.firstChild;
+			loader = holder.firstChild;
 
 			loader.style.visibility = '';
 
