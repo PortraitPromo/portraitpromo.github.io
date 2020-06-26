@@ -33,23 +33,25 @@
 	class appLauncher{
 		constructor(obj){
 			this.modal = obj;
-			this.modal.hide();
+			this.init();
 		}
 		init(){
+			//1. CLOSE
+			this.modal.hide();
+			$(".launcher-modal-overlay").on("click", function(){
+				this.hide();
+			});
+
 			//2. OPEN
 			$(".search-box span").on("click", function(){
-				launcher.update($(this).attr('name'));
+				this.update($(this).attr('name'));
 			});
 			$("#launcher-widgets-panel i").on("click", function(){
-				launcher.update($(this).attr('name'));
+				this.update($(this).attr('name'));
 			});
 			if (location.search){
-				launcher.update(location.search.substr(1));
+				this.update(location.search.substr(1));
 			}
-			//3. CLOSE
-			$(".launcher-modal-overlay").on("click", function(){
-				launcher.hide();
-			});
 		}
 		hide(){
 			$('body').css('overflow', 'auto');
@@ -89,7 +91,7 @@
 		}
 	}
 	//1. INIT
-	new appLauncher($('#launcher-modal')).init();
+	new appLauncher($('#launcher-modal'));
 
 
 	//PROGRESS-BAR
