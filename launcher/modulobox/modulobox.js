@@ -3663,7 +3663,7 @@
 
 			// loader = utils.createEl( 'div', this.pre + '-loader' );
 			loader = $('#preloader');
-			fragment.appendChild( loader );
+			// fragment.appendChild( loader );
 			fragment.appendChild( media.dom );
 			holder.appendChild( fragment );
 
@@ -3671,9 +3671,10 @@
 		} else {
 
 			var oldMedia = holder.lastChild;
-			loader = holder.firstChild;
+			// loader = holder.firstChild;
 
-			loader.style.visibility = '';
+			// loader.style.visibility = '';
+			loader.show();
 
 			// prevent unnecessary DOM manipulations if media already exists in slide
 			if ( media.dom !== oldMedia ) {
@@ -3845,7 +3846,7 @@
 		var slide   = this.slides[slide_index],
 			gallery = this.gallery,
 			holder  = slide.firstChild,
-			loader  = holder.firstChild,
+			// loader  = holder.firstChild,
 			preload = this.options.preload;
 
 		// set media size
@@ -3865,7 +3866,8 @@
 		if ( slide.media === media.index ) {
 
 			// hide loader
-			loader.style.visibility = 'hidden';
+			// loader.style.visibility = 'hidden';
+			loader.hide();
 
 			// increment number of media loaded in the gallery
 			gallery.loaded += 1;
