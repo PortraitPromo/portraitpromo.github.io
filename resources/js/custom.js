@@ -37,10 +37,16 @@ $(function() {
 	"use strict";
 	
 	$(window).on("load", function() {
-		if(!location.search){
-			// 1. preloader
-			$("#preloader").fadeOut(600);
-			$(".preloader-bg").delay(400).fadeOut(600);
+		switch(location.search.substr(1)){
+			case "contact":
+			case "info":
+			case "gallery":
+				break;
+			default:
+				history.pushState(null, null, location.pathname);
+				// 1. preloader
+				$("#preloader").fadeOut(600);
+				$(".preloader-bg").delay(400).fadeOut(600);
 		}
 	});
 	
