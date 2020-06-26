@@ -6,14 +6,14 @@
 		</div>
 		<div id="launcher-modal-panel">
 			<div class="search-box" style="color:#FFF">
-				<span name="feed" class="fa fa-feed" title="Лента: новости и статьи" style="border:0;font-size:25px;transform: scale(-1, 1);padding: 5px;margin-top:2px;"></span>
+				<!-- <span name="feed" class="fa fa-feed" title="Лента: новости и статьи" style="border:0;font-size:25px;transform: scale(-1, 1);padding: 5px;margin-top:2px;"></span> -->
 				<span name="gallery" class="fa fa-caret-square-o-right" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Галерея: портфолио / наши работы"></span>
-				<span name="spotlight" class="fa fa-fire" style="left:0px;font-size:25px;padding: 5px;margin-top: 2px;" title="Центр внимания"></span>
+				<!-- <span name="spotlight" class="fa fa-fire" style="left:0px;font-size:25px;padding: 5px;margin-top: 2px;" title="Центр внимания"></span> -->
 				<span name="contact" class="fa fa-phone" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Контакты"></span>
 				<span name="info" class="fa fa-info-circle" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Корпоративная информация"></span>
 				
-				<span name="info" class="fa fa-hashtag" style="color:#202020;position:absolute;left:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Фильтрация"></span>
-				<span name="info" class="fa fa-sort-amount-asc " style="color:#202020;position:absolute;right:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Сортировка"></span>
+				<span class="fa fa-hashtag" style="color:#202020;position:absolute;left:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Фильтрация"></span>
+				<span class="fa fa-sort-amount-asc " style="color:#202020;position:absolute;right:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Сортировка"></span>
 				
 				<input id="story" name="story" placeholder="Поиск по сайту..." type="text">
 			</div>
@@ -51,8 +51,13 @@
 			$("#launcher-widgets-panel i").on("click", function(){
 				launcher.update($(this).attr('name'));
 			});
-			if (location.search){
-				launcher.update(location.search.substr(1));
+			switch(location.search){
+				case "contact":
+				case "info":
+				case "gallery":
+				// case "spotlight":
+				// case "feed":
+					launcher.update(location.search.substr(1));
 			}
 		}
 		hide(){
