@@ -3672,6 +3672,7 @@
 
 			var oldMedia = holder.lastChild;
 			// loader = holder.firstChild;
+			loader = $('#preloader');
 
 			// loader.style.visibility = '';
 			loader.show();
@@ -3847,6 +3848,7 @@
 			gallery = this.gallery,
 			holder  = slide.firstChild,
 			// loader  = holder.firstChild,
+			loader = $('#preloader'),
 			preload = this.options.preload;
 
 		// set media size
