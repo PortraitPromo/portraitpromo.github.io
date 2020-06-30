@@ -181,7 +181,7 @@ $(function() {
 });
 
 //12. TEMPLATER
-$('#launcher').load('/launcher/app.html');
+$('#launcher').load('/app/launcher/app.html');
 $('header').load('/header.html');
 $('footer').load('/footer.html');
 
