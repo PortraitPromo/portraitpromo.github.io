@@ -60,7 +60,7 @@
 
 		for (var x=0;x<listMenu.length;x+=2){
 			localMenu += "<li><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
-			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm' style='height:60px;'><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
+			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm' style='height:40px;'><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
 		}
 
 		$("#localMenu").html(localMenu);
@@ -78,7 +78,7 @@
 			menuConstructor(['photo','Фото','photostudio','Фотостудия','video','Видео']);
 			break;
 		case "/it/":
-			menuConstructor(['web','Web','smm','Социальные сети']);
+			menuConstructor(['automation','Автоматизация','internet-marketing','Интернет-маркетинг']);
 			break;
 		case "/promo/":
 			menuConstructor(['pr','PR','event','Мероприятия','brand','Брендинг']);
