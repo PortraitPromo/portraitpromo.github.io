@@ -126,14 +126,14 @@
 	}
 	switch(location.pathname){
 		case "/":
-			menuConstructor(['target','Цели','slat','Планка','solution','Решения']);
+			menuConstructor(['target','Цели','terms','Условия','solution','Решения']);
 			$(".navbar-brand").attr('href','#home');
 			$(".logo").attr('href','#home');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
 			break;
 		case "/production/":
-			menuConstructor(['photo','Фото','video','Видео','design','Дизайн','audio','Аудиалика']);
+			menuConstructor(['photo','Фото','video','Видео','design','Дизайн','sound','Звук']);
 			$(".home-page-title").html('<span>Фото и видео </span><span style="color:#FF214A;">производство</span>');
 			break;
 		case "/it/":
