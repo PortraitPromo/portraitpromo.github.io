@@ -2324,8 +2324,8 @@ h2.section-heading.section-heading-all {
 .description {
 	position: absolute;
 	padding: 0 15px;
-	margin-bottom: -4px;
-	bottom: -20px;
+	/*margin-bottom: -4px;*/
+	/*bottom: -20px;*/
 	left: 0;
 	right: 0;
 	/*opacity: 0;*/
@@ -2508,7 +2508,7 @@ h2.section-heading.section-heading-all {
 	bottom: 0;
 	display: block;
 	background: rgba(0, 0, 0, .85);
-	opacity: 0;
+	/*opacity: 0;*/
 	-moz-opacity: 0;
 	-webkit-opacity: 0;
 	filter: alpha(opacity=0);
