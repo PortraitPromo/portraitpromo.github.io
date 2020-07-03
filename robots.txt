@@ -1,0 +1,3 @@
+User-agent: Yandex
+Disallow: /app/
+Sitemap: https://portrait.promo/sitemap.xml
