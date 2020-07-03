@@ -2507,8 +2507,8 @@ h2.section-heading.section-heading-all {
 	right: 0;
 	bottom: 0;
 	display: block;
-	background: rgba(0, 0, 0, .85);
-	/*opacity: 0;*/
+	background: rgba(0, 0, 0, .2);
+	opacity: 0;
 	-moz-opacity: 0;
 	-webkit-opacity: 0;
 	filter: alpha(opacity=0);
