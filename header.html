@@ -34,7 +34,7 @@
 									<a class="page-scroll link-underline-menu red" href="/it/"><span>IT</span></a>
 								</li>
 								<li class="hidden-md hidden-lg hidden-sm"> 
-									<a class="page-scroll link-underline-menu red" href="/organize/"><span>Organize</span></a>
+									<a class="page-scroll link-underline-menu red" href="/organize/"><span>Org</span></a>
 								</li>
 							</ul>
 							<ul class="nav navbar-nav hidden-xs" style="position:absolute;right:0;top:0">
@@ -46,7 +46,7 @@
 									<a class="page-scroll link-underline-menu red" href="/it/"><span>IT</span></a>
 								</li>
 								<li> 
-									<a class="page-scroll link-underline-menu red" href="/organize/"><span>Organize</span></a>
+									<a class="page-scroll link-underline-menu red" href="/organize/"><span>Org</span></a>
 								</li>
 							</ul>
 							<!-- menu end -->
@@ -112,8 +112,8 @@
 <!-- home end -->
 <script>
 	//MENU CONSTRUCTOR
-	function menuConstructor(listMenu){
-		var localMenu = '',
+	function menuConstructor(listMenu, h = ''){
+		var localMenu = h,
 			localMenuMobile = '';
 
 		for (var x=0;x<listMenu.length;x+=2){
@@ -127,7 +127,7 @@
 	}
 	switch(location.pathname){
 		case "/":
-			menuConstructor(['target','Цели','terms','Условия','solution','Решения','parthers','Партнеры']);
+			menuConstructor(['target','Цели','terms','Условия','solution','Решения','parthers','Партнеры'], '<h3 style="margin-top:5px;">Компания</h3>');
 			$(".navbar-brand").attr('href','#home');
 			$(".logo").attr('href','#home');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
