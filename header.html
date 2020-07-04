@@ -38,6 +38,7 @@
 								</li>
 							</ul>
 							<ul class="nav navbar-nav hidden-xs" style="position:absolute;right:0;top:0">
+								<h3 style="margin-top:5px;">Услуги</h3>
 								<li>
 									<a class="page-scroll link-underline-menu red" href="/production/"><span>Production</span></a>
 								</li>
@@ -126,7 +127,7 @@
 	}
 	switch(location.pathname){
 		case "/":
-			menuConstructor(['target','Цели','terms','Условия','solution','Решения']);
+			menuConstructor(['target','Цели','terms','Условия','solution','Решения','parthers','Партнеры']);
 			$(".navbar-brand").attr('href','#home');
 			$(".logo").attr('href','#home');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');

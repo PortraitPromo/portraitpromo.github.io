@@ -1515,7 +1515,7 @@ h2.home-page-subtitle-show {
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #fff;
-	padding: 25px 15px 0 15px;
+	/*padding: 25px 15px 0 15px;*/
 	-webkit-transition: all .4s ease-out;
 	-moz-transition: all .4s ease-out;
 	-ms-transition: all .4s ease-out;
@@ -2347,7 +2347,7 @@ h2.section-heading.section-heading-all {
 
 .description h3 {
 	font-family: 'Montserrat', sans-serif;
-	font-size: 30px;
+	font-size: 25px;
 	font-style: normal;
 	font-weight: 700;
 	text-transform: uppercase;
