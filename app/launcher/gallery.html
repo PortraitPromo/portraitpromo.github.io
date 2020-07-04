@@ -1637,35 +1637,35 @@
 	//MARGINTOP PREVIEW
 	//MAIN TAG
 // PHOTO GRID PORTFOLIO LOADER
-	for(x=0;x<data.length;x++){ //Прогон по проектам
-		$("#grid").html(`
-		<figure class="col-3@xs col-4@sm col-3@md picture-item"
-				data-groups='[`+gropusConstuctor(data[x])+`]'
-				data-date-created="`+data[x].date+`"
-				data-title="`+data[x].type+x+`">
-			<div class="picture-item__inner">`);
-			for(y=0;x<data[x].value;y++){ //Прогон по вложениям
-				$("#grid").html(`<a
-					data-rel="photography_gallery_`+x+`"
-					data-title=""
-					data-desc=""
-					data-thumb="/app/db/gallery/photo/`+x+`_`+y+`.jpg"
-					href="/app/db/gallery/photo/`+x+`_`+y+`.jpg"
-					class="fancy-gallery">
-					<div class="aspect">
-						<div class="aspect__inner">
-							<img src="/app/db/gallery/photo/`+x+`_`+y+`.jpg"  style="height:`+data[x].margintop+`px"/>
-						</div>
-					</div>
-          			<div class="picture-item__details">
-						<figcaption class="picture-item__title">
-							<a href="#" target="_blank" rel="noopener">`+data[x].name+`</a>
-						</figcaption>
-						<p class="picture-item__tags hidden@xs">`+data[x].tag+`</p>
-					</div>
-				</a>`);
-			}
-	}
+	// for(x=0;x<data.length;x++){ //Прогон по проектам
+	// 	$("#grid").html(`
+	// 	<figure class="col-3@xs col-4@sm col-3@md picture-item"
+	// 			data-groups='[`+gropusConstuctor(data[x])+`]'
+	// 			data-date-created="`+data[x].date+`"
+	// 			data-title="`+data[x].type+x+`">
+	// 		<div class="picture-item__inner">`);
+	// 		for(y=0;x<data[x].value;y++){ //Прогон по вложениям
+	// 			$("#grid").html(`<a
+	// 				data-rel="photography_gallery_`+x+`"
+	// 				data-title=""
+	// 				data-desc=""
+	// 				data-thumb="/app/db/gallery/photo/`+x+`_`+y+`.jpg"
+	// 				href="/app/db/gallery/photo/`+x+`_`+y+`.jpg"
+	// 				class="fancy-gallery">
+	// 				<div class="aspect">
+	// 					<div class="aspect__inner">
+	// 						<img src="/app/db/gallery/photo/`+x+`_`+y+`.jpg"  style="height:`+data[x].margintop+`px"/>
+	// 					</div>
+	// 				</div>
+ //          			<div class="picture-item__details">
+	// 					<figcaption class="picture-item__title">
+	// 						<a href="#" target="_blank" rel="noopener">`+data[x].name+`</a>
+	// 					</figcaption>
+	// 					<p class="picture-item__tags hidden@xs">`+data[x].tag+`</p>
+	// 				</div>
+	// 			</a>`);
+	// 		}
+	// }
 	
 </script>
 <script src="/app/launcher/assets/shuffle.js"></script>
