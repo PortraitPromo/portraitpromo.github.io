@@ -146,8 +146,8 @@
 		console.log('НАШЕЛ совпадение по '+str+' !');
 	}
 	function liveSearch(){
-		var found = false;
-		console.log("==1==");
+		var found = false,
+			results = "";
 		$.getJSON("https://portrait.promo/app/db/services.json", function(JSON){
 		    for(var i = 0; i<JSON.Services.length; i++){
 		    	for(var x = 0; x<JSON.Services[i].Keys.length; x++){
@@ -156,6 +156,7 @@
 	    					found = true;
 	    					$('#search-results-container').show();
 	    				}
+	    				results += "<div><a href='"+JSON.Services[i].Keys[x].Link+"'>"+JSON.Services[i].Keys[x].Title+"</a></div>";
 	    				showResults($('#search_input').val().toLowerCase());
 	    			}
 		    	}

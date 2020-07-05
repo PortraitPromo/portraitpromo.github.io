@@ -295,9 +295,11 @@ Animation:
 #search-results-container{
 	width: 100%;
 	background:#FFF;
+	color:#000;
+	top:85px;
 }
 .search-result{
-	color:#000;
+	
 }
 
 /* 1. TEMPLATE BACKGROUNDS */
