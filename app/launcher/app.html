@@ -42,7 +42,7 @@
 
 			//1. CLOSE
 			this.modal.hide();
-			$("#search-results").hide();
+			$("#search-results-container").hide();
 			$(".launcher-modal-overlay").on("click", function(){
 				launcher.hide();
 			});
@@ -156,12 +156,13 @@
 	    					found = true;
 	    					$('#search-results-container').show();
 	    				}
-	    				results += "<div><a href='"+JSON.Services[i].Keys[x].Link+"'>"+JSON.Services[i].Keys[x].Title+"</a></div>";
+	    				results += "<div class='search-result'><a href='"+JSON.Services[i].Keys[x].Link+"'>"+JSON.Services[i].Keys[x].Title+"</a></div>";
 	    				showResults($('#search_input').val().toLowerCase());
 	    			}
 		    	}
 		    }
 		});
+		$('#search-results-container').html(results);
 		if(!found){
 			$('#search-results-container').hide();
 		}
