@@ -123,7 +123,8 @@ Animation:
 		top: 35px;
 		z-index: 1100;
 		color:#FFF;
-		width:100%;
+		width: 85px;
+		right: calc(50% - 40px);
 	}
 	.launcher-widgets-button{
 		-webkit-transition: all 0.5s linear;
