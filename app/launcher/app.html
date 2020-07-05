@@ -155,12 +155,13 @@
 	    					found = true;
 	    				}
 	    				results += "<div class='search-result'><a href='"+JSON.Services[i].Link+"'>"+JSON.Services[i].Title+"</a></div>";
-	    				showResults(results);
 	    				showResults($('#search_input').val().toLowerCase());
 	    			}
 		    	}
 		    }
 		});
+		
+		showResults("#"+results);
 
 		if(!found){
 			$('#search-results-container').hide();
