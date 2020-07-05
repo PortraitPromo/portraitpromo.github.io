@@ -17,6 +17,9 @@
 				<input id="search_input" name="story" placeholder="Поиск по сайту..." type="text">
 			</div>
 		</div>
+		<div id="search-results">
+			123
+		</div>
 		<div id="launcher-modal-content"></div>
 	</div>
 <!-- LAUNCHER MODAL end -->
@@ -39,6 +42,7 @@
 
 			//1. CLOSE
 			this.modal.hide();
+			$("#search-results").hide();
 			$(".launcher-modal-overlay").on("click", function(){
 				launcher.hide();
 			});
@@ -140,6 +144,7 @@
 	//Поиск из JSON
 	function showResults(str){
 		console.log('НАШЕЛ совпадение по '+str+' !');
+		$('#search-results').show();
 	}
 	function liveSearch(){
 		console.log("==1==");

@@ -292,20 +292,13 @@ Animation:
 	cursor:pointer;
 }
 
-.search-page {margin-bottom:20px;}
-.searchstyle { width: 480px }
-.search { padding: 0 }
-#searchtable, #searchtable td { vertical-align: top; text-align: left }
-#searchtable fieldset { font-size: 11px; border: 1px solid #d7d7d7; padding: 10px; text-align: left; 
-margin: 0 4px 4px 0 !important; border-radius: 6px }
-fieldset legend { font-size: 11px; font-weight: bold; color: #696969; }
-#searchtable table, #searchtable form { margin: 0; width:100%;}
-#searchtable select { background-color: #fff }
-#searchuser, #searchinput { width: 90% !important; }
-.search > div {margin-bottom:10px;}
-.search input[type="text"], .search select {display:block; width:100% !important; margin-bottom:10px;}
-.search input[type="checkbox"], .search input[type="radio"] {margin-right:5px;}
-#searchinput + br, #searchinput + br + br {display:none;}
+#search-results-container{
+	width: 100%;
+	background:#FFF;
+}
+.search-result{
+	color:#000;
+}
 
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. single IMG BACKGROUND */
