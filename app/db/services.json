@@ -1,22 +1,22 @@
 {
 	"Services":[
 		{
-			"Title":"Фото",
+			"Title":"фото",
             "Link":"https://fyodrik.github.io/",
             "Description":""
 		},
 		{
-			"Title":"Видео",
+			"Title":"видео",
             "Link":"https://fyodrik.github.io/",
             "Description":""
 		},
 		{
-			"Title":"Дизайн",
+			"Title":"дизайн",
             "Link":"https://fyodrik.github.io/",
             "Description":""
 		},
 		{
-			"Title":"Звук",
+			"Title":"звук",
             "Link":"https://fyodrik.github.io/",
             "Description":""
 		}
