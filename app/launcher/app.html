@@ -17,7 +17,7 @@
 				<input id="search_input" name="story" placeholder="Поиск по сайту..." type="text">
 			</div>
 		</div>
-		<div id="search-results">
+		<div id="search-results-container">
 			1234567890
 		</div>
 		<div id="launcher-modal-content"></div>
@@ -154,7 +154,7 @@
 	    			if(JSON.Services[i].Keys[x].indexOf($('#search_input').val().toLowerCase()) == 0){
 	    				if(!found){
 	    					found = true;
-	    					$('#search-results').show();
+	    					$('#search-results-container').show();
 	    				}
 	    				showResults($('#search_input').val().toLowerCase());
 	    			}
@@ -162,11 +162,12 @@
 		    }
 		});
 		if(!found){
-			$('#search-results').hide();
+			$('#search-results-container').hide();
 		}
 	}
 	$('#search_input').keyup(function() {
-		liveSearch();
+		if($('#search_input').val().length>0){liveSearch()}
+		else{$('#search-results-container').hide();}
 	});
 
 	// jQuery(this).html().replace(new RegExp(term, 'ig'), '<span class="highlight">$&</span>');
