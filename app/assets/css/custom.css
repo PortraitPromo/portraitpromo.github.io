@@ -212,7 +212,7 @@ Animation:
 .launcher-modal-overlay>i{
 	margin: 0 auto;
 	background: transparent;
-	color:#202020;
+	color:#FFF;
 	display: none;
 }
 .launcher-modal-overlay:hover>i, .launcher-modal-overlay:hover{
@@ -252,6 +252,13 @@ Animation:
 	#launcher-modal>#launcher-modal-content{
 		margin-top:150px;
 		height:calc(100% - 150px);
+	}
+}
+@media only screen and (min-width: 480px) {
+	.launcher-modal-overlay>i{
+		display: block;
+		right:20px;
+		position: absolute;
 	}
 }
 
