@@ -119,12 +119,11 @@ Animation:
 /* 1.1. WIDGETS */
 #launcher-widgets-panel{
 	position: fixed;
-	right: 0;
-	top: 50%;
-	right:11px;
-	z-index: 1000;
+	left: 36.66%;
+	top: 60px;
+	z-index: 1100;
 	color:#FFF;
-	width:40px;
+	width:25%;
 }
 .launcher-widgets-button{
 	-webkit-transition: all 0.5s linear;
@@ -133,12 +132,12 @@ Animation:
 	-o-transition: all 0.5s linear;
 	transition: all 0.5s linear;
 	cursor: pointer;
-	background: #202020;
+	/*background: #202020;*/
 	padding:9px;
-	border-radius:10px;
+	/*border-radius:10px;*/
 	width:40px;
 	height:40px;
-	font-size:25px;
+	font-size:22px;
 }
 
 .launcher-widgets-button[name='contact']:hover{
