@@ -14,7 +14,7 @@
 				<span class="fa fa-hashtag" style="color:#202020;position:absolute;left:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Фильтрация"></span>
 				<span class="fa fa-sort-amount-asc " style="color:#202020;position:absolute;right:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Сортировка"></span>
 				
-				<input id="story" name="story" placeholder="Поиск по сайту..." type="text">
+				<input id="search_input" name="story" placeholder="Поиск по сайту..." type="text">
 			</div>
 		</div>
 		<div id="launcher-modal-content"></div>
@@ -138,4 +138,34 @@
 
 	modalContent_init();
 	modalContent_setProgressBarWidth();
+</script>
+<script>
+	$('#search_input').change(function() {
+		alert('TEST SEARCH!');
+	});
+
+	//:Поиск из JSON
+    // $.getJSON(strSiteDomen+"/app/db/services.json", function(JSON){
+    //     for(var i = 0; i<JSON.List.length; i++)
+    //         if(location.pathname.slice(1)==JSON.List[i].UrlHash){ //2.Вынимаем адрес и ищем по БД
+    //             //if(strCurLoc!=JSON.List[i].FromLoc){
+    //             //   exit_n();
+    //             //}
+    //             //else{}
+    //             //  exit();
+    //             document.querySelector('title').innerHTML = JSON.List[i].Title;
+    //             $('body').css({
+    //                 'filter': 'grayscale(0%)',
+    //                 '-webkitFilter':'grayscale(0%)'
+    //             });
+    //             $('#content').load(JSON.List[i].FromLoc+JSON.List[i].ContentLink);
+    //             return;
+    //         }
+    //     document.querySelector('title').innerHTML = "404 Error";
+    //     $('body').css({
+    //         'filter': 'grayscale(100%)',
+    //         '-webkitFilter':'grayscale(100%)'
+    //     });
+    //     document.getElementById("content").innerHTML = '<h1 class="title" style="text-align:center;width:100%;">Error 404. This resource is not available on the site.</h1>';
+    // });
 </script>
