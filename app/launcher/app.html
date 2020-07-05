@@ -154,7 +154,7 @@
 	    				if(!found){
 	    					found = true;
 	    				}
-	    				results += "<div class='search-result'><a href='"+JSON.Services[i].Keys[x].Link+"'>"+JSON.Services[i].Keys[x].Title+"</a></div>";
+	    				results += "<div class='search-result'><a href='"+JSON.Services[i].Link+"'>"+JSON.Services[i].Title+"</a></div>";
 	    				showResults(results);
 	    				showResults($('#search_input').val().toLowerCase());
 	    			}
@@ -165,6 +165,7 @@
 		if(!found){
 			$('#search-results-container').hide();
 		}else{
+			showResults("#"+results);
 			$('#search-results-container').html(results);
 			$('#search-results-container').show();
 		}
