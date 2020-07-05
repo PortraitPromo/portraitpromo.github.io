@@ -139,16 +139,15 @@
 <script>
 	//Поиск из JSON
 	function liveSearch(){
-		if($('#search_input').val().length>0){
+			console.log("1");
 			$.getJSON("https://portrait.promo/app/db/services.json", function(JSON){
 			    for(var i = 0; i<JSON.Services.length; i++)
 			    	if($('#search_input').val().toLowerCase() == JSON.Services[i].Title){
 			        	alert('НАШЕЛ!');
 			    	}
 			});
-		}
 	}
 	$('#search_input').keyup(function() {
-		liveSearch();
+		if($('#search_input').val().length>0){liveSearch()};
 	});
 </script>
