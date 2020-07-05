@@ -62,7 +62,7 @@
 			}
 		}
 		hide(){
-			$('body').css('overflow', 'none');
+			$('body').css('overflow', '');
 			this.modal.fadeOut('fast');
 			try{
 				history.pushState(null, null, location.pathname);
