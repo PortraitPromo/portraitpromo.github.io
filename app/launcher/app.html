@@ -138,25 +138,26 @@
 </script>
 <script>
 	//Поиск из JSON
-	function showResults(str){
-		console.log('НАШЕЛ совпадение по '+str+' !');
-	}
-	function liveSearch(){
-		console.log("==1==");
-		$.getJSON("https://portrait.promo/app/db/services.json", function(JSON){
-		    for(var i = 0; i<JSON.Services.length; i++){
-		    	for(var x = 0; x<JSON.Services[i].Keys.length; x++){
-	    			if(JSON.Services[i].Keys[x].indexOf($('#search_input').val().toLowerCase()) == 0){
-	    				showResults($('#search_input').val().toLowerCase());
-	    		    	break;
-	    			}
-		    	}
-		    }
-		});
-	}
-	$('#search_input').keyup(function() {
-		if($('#search_input').val().length>0){liveSearch()};
-	});
+	// function showResults(str){
+	// 	console.log('НАШЕЛ совпадение по '+str+' !');
+	// }
+	// function liveSearch(){
+	// 	console.log("==1==");
+	// 	$.getJSON("https://portrait.promo/app/db/services.json", function(JSON){
+	// 		showResults("2");
+	// 	    for(var i = 0; i<JSON.Services.length; i++){
+	// 	    	for(var x = 0; x<JSON.Services[i].Keys.length; x++){
+	// 	    		showResults(JSON.Services[i].Keys[x]);
+	//     			if(JSON.Services[i].Keys[x].indexOf($('#search_input').val().toLowerCase()) == 0){
+	//     				showResults($('#search_input').val().toLowerCase());
+	//     			}
+	// 	    	}
+	// 	    }
+	// 	});
+	// }
+	// $('#search_input').keyup(function() {
+	// 	if($('#search_input').val().length>0){liveSearch()};
+	// });
 
 	// jQuery(this).html().replace(new RegExp(term, 'ig'), '<span class="highlight">$&</span>');
 </script>
