@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<div id="search-results">
-			123456
+			1234567890
 		</div>
 		<div id="launcher-modal-content"></div>
 	</div>
@@ -144,7 +144,6 @@
 	//Поиск из JSON
 	function showResults(str){
 		console.log('НАШЕЛ совпадение по '+str+' !');
-		$('#search-results').show();
 	}
 	function liveSearch(){
 		var found = false;
@@ -152,7 +151,6 @@
 		$.getJSON("https://portrait.promo/app/db/services.json", function(JSON){
 		    for(var i = 0; i<JSON.Services.length; i++){
 		    	for(var x = 0; x<JSON.Services[i].Keys.length; x++){
-		    		showResults(JSON.Services[i].Keys[x]);
 	    			if(JSON.Services[i].Keys[x].indexOf($('#search_input').val().toLowerCase()) == 0){
 	    				if(!found){
 	    					found = true;
