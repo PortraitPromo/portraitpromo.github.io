@@ -140,6 +140,9 @@ Animation:
 		height:40px;
 		font-size:22px;
 	}
+	.launcher-widgets-button[name='spotlight'], .launcher-widgets-button[name='gallery']{
+		padding-top:2px;
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -165,15 +168,14 @@ Animation:
 		height:40px;
 		font-size:25px;
 	}
+	.launcher-widgets-button[name='spotlight'], .launcher-widgets-button[name='gallery']{
+		padding-top:7px;
+		margin-top:7px;
+	}
 }
 
 .launcher-widgets-button[name='contact']:hover, .launcher-widgets-button[name='info']:hover{
 	color:#26C9FF;
-}
-
-.launcher-widgets-button[name='spotlight'], .launcher-widgets-button[name='gallery']{
-	padding-top:7px;
-	margin-top:7px;
 }
 
 .launcher-widgets-button[name='spotlight']:hover, .launcher-widgets-button[name='gallery']:hover{
