@@ -18,7 +18,6 @@
 			</div>
 		</div>
 		<div id="search-results-container">
-			1234567890
 		</div>
 		<div id="launcher-modal-content"></div>
 	</div>
@@ -154,17 +153,20 @@
 	    			if(JSON.Services[i].Keys[x].indexOf($('#search_input').val().toLowerCase()) == 0){
 	    				if(!found){
 	    					found = true;
-	    					$('#search-results-container').show();
 	    				}
 	    				results += "<div class='search-result'><a href='"+JSON.Services[i].Keys[x].Link+"'>"+JSON.Services[i].Keys[x].Title+"</a></div>";
+	    				showResults(results);
 	    				showResults($('#search_input').val().toLowerCase());
 	    			}
 		    	}
 		    }
 		});
-		$('#search-results-container').html(results);
+
 		if(!found){
 			$('#search-results-container').hide();
+		}else{
+			$('#search-results-container').html(results);
+			$('#search-results-container').show();
 		}
 	}
 	$('#search_input').keyup(function() {
