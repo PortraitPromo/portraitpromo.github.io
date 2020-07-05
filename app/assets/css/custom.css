@@ -120,11 +120,10 @@ Animation:
 @media only screen and (min-width: 768px) {
 	#launcher-widgets-panel{
 		position: fixed;
-		left: 36.66%;
-		top: 60px;
+		top: 35px;
 		z-index: 1100;
 		color:#FFF;
-		width:25%;
+		width:100%;
 	}
 	.launcher-widgets-button{
 		-webkit-transition: all 0.5s linear;
@@ -1465,7 +1464,7 @@ h2.home-page-subtitle-show {
 	-webkit-opacity: 1;
 	filter: alpha(opacity=100);
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	height: auto;
+	height: 35px;
 	margin: 0 5px 0 4px;
 	opacity: .9;
 	-webkit-transition: all .4s ease-in-out;
@@ -1536,7 +1535,7 @@ h2.home-page-subtitle-show {
 .main-navigation .navbar-nav li a {
 	font-family: RussoOne, sans-serif;
 	font-weight: 700;
-	font-size: 12px;
+	font-size: 10px;
 	letter-spacing: 0.15em;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1615,7 +1614,7 @@ h2.home-page-subtitle-show {
 
 .main-navigation-bg .main-navigation .navbar-nav li a {
 	color: #fff;
-	padding: 25px 15px 0 15px;
+	/*padding: 25px 15px 0 15px;*/
 	-webkit-transition: all .4s ease-out;
 	-moz-transition: all .4s ease-out;
 	-ms-transition: all .4s ease-out;
