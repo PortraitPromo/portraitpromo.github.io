@@ -296,6 +296,7 @@ Animation:
 	width: 100%;
 	top:85px;
 	z-index:999999;
+	background: rgba(0,0,0,.4)
 }
 .search-result{
 	border:5px solid #000;
@@ -1635,6 +1636,7 @@ h2.home-page-subtitle-show {
 	.navbar-toggle .icon-bar {
 		background: #fff;
 		margin-top: 63px;
+		margin-left:8px;
 	}
 
 	.main-navigation-bg .navbar-toggle .icon-bar {
