@@ -140,7 +140,29 @@ Animation:
 	font-size:22px;
 }
 
-.launcher-widgets-button[name='contact']:hover{
+@media only screen and (max-width: 768px) {
+	#launcher-widgets-panel{
+		position: fixed;
+		right: 11px;
+		top: 50%;
+		z-index: 1100;
+		color:#FFF;
+		width:40px;
+	}
+	.launcher-widgets-button{
+		-webkit-transition: all 0.5s linear;
+		-moz-transition: all 0.5s linear;
+		-ms-transition: all 0.5s linear;
+		-o-transition: all 0.5s linear;
+		transition: all 0.5s linear;
+		cursor: pointer;
+		background: #202020;
+		border-radius:10px;
+		font-size:25px;
+	}
+}
+
+.launcher-widgets-button[name='contact']:hover, .launcher-widgets-button[name='info']:hover{
 	color:#26C9FF;
 }
 
