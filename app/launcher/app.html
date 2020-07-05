@@ -159,17 +159,15 @@
 	    			}
 		    	}
 		    }
+		    if(!found){
+		    	$('#search-results-container').hide();
+		    }else{
+		    	$('#search-results-container').html(results);
+		    	$('#search-results-container').show();
+		    }
 		});
 		
-		showResults("#"+results);
 
-		if(!found){
-			$('#search-results-container').hide();
-		}else{
-			showResults("#"+results);
-			$('#search-results-container').html(results);
-			$('#search-results-container').show();
-		}
 	}
 	$('#search_input').keyup(function() {
 		if($('#search_input').val().length>0){liveSearch()}
