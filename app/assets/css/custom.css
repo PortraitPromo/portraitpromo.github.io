@@ -416,26 +416,26 @@ Animation:
 	background: url(../img/services/auto-site.jpg);
 }
 .services-auto-app{
-	background: url(../img/services/auto-site.jpg);
+	background: url(../img/services/auto-app.jpg);
 }
 .services-auto-chatbot{
-	background: url(../img/services/auto-site.jpg);
+	background: url(../img/services/auto-chatbot.jpg);
 }
 .services-auto-analisys{
-	background: url(../img/services/auto-site.jpg);
+	background: url(../img/services/auto-analisys.jpg);
 }
 
 .services-digital-smm{
 	background: url(../img/services/digital-smm.jpg);
 }
 .services-digital-ppc{
-	background: url(../img/services/digital-smm.jpg);
+	background: url(../img/services/digital-ppc.jpg);
 }
 .services-digital-target{
-	background: url(../img/services/digital-smm.jpg);
+	background: url(../img/services/digital-target.jpg);
 }
 .services-digital-seo{
-	background: url(../img/services/digital-smm.jpg);
+	background: url(../img/services/digital-seo.jpg);
 }
 
 
@@ -2406,6 +2406,8 @@ h2.section-heading.section-heading-all {
 	-moz-pointer-events: none;
 	pointer-events: none;
 	z-index: 10;
+	padding:10px;
+	background: rgba(0,0,0,.4);
 }
 
 .description h3 {
