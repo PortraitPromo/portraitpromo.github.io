@@ -110,7 +110,7 @@
 						</div><!-- hero fullscreen slider end -->
 					</div><!-- hero bg end -->`;
 				$('#launcher').load('/app/launcher/app.html');
-				$('header').load('/header.html', $("#home").html(home404));
+				$('header').load('/header.html', function(){$("#home").html(home404);});
 				$('footer').load('/footer.html');
 			</script>
 		<!-- SCRIPTS end -->
