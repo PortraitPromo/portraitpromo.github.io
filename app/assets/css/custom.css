@@ -412,12 +412,32 @@ Animation:
 }
 
 /* 1.6. projects gallery IMG BACKGROUND */
-.projects-img-1 {
-	background-image: url(../img/projects/projects-img-1.jpg);
+.services-auto-site{
+	background: url(../img/services/auto-site.jpg);
 }
+.services-auto-app{
+	background: url(../img/services/auto-site.jpg);
+}
+.services-auto-chatbot{
+	background: url(../img/services/auto-site.jpg);
+}
+.services-auto-analisys{
+	background: url(../img/services/auto-site.jpg);
+}
+
 .services-digital-smm{
-	background: url(../img/services/digital-smm1.png);
+	background: url(../img/services/digital-smm.jpg);
 }
+.services-digital-ppc{
+	background: url(../img/services/digital-smm.jpg);
+}
+.services-digital-target{
+	background: url(../img/services/digital-smm.jpg);
+}
+.services-digital-seo{
+	background: url(../img/services/digital-smm.jpg);
+}
+
 
 .projects-img-2 {
 	background-image: url(../img/projects/projects-img-2.jpg);
