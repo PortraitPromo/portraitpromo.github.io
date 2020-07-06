@@ -36,9 +36,9 @@ http://lifeinsys.com
 $(window).on("load", function() {
 	switch(location.search.substr(1).split('=')[0]){
 		case "contact":
-		case "info":
+		// case "info":
 		case "gallery":
-		case "spotlight":
+		// case "spotlight":
 			break;
 		default:
 			history.pushState(null, null, location.pathname);
