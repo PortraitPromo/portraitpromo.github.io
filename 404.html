@@ -55,8 +55,12 @@
 		
 		<!-- SCRIPTS start -->
 			<script src="/app/assets/js/vendor.js"></script>
-			<script src="/app/assets/js/custom.js"></script>
 			<script>
+				$(window).on("load", function() {
+					// 1. preloader
+					$("#preloader").fadeOut(600);
+					$(".preloader-bg").delay(400).fadeOut(600);
+				});
 				var home404 = `
 					<!-- wave start -->
 					<canvas id="wave"></canvas><!-- wave end -->
@@ -105,7 +109,9 @@
 							</div><!-- fullscreen slider item 4 end -->
 						</div><!-- hero fullscreen slider end -->
 					</div><!-- hero bg end -->`;
-				$("#home").html(home404);
+				$('#launcher').load('/app/launcher/app.html');
+				$('header').load('/header.html', $("#home").html(home404));
+				$('footer').load('/footer.html');
 			</script>
 		<!-- SCRIPTS end -->
 	</body>
