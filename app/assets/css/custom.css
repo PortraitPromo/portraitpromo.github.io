@@ -120,7 +120,7 @@ Animation:
 @media only screen and (min-width: 768px) {
 	#launcher-widgets-panel{
 		position: fixed;
-		top: 35px;
+		top: 37px;
 		z-index: 1100;
 		color:#FFF;
 		/*width: 85px;*/
@@ -1594,7 +1594,7 @@ h2.home-page-subtitle-show {
 	opacity: .9;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 830px) {
 	.main-navigation .navbar-nav li a {
 		padding: 10px 15px;
 		margin: 0;
