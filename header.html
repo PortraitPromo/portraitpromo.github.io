@@ -110,6 +110,19 @@
 	</section>
 <!-- home end -->
 <script>
+	
+	// 11. typed text
+	var sringsAll = ["#Маркетинг", "#Креатив", "#Упаковка идей", "Созидание впечатления", "#Фотосессия", "#Social Media Marketing", "Web-разработка"],
+		stringsProduction = ["#Рекламные фото и ролики", "#Съемка музыкальных клипов"],
+		stringsIT = ["#Разработка сайтов и приложений", "#SEO-оптимизация", "#Контент-план"],
+		stringsOrg = ["Организация мероприятий", "Продюсирование бренда", ""];
+
+	$(".typed-title").typed({
+		typeSpeed: 25,
+		backDelay: 3500,
+		loop: true
+	});
+
 	//MENU CONSTRUCTOR
 	function menuConstructor(listMenu, h = '', main = false){
 		var localMenu = h,
@@ -136,10 +149,16 @@
 			$(".logo").attr('href','#home');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
+			$(".typed-title").typed({
+				strings: stringsAll
+			});
 			break;
 		case "/production/":
 			menuConstructor(['photo','Фото','video','Видео','design','Дизайн','sound','Звук']);
 			$(".home-page-title").html('<span>Медиа</span><br><span style="color:#FF214A;">производство</span>');
+			$(".typed-title").typed({
+				strings: stringsProduction
+			});
 			break;
 		case "/it/":
 			menuConstructor(['automation','Автоматизация','digital','Цифровой-маркетинг']);
@@ -147,13 +166,19 @@
 			$(".hero-fullscreen").removeClass('overlay');
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
+			$(".typed-title").typed({
+				strings: stringsIT
+			});
 			break;
-		case "/organize/":
-			menuConstructor(['present','Имидж','event','Мероприятия','system','Система']);
+		case "/org/":
+			menuConstructor(['present','Имидж','event','Мероприятия','business','Бизнес']);
 			$(".home-page-title").html('<span>Системная </span><span style="color:#FF214A;">организация</span>');
 			$(".hero-fullscreen").removeClass('overlay');
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE2 overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
+			$(".typed-title").typed({
+				strings: stringsOrg
+			});
 			break;
 	}
 
@@ -222,20 +247,20 @@
 		// 3. animate elements
 		if ($(this).scrollTop() > 10) {
 			$(".border-top").addClass("top-position-primary");
-			$(".main-navigation-bg").addClass("main-navigation-bg-position-primary");
-			$(".navbar-collapse").addClass("navbar-collapse-position-primary");
+			// $(".main-navigation-bg").addClass("main-navigation-bg-position-primary");
+			// $(".navbar-collapse").addClass("navbar-collapse-position-primary");
 			$(".logo").addClass("logo-home-call");
-			$(".main-navigation").addClass("main-navigation-home-call");
+			// $(".main-navigation").addClass("main-navigation-home-call");
 			$("h1.home-page-title").addClass("home-page-title-hide").removeClass("home-page-title-show");
 			$("h2.home-page-subtitle").addClass("home-page-subtitle-hide").removeClass("home-page-subtitle-show");
 			$(".scroll-indicator-wrapper").addClass("scroll-indicator-wrapper-position-secondary");
 			$(".to-top-arrow").addClass("show");
 		} else {
 			$(".border-top").removeClass("top-position-primary");
-			$(".main-navigation-bg").removeClass("main-navigation-bg-position-primary");
-			$(".navbar-collapse").removeClass("navbar-collapse-position-primary");
+			// $(".main-navigation-bg").removeClass("main-navigation-bg-position-primary");
+			// $(".navbar-collapse").removeClass("navbar-collapse-position-primary");
 			$(".logo").removeClass("logo-home-call");
-			$(".main-navigation").removeClass("main-navigation-home-call");
+			// $(".main-navigation").removeClass("main-navigation-home-call");
 			$("h1.home-page-title").removeClass("home-page-title-hide").addClass("home-page-title-show");
 			$("h2.home-page-subtitle").removeClass("home-page-subtitle-hide").addClass("home-page-subtitle-show");
 			$(".scroll-indicator-wrapper").removeClass("scroll-indicator-wrapper-position-secondary");
@@ -297,19 +322,6 @@
 		pauseOnDotsHover: true,
 		pauseOnFocus: false,
 		pauseOnHover: false
-	});
-
-	// 11. typed text
-	var sringsAll = ["#Маркетинг", "#Креатив", "#Упаковка идей", "Созидание впечатления", "#Фотосессия", "#Social Media Marketing", "Web-разработка"],
-		stringsContent = ["#Рекламные фото и ролики", "#Съемка музыкальных клипов"],
-		stringsIT = ["#Разработка сайтов и приложений", "#SEO-оптимизация", "#Контент-план"],
-		sringsPromo = ["Организация мероприятий", "Продюсирование бренда", ""];
-
-	$(".typed-title").typed({
-		strings: sringsAll,
-		typeSpeed: 25,
-		backDelay: 3500,
-		loop: true
 	});
 
 	// wave
