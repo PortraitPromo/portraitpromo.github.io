@@ -1338,7 +1338,7 @@ a:hover .c-btn {
 /* 11.6. hero home page title */
 .introduction {
 	position: relative;
-	width: 380px !important;
+	width: 500px !important;
 	left: 0;
 	right: 0;
 	margin-left: auto;
@@ -1353,7 +1353,13 @@ a:hover .c-btn {
 	}
 }
 
-@media only screen and (max-width: 880px) {
+/*@media only screen and (max-width: 880px) {
+	.introduction {
+		width: 290px !important;
+	}
+}*/
+
+@media only screen and (max-width: 550px) {
 	.introduction {
 		width: 290px !important;
 	}
@@ -1383,7 +1389,7 @@ a:hover .c-btn {
 .introduction h1 {
 	position: relative;
 	font-family: RussoOne, sans-serif;
-	font-size: 40px;
+	font-size: 35px;
 	font-weight: 800;
 	text-transform: uppercase;
 	line-height: 1.2;
