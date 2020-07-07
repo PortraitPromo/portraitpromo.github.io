@@ -1407,7 +1407,7 @@ a:hover .c-btn {
 	}
 }
 
-@media only screen and (max-width: 880px) {
+@media only screen and (max-width: 550px) {
 	.introduction h1 {
 		font-size: 30px;
 	}
