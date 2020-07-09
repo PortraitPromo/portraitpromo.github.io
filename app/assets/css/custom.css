@@ -2426,7 +2426,7 @@ h2.section-heading.section-heading-all {
 	padding: 0;
 	text-align: center;
 	letter-spacing: 0.05em;
-	color: #FF214A;
+	/*color: #FF214A;*/
 	text-shadow: 1px 1px 2px #111;
 }
 
