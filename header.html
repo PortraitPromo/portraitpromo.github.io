@@ -28,13 +28,12 @@
 								</li>
 								
 								<li class="hidden-md hidden-lg hidden-sm">
-									<a class="page-scroll link-underline-menu red" href="/production/"><span>Production</span></a>
-								</li>
+									<a class="page-scroll link-underline-menu red" href="/production/"><span>Production</span></a>								</li>
 								<li class="hidden-md hidden-lg hidden-sm">
 									<a class="page-scroll link-underline-menu red" href="/it/"><span>IT</span></a>
 								</li>
 								<li class="hidden-md hidden-lg hidden-sm"> 
-									<a class="page-scroll link-underline-menu red" href="/org/"><span>Org</span></a>
+									<a class="page-scroll link-underline-menu red" href="/organize/"><span>Org</span></a>
 								</li>
 							</ul>
 							<ul class="nav navbar-nav hidden-xs" style="position:absolute;right:0;top:0">
@@ -46,7 +45,7 @@
 									<a class="page-scroll link-underline-menu red" href="/it/"><span>IT</span></a>
 								</li>
 								<li> 
-									<a class="page-scroll link-underline-menu red" href="/org/"><span>Org</span></a>
+									<a class="page-scroll link-underline-menu red" href="/organize/"><span>Org</span></a>
 								</li>
 							</ul>
 							<!-- menu end -->
@@ -111,13 +110,6 @@
 	</section>
 <!-- home end -->
 <script>
-	
-	// 11. typed text
-	var sringsAll = ["#Маркетинг", "#Креатив", "#Упаковка идей", "Созидание впечатления", "#Фотосессия", "#Social Media Marketing", "Web-разработка"],
-		stringsProduction = ["#Рекламные фото и ролики", "#Съемка музыкальных клипов"],
-		stringsIT = ["#Разработка сайтов и приложений", "#SEO-оптимизация", "#Контент-план"],
-		stringsOrg = ["Организация мероприятий", "Продюсирование бренда", ""];
-
 	//MENU CONSTRUCTOR
 	function menuConstructor(listMenu, h = '', main = false){
 		var localMenu = h,
@@ -144,22 +136,10 @@
 			$(".logo").attr('href','#home');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
-			$(".typed-title").typed({
-				typeSpeed: 25,
-				backDelay: 3500,
-				loop: true,
-				strings: stringsAll
-			});
 			break;
 		case "/production/":
 			menuConstructor(['photo','Фото','video','Видео','design','Дизайн','sound','Звук']);
 			$(".home-page-title").html('<span>Медиа</span><br><span style="color:#FF214A;">производство</span>');
-			$(".typed-title").typed({
-				typeSpeed: 25,
-				backDelay: 3500,
-				loop: true,
-				strings: stringsProduction
-			});
 			break;
 		case "/it/":
 			menuConstructor(['automation','Автоматизация','digital','Цифровой-маркетинг']);
@@ -167,12 +147,6 @@
 			$(".hero-fullscreen").removeClass('overlay');
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
-			$(".typed-title").typed({
-				typeSpeed: 25,
-				backDelay: 3500,
-				loop: true,
-				strings: stringsIT
-			});
 			break;
 		case "/org/":
 			menuConstructor(['present','Имидж','event','Мероприятия','business','Бизнес']);
@@ -180,9 +154,6 @@
 			$(".hero-fullscreen").removeClass('overlay');
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE2 overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
-			$(".typed-title").typed({
-				strings: stringsOrg
-			});
 			break;
 	}
 
@@ -326,6 +297,19 @@
 		pauseOnDotsHover: true,
 		pauseOnFocus: false,
 		pauseOnHover: false
+	});
+
+	// 11. typed text
+	var sringsAll = ["#Маркетинг", "#Креатив", "#Упаковка идей", "Созидание впечатления", "#Фотосессия", "#Social Media Marketing", "Web-разработка"],
+		stringsContent = ["#Рекламные фото и ролики", "#Съемка музыкальных клипов"],
+		stringsIT = ["#Разработка сайтов и приложений", "#SEO-оптимизация", "#Контент-план"],
+		sringsPromo = ["Организация мероприятий", "Продюсирование бренда", ""];
+
+	$(".typed-title").typed({
+		strings: sringsAll,
+		typeSpeed: 25,
+		backDelay: 3500,
+		loop: true
 	});
 
 	// wave
