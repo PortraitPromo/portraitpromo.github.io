@@ -2456,16 +2456,10 @@ h2.section-heading.section-heading-all {
 /* 18.2. projects gallery description/hover effect */
 .description {
 	position: absolute;
-	padding: 0 15px;
-	/*margin-bottom: -4px;*/
+	padding:15px;
 	bottom: 10px;
 	left: 0;
 	right: 0;
-	/*opacity: 0;*/
-	-moz-opacity: 0;
-	-webkit-opacity: 0;
-	filter: alpha(opacity=0);
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-ms-transition: all 0.5s ease;
@@ -2476,7 +2470,6 @@ h2.section-heading.section-heading-all {
 	-moz-pointer-events: none;
 	pointer-events: none;
 	z-index: 10;
-	padding:10px;
 	background: rgba(0,0,0,.4);
 }
 
@@ -2505,11 +2498,6 @@ h2.section-heading.section-heading-all {
 .item-grid-size:hover .description,
 .item-grid-size:focus .description {
 	bottom: 40%;
-	opacity: 1;
-	-moz-opacity: 1;
-	-webkit-opacity: 1;
-	filter: alpha(opacity=100);
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
 @media only screen and (max-width: 1440px) {
