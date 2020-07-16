@@ -2445,7 +2445,7 @@ h2.section-heading.section-heading-all {
 	position: relative;
 	height: 100%;
 	background-repeat: no-repeat;
-	background-position: top;
+	background-position: center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-ms-background-size: cover;
@@ -2470,7 +2470,7 @@ h2.section-heading.section-heading-all {
 	-moz-pointer-events: none;
 	pointer-events: none;
 	z-index: 10;
-	background: rgba(0,0,0,.4);
+	background: rgba(0,0,0,.8);
 }
 
 .description h3 {
@@ -2484,7 +2484,7 @@ h2.section-heading.section-heading-all {
 	text-align: center;
 	letter-spacing: 0.05em;
 	color: #26C9FF;
-	text-shadow: 1px 1px 2px #111;
+	text-shadow: 1px 1px 2px #000;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-ms-transition: all 0.5s ease;
