@@ -2470,7 +2470,7 @@ h2.section-heading.section-heading-all {
 	-moz-pointer-events: none;
 	pointer-events: none;
 	z-index: 10;
-	background: rgba(0,0,0,.8);
+	background: rgba(0,0,0,.5);
 }
 
 .description h3 {
@@ -2502,7 +2502,10 @@ h2.section-heading.section-heading-all {
 
 .item-grid-size:hover .description,
 .item-grid-size:focus .description {
-	/*bottom: 0;*/
+	background: rgba(0,0,0,.8);
+}
+.item:hover .description h3 {
+	color:#FF214A;
 }
 
 .item-grid-size {
@@ -2529,9 +2532,7 @@ h2.section-heading.section-heading-all {
 	height: auto;
 }
 
-.item:hover .description h3 {
-	color:#FF214A;
-}
+
 
 /*.item:hover .link-wrap span:before,
 .item:hover .link-wrap span:after {
