@@ -411,7 +411,7 @@ Animation:
 	background-image: url(../img/background/bg-4.jpg);
 }
 
-/* 1.6. projects gallery IMG BACKGROUND */
+/* 1.6. services IMG BACKGROUND */
 .services-auto-site{
 	background: url(../img/services/auto-site.jpg);
 }
@@ -439,33 +439,97 @@ Animation:
 }
 
 
-.projects-img-2 {
-	background-image: url(../img/projects/projects-img-2.jpg);
+.services-photo-portrait{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-photo-lookbook{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-photo-art{
+	background: url(../../db/gallery/photo/20_1.jpg);
+}
+.services-photo-promo{
+	background: url(../../db/gallery/photo/2_2.jpg);
 }
 
-.projects-img-3 {
-	background-image: url(../img/projects/projects-img-3.jpg);
+.services-video-music{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-video-present{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-video-promo{
+	background: url(../../db/gallery/photo/20_1.jpg);
+}
+.services-video-report{
+	background: url(../../db/gallery/photo/2_2.jpg);
 }
 
-.projects-img-4 {
-	background-image: url(../img/projects/projects-img-4.jpg);
+.services-sound-design{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-sound-music{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-sound-promo{
+	background: url(../../db/gallery/photo/20_1.jpg);
+}
+.services-sound-voiceacting{
+	background: url(../../db/gallery/photo/2_2.jpg);
 }
 
-.projects-img-5 {
-	background-image: url(../img/projects/projects-img-5.jpg);
+.services-business-accelaretion{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-business-brand{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-business-counsalt{
+	background: url(../../db/gallery/photo/20_1.jpg);
+}
+.services-business-market{
+	background: url(../../db/gallery/photo/2_2.jpg);
 }
 
-.projects-img-6 {
-	background-image: url(../img/projects/projects-img-6.jpg);
+/*.services-design-banner{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-design-catalog{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-design-web{
+	background: url(../../db/gallery/photo/20_1.jpg);
+}
+.services-design-souvenir{
+	background: url(../../db/gallery/photo/2_2.jpg);
 }
 
-.projects-img-7 {
-	background-image: url(../img/projects/projects-img-7.jpg);
+.services-design-banner{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-design-catalog{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-design-web{
+	background: url(../../db/gallery/photo/20_1.jpg);
+}
+.services-design-souvenir{
+	background: url(../../db/gallery/photo/2_2.jpg);
 }
 
-.projects-img-8 {
-	background-image: url(../img/projects/projects-img-8.jpg);
+.services-design-banner{
+	background: url(../../db/gallery/photo/2_2.jpg);
 }
+.services-design-catalog{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}
+.services-design-web{
+	background: url(../../db/gallery/photo/20_1.jpg);
+}
+.services-design-souvenir{
+	background: url(../../db/gallery/photo/2_2.jpg);
+}*/
+
 
 /* 2. reset */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
