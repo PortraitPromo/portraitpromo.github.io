@@ -440,7 +440,7 @@ Animation:
 
 
 .services-photo-portrait{
-	background: url(../../db/gallery/photo/2_2.jpg);
+	background: url(../../db/gallery/photo/p2_2.jpg);
 }
 .services-photo-lookbook{
 	background: url(../../db/gallery/photo/2_2.jpg);
@@ -2445,7 +2445,7 @@ h2.section-heading.section-heading-all {
 	position: relative;
 	height: 100%;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-ms-background-size: cover;
