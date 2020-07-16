@@ -2483,8 +2483,13 @@ h2.section-heading.section-heading-all {
 	padding: 0;
 	text-align: center;
 	letter-spacing: 0.05em;
-	/*color: #FF214A;*/
+	color: #FF214A;
 	text-shadow: 1px 1px 2px #111;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 
 .description-second {
@@ -2524,13 +2529,8 @@ h2.section-heading.section-heading-all {
 	height: auto;
 }
 
-.item:hover .link-wrap {
-	opacity: 1;
-	-moz-opacity: 1;
-	-webkit-opacity: 1;
-	filter: alpha(opacity=100);
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	cursor: pointer;
+.item:hover .description h3 {
+	color:#26C9FF;
 }
 
 /*.item:hover .link-wrap span:before,
