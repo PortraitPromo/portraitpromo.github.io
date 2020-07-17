@@ -120,11 +120,11 @@ Animation:
 @media only screen and (min-width: 768px) {
 	#launcher-widgets-panel{
 		position: fixed;
-		top: 37px;
+		top: 40px;
 		z-index: 1100;
 		color:#FFF;
 		/*width: 85px;*/
-		right: calc(50% - 40px);
+		right: calc(50% - 45px);
 	}
 	.launcher-widgets-button{
 		-webkit-transition: all 0.5s linear;
@@ -134,10 +134,10 @@ Animation:
 		transition: all 0.5s linear;
 		cursor: pointer;
 		/*background: #202020;*/
-		padding:9px;
+		padding:5px;
 		/*border-radius:10px;*/
-		width:40px;
-		height:40px;
+		/*width:40px;*/
+		/*height:40px;*/
 		font-size:22px;
 	}
 	.launcher-widgets-button[name='spotlight'], .launcher-widgets-button[name='gallery']{
@@ -174,11 +174,13 @@ Animation:
 	}
 }
 
-.launcher-widgets-button[name='contact']:hover, .launcher-widgets-button[name='info']:hover{
+.launcher-widgets-button[name='contact']:hover{
 	color:#26C9FF;
 }
-
-.launcher-widgets-button[name='spotlight']:hover, .launcher-widgets-button[name='gallery']:hover{
+.launcher-widgets-button[name='explorer']:hover{
+	/*color:;*/
+}
+.launcher-widgets-button[name='gallery']:hover{
 	color:#FF214A;
 }
 
