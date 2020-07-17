@@ -2516,8 +2516,8 @@ h2.section-heading.section-heading-all {
 	border:5px solid #000;
 }
 
-.item-grid-size:hover .item-grid-size,
-.item-grid-size:focus .item-grid-size {
+.item-grid-size:hover,
+.item-grid-size:focus {
 	border:5px solid #FFF;
 }
 
