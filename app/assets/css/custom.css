@@ -2513,6 +2513,12 @@ h2.section-heading.section-heading-all {
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	border:5px solid #000;
+}
+
+.item-grid-size:hover .item-grid-size,
+.item-grid-size:focus .item-grid-size {
+	border:5px solid #FFF;
 }
 
 .item {
