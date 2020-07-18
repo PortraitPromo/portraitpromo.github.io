@@ -152,6 +152,8 @@ Animation:
 		z-index: 1100;
 		color:#FFF;
 		width:40px;
+		border-radius:10px;
+		background: #202020;
 	}
 	.launcher-widgets-button{
 		-webkit-transition: all 0.5s linear;
@@ -160,26 +162,12 @@ Animation:
 		-o-transition: all 0.5s linear;
 		transition: all 0.5s linear;
 		cursor: pointer;
-		background: #202020;
-		border-radius:10px;
 		padding:9px;
 		width:40px;
 		height:40px;
 		font-size:25px;
 		margin-top:5px;
 	}
-}
-.launcher-widgets-button[name='explorer']{
-	background-image: -webkit-linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%);
-	background-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%);
-	color:transparent;
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-transition: all 0.5s linear;
-	-moz-transition: all 0.5s linear;
-	-ms-transition: all 0.5s linear;
-	-o-transition: all 0.5s linear;
-	transition: all 0.5s linear;
 }
 .launcher-widgets-button[name='contact']:hover{
 	color:#26C9FF;
