@@ -283,6 +283,7 @@ Animation:
 	padding-left:35px;
 	padding-right:35px;
 	border:none;
+	text-align: center;
 }
 .search-box input:not(:focus)::placeholder {color:#000;text-align:center;}
 .search-box button {
@@ -2873,7 +2874,7 @@ h2.section-heading.section-heading-all {
 }
 
 .link-underline-light::before {
-	background: #26C9FF;
+	background: #FF214A;
 }
 
 .link-underline:hover::before,
