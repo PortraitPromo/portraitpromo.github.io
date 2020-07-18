@@ -170,7 +170,8 @@ Animation:
 	}
 }
 .launcher-widgets-button[name='explorer']{
-	background: #FFF;
+	background-image: -webkit-linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%);
+	background-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%);
 	color:transparent;
 	-webkit-background-clip: text;
 	background-clip: text;
