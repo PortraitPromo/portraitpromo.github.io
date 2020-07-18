@@ -140,6 +140,19 @@
 
 	modalContent_init();
 	modalContent_setProgressBarWidth();
+
+	if ($(this).scrollTop() > 10) {
+		$("#launcher-widgets-panel").addClass("launcher-widgets-panel-primary");
+	} else {
+		$("#launcher-widgets-panel").removeClass("launcher-widgets-panel-primary");
+	}
+	$(window).on("scroll", function() {
+		if ($(this).scrollTop() > 10) {
+			$("#launcher-widgets-panel").addClass("launcher-widgets-panel-primary");
+		} else {
+			$("#launcher-widgets-panel").removeClass("launcher-widgets-panel-primary");
+		}
+	}
 </script>
 <script>
 	//Поиск из JSON

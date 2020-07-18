@@ -118,6 +118,13 @@ Animation:
 /* 1. LAUNCHER-APP */
 /* 1.1. WIDGETS */
 #launcher-widgets-panel{
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+.launcher-widgets-panel-primary{
 	border-radius:10px;
 	background: #202020;
 }
