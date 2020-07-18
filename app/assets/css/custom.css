@@ -170,7 +170,12 @@ Animation:
 		margin-top:5px;
 	}
 }
-
+.launcher-widgets-button[name='explorer']{
+	background: #FFF;
+	color:transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+}
 .launcher-widgets-button[name='contact']:hover{
 	color:#26C9FF;
 }
