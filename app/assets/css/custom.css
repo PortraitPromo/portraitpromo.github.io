@@ -117,10 +117,14 @@ Animation:
 
 /* 1. LAUNCHER-APP */
 /* 1.1. WIDGETS */
+#launcher-widgets-panel{
+	border-radius:10px;
+	background: #202020;
+}
 @media only screen and (min-width: 768px) {
 	#launcher-widgets-panel{
 		position: fixed;
-		top: 40px;
+		top: 47px;
 		z-index: 1100;
 		color:#FFF;
 		right: calc(50% - 55px);
@@ -152,8 +156,6 @@ Animation:
 		z-index: 1100;
 		color:#FFF;
 		width:40px;
-		border-radius:10px;
-		background: #202020;
 	}
 	.launcher-widgets-button{
 		-webkit-transition: all 0.5s linear;
@@ -1605,7 +1607,7 @@ h2.home-page-subtitle-show {
 	.logo .logo-dark,
 	.main-navigation-bg .logo .logo-dark {
 		position: relative;
-		top: -10px;
+		/*top: -10px;*/
 		margin: 0 5px 0 14px;
 	}
 }
