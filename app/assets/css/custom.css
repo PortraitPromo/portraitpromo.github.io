@@ -232,10 +232,10 @@ Animation:
 
 #launcher-modal>#launcher-modal-content{
 	overflow: auto;
-	height:calc(100% - 100px);
+	height:calc(100% - 80px);
 	padding:15px;
 	padding-top:0;
-	margin-top:100px;
+	margin-top:80px;
 	width:100%;
 	-webkit-transition: all 0.5s linear;
 	-moz-transition: all 0.5s linear;
@@ -249,11 +249,11 @@ Animation:
 		display: block;
 	}
 	#launcher-modal>#launcher-modal-panel{
-		margin-top:40px;
+		width:100%;
 	}
 	#launcher-modal>#launcher-modal-content{
-		margin-top:150px;
-		height:calc(100% - 150px);
+		margin-top:80px;
+		height:calc(100% - 80px);
 	}
 }
 @media only screen and (min-width: 480px) {
@@ -270,8 +270,20 @@ Animation:
 #modal-search {width: 100%; padding-top: 10px; color: #000; position: fixed; z-index: 2222; 
 	top: 0; left: 50%; transform: translateX(-50%);}
 .search-title, .search-close {font-size: 30px;}
-.search-box {position:relative; margin-top: 10px;min-width:300px;}
-.search-box input, .search-box input:focus {font-size: 15px;color:#000;padding:5px;width:100%;padding-left: 35px;padding-right: 35px;}
+.search-box {
+	position:relative;
+	margin-top:10px;
+	min-width:300px;
+}
+.search-box input, .search-box input:focus {
+	font-size:15px;
+	color:#000;
+	padding:5px;
+	width:100%;
+	padding-left:35px;
+	padding-right:35px;
+	border:none;
+}
 .search-box input:not(:focus)::placeholder {color:#000;text-align:center;}
 .search-box button {
 	position:absolute;
@@ -305,9 +317,9 @@ Animation:
 
 #search-results-container{
 	width: 100%;
-	top:85px;
+	top:70px;
 	z-index:999999;
-	background: rgba(0,0,0,.4)
+	background: #FFF;
 }
 
 @media only screen and (max-width: 480px) {
@@ -317,8 +329,7 @@ Animation:
 }
 
 .search-result{
-	border:5px solid #000;
-	margin-top:20px;
+	padding: 10px;
 }
 
 /* 1. TEMPLATE BACKGROUNDS */
