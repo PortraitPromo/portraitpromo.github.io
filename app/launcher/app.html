@@ -5,6 +5,7 @@
 			<i class="fa fa-times launcher-widgets-button"></i>
 		</div>
 		<div id="launcher-modal-panel">
+			<i id="launcher-modal-panel-close" class="fa fa-times launcher-widgets-button"></i>
 			<div class="search-box" style="color:#FFF">
 				<span name="contact" class="fa fa-phone" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Связь с нами"></span>
 				<span name="explorer" class="fa fa-search" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Исследователь: поиск, FAQ, информация"></span>
@@ -45,6 +46,9 @@
 			this.modal.hide();
 			$("#search-results-container").hide();
 			$(".launcher-modal-overlay").on("click", function(){
+				launcher.hide();
+			});
+			$("#launcher-widgets-panel-close").on("click", function(){
 				launcher.hide();
 			});
 
