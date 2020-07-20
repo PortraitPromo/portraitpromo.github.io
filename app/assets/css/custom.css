@@ -344,7 +344,7 @@ Animation:
 
 @media only screen and (max-width: 480px) {
 	#search-results-container{
-		top:120px;
+		top:80px;
 	}
 }
 
