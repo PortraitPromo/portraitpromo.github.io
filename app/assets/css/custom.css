@@ -225,7 +225,10 @@ Animation:
 	color:#FFF;
 	display: none;
 }
-.launcher-modal-overlay:hover>i, .launcher-modal-overlay:hover, .launcher-modal-panel>i:hover{
+#launcher-modal-panel-close{
+	z-index:1000;
+}
+.launcher-modal-overlay:hover>i, .launcher-modal-overlay:hover, #launcher-modal-panel-close:hover{
 	color:#FF214A;
 	cursor:pointer;
 }
