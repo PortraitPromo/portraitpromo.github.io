@@ -256,6 +256,11 @@ Animation:
 	.launcher-modal-overlay>i{
 		display: none;
 	}
+	.launcher-modal-panel>i{
+		display: block;
+		right:0;
+		position: absolute;
+	}
 	#launcher-modal>#launcher-modal-panel{
 		width:100%;
 	}
@@ -265,6 +270,9 @@ Animation:
 	}
 }
 @media only screen and (min-width: 480px) {
+	.launcher-modal-panel>i{
+		display:none;
+	}
 	.launcher-modal-overlay>i{
 		display: block;
 		right:20px;
