@@ -341,7 +341,7 @@ Animation:
 }
 
 #search-results-container{
-	width: 100%;
+	width: 350px;
 	top:70px;
 	z-index:999999;
 	background: #FFF;
@@ -352,6 +352,7 @@ Animation:
 @media only screen and (max-width: 480px) {
 	#search-results-container{
 		top:70px;
+		width: 100%;
 	}
 }
 
