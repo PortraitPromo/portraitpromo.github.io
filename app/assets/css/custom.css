@@ -175,7 +175,7 @@ Animation:
 		width:40px;
 		height:40px;
 		font-size:25px;
-		margin-top:5px;
+		/*margin-top:5px;*/
 	}
 }
 .launcher-widgets-button[name='contact']:hover{
@@ -291,7 +291,7 @@ Animation:
 .search-title, .search-close {font-size: 30px;}
 .search-box {
 	position:relative;
-	margin-top:10px;
+	/*margin-top:10px;*/
 	min-width:300px;
 }
 .search-box input, .search-box input:focus {
@@ -344,7 +344,7 @@ Animation:
 
 @media only screen and (max-width: 480px) {
 	#search-results-container{
-		top:80px;
+		top:70px;
 	}
 }
 
