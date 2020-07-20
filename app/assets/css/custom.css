@@ -225,11 +225,6 @@ Animation:
 	color:#FFF;
 	display: none;
 }
-@media only screen and (max-width: 480px) {
-	.launcher-modal-overlay>i{
-		display: none;
-	}
-}
 .launcher-modal-overlay:hover>i, .launcher-modal-overlay:hover{
 	color:#FF214A;
 	cursor:pointer;
@@ -259,7 +254,7 @@ Animation:
 
 @media only screen and (max-width: 480px) {
 	.launcher-modal-overlay>i{
-		display: block;
+		display: none;
 	}
 	#launcher-modal>#launcher-modal-panel{
 		width:100%;
