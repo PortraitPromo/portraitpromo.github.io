@@ -126,6 +126,7 @@ Animation:
 }
 .launcher-widgets-panel-primary{
 	border-radius:10px;
+	padding:0 10px;
 	background: #202020;
 }
 @media only screen and (min-width: 768px) {
@@ -134,7 +135,7 @@ Animation:
 		top: 47px;
 		z-index: 1100;
 		color:#FFF;
-		right: calc(50% - 45px);
+		right: calc(50% - 55px);
 	}
 	.launcher-widgets-button{
 		-webkit-transition: all 0.5s linear;
@@ -308,6 +309,7 @@ Animation:
 @media only screen and (min-width: 480px) {
 	.search-box input, .search-box input:focus {
 		width:350px;
+		border-radius:10px;
 	}
 }
 .search-box input:not(:focus)::placeholder {color:#000;text-align:center;}
