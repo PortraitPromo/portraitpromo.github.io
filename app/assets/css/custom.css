@@ -126,7 +126,7 @@ Animation:
 }
 .launcher-widgets-panel-primary{
 	border-radius:10px;
-	padding:0 10px;
+	/*padding:0 10px;*/
 	background: #202020;
 }
 @media only screen and (min-width: 768px) {
@@ -136,6 +136,7 @@ Animation:
 		z-index: 1100;
 		color:#FFF;
 		right: calc(50% - 55px);
+		padding: 0 10px;
 	}
 	.launcher-widgets-button{
 		-webkit-transition: all 0.5s linear;
