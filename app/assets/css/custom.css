@@ -157,7 +157,7 @@ Animation:
 	}
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	#launcher-widgets-panel{
 		position: fixed;
 		right: 11px;
@@ -422,7 +422,7 @@ Animation:
 	background-image: url(../img/background/bg-4.jpg);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.bg-img-1 {
 		background-image: url(../img/background/bg-1_m.jpg);
 	}
@@ -1643,7 +1643,7 @@ h2.home-page-subtitle-show {
 	}
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.logo .logo-light,
 	.main-navigation-bg .logo .logo-light,
 	.logo .logo-dark,
@@ -1756,7 +1756,7 @@ h2.home-page-subtitle-show {
 	transition: all .4s ease-out;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.main-navigation-bg {
 		height: auto;
 		min-height: 70px;
@@ -1778,7 +1778,7 @@ h2.home-page-subtitle-show {
 	transition: all .4s ease-out;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.main-navigation-bg .main-navigation .navbar-nav li a {
 		padding: 10px 15px;
 	}
@@ -1791,7 +1791,7 @@ h2.home-page-subtitle-show {
 	color: #FF214A;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.navbar-toggle .icon-bar {
 		background: #fff;
 		margin-top: 63px;
@@ -1890,7 +1890,7 @@ h2.home-page-subtitle-show {
 	transform: scaleX(1);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.link-underline-menu:hover:before {
 		visibility: hidden;
 	}
@@ -1964,7 +1964,7 @@ h2.home-page-subtitle-show {
 	font-size:22px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.section-txt-services p {
 		font-size:20px;
 	}
@@ -2110,7 +2110,7 @@ h2.section-heading.section-heading-all {
 	border-left: 2px solid;
 }*/
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	h2.section-heading:after {
 		top: 60px;
 	}
