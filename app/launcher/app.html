@@ -202,7 +202,11 @@
 	}
 	$('#search_input').keyup(function() {
 		if($('#search_input').val().length>0){liveSearch()}
-		else{$('#search-results-container').hide();}
+		else{
+			$('#search-results-container').hide();
+			$('#search_input').css("border-radius","10px");
+		}
+
 	});
 
 	// jQuery(this).html().replace(new RegExp(term, 'ig'), '<span class="highlight">$&</span>');
