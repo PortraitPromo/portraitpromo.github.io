@@ -305,11 +305,11 @@ Animation:
 	border:none;
 	text-align: center;
 	display: block;
+	border-radius:10px;
 }
 @media only screen and (min-width: 480px) {
 	.search-box input, .search-box input:focus {
 		width:350px;
-		border-radius:10px;
 	}
 }
 .search-box input:not(:focus)::placeholder {color:#000;text-align:center;}

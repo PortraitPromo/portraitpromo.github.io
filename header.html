@@ -41,7 +41,7 @@
 
 							<ul class="nav navbar-nav hidden-xs" style="position:absolute;right:0;top:0">
 								<h3 style="margin-top:5px;">
-									<a class="page-scroll link-underline-menu" href="#services" style="text-decoration: none; color:#FFF;">Услуги</a>
+									<a id="link-services" class="page-scroll link-underline-menu" href="/#services" style="text-decoration: none; color:#FFF;">Услуги</a>
 								</h3>
 								<li>
 									<a class="page-scroll link-underline-menu red" href="/production/"><span>Production</span></a>
@@ -163,6 +163,7 @@
 			menuConstructor(['intentions','Намерения','structure','Структура','results','Результаты'], '<h3 style="margin-top:5px;">Компания</h3>', true);
 			$(".navbar-brand").attr('href','#home');
 			$(".logo").attr('href','#home');
+			$("#link-services").attr('href','#services');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
 			break;
