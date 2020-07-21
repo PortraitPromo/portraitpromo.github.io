@@ -1675,6 +1675,9 @@ h2.home-page-subtitle-show {
 	transition: all .4s ease-out;
 	z-index: 999;
 }
+.navbar-bg-switch .active{
+	background: #202020;
+}
 
 .main-navigation {
 	-webkit-transition: all .7s;
