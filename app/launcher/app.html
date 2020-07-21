@@ -32,6 +32,12 @@
 	</div>
 <!-- LAUNCHER WIDGETS end -->
 
+<style>
+	.search-box span[name='filter'] .active{
+		color:#FF214A;
+	}
+</style>
+
 <script>
 	//LAUNCHER APP
 	class appLauncher{
@@ -184,9 +190,11 @@
 		    }
 		    if(!found){
 		    	$('#search-results-container').hide();
+		    	$('#search_input').css("border-radius","10px");
 		    }else{
 		    	$('#search-results-container').html(results);
 		    	$('#search-results-container').show();
+		    	$('#search_input').css("border-radius","10px 10px 0 0");
 		    }
 		});
 		
@@ -198,6 +206,9 @@
 	});
 
 	// jQuery(this).html().replace(new RegExp(term, 'ig'), '<span class="highlight">$&</span>');
-
-	$(".search-box span[name='filter']").toogleClass("active");
+	// $(".search-box span[name='filter']").on('click', function(){
+	// 	$(".search-box span[name='filter']").toogleClass("active");
+	// 	$(".search-box span[name='filter']").toogleClass("active");
+	// });
+	
 </script>
