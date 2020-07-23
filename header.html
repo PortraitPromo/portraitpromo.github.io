@@ -159,12 +159,12 @@
 
 		for (var x=0;x<listMenu.length;x+=2){
 			if (main){
-				localMenu += "<li><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
+				localMenu += "<li><a class='page-scroll link-underline-menu' href='"+hash+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
 			} else{
-				localMenu += "<li><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"' style='padding: 25px 15px 0 15px;'>"+listMenu[x+1]+"</a></li>";
+				localMenu += "<li><a class='page-scroll link-underline-menu' href='"+hash+listMenu[x]+"' style='padding: 25px 15px 0 15px;'>"+listMenu[x+1]+"</a></li>";
 			}
 			
-			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm' style='height:25px;'><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
+			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm' style='height:25px;'><a class='page-scroll link-underline-menu' href='"+hash+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
 		}
 
 		$("#localMenu").html(localMenu);
@@ -196,7 +196,12 @@
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE2 overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
 			break;
 		default:
-			menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true);
+			if(location.pathname!="/"){
+				menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true, "/#");
+			}
+			else{
+				menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true);
+			}
 			$(".navbar-brand").attr('href','#home');
 			$(".logo").attr('href','#home');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
