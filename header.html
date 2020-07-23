@@ -198,12 +198,14 @@
 		default:
 			if(location.pathname!="/"){
 				menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true, "/#");
+				$(".navbar-brand").attr('href','/');
+				$(".logo").attr('href','/');
 			}
 			else{
 				menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true);
+				$(".navbar-brand").attr('href','#home');
+				$(".logo").attr('href','#home');
 			}
-			$(".navbar-brand").attr('href','#home');
-			$(".logo").attr('href','#home');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
 	}
