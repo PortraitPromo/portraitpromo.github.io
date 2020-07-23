@@ -4352,12 +4352,12 @@ textarea:focus:-moz-placeholder {
 	margin: -8px auto 0 auto;
 }
 
-@media only screen and (max-width: 880px) {
+/*@media only screen and (max-width: 880px) {
 	.logo,
 	.logo.logo-home-call {
 		margin: 3px 0 0 -10px;
 	}
-}
+}*/
 
 /* 31.2. main navigation home call */
 .main-navigation {
