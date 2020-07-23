@@ -67,7 +67,33 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 
 
 // 6. parallax
-$(function(){"use strict";function b(){var b=$(this).outerHeight(),c=b/2,d=a/2,e=$(this).offset().top,f=$(window).scrollTop(),g=$(this).attr("data-parallax-speed"),h=e-a,i=e+b,j=e-a,k=c+e-(d+d/2);h<0&&(h=0,i=a);var l=(f-h)/(i-h);l*=100,l*=g,l=l.toFixed(2);var m=(f-j)/(k-j);m=m.toFixed(2),m>=1&&(m=1),$(this).css("background-position","center "+l+"%")}var a=$(window).height();$(".parallax").each(b),$(window).on("scroll",function(a){$(".parallax").each(b)})});
+$(function(){
+	  "use strict";
+	  function b(){
+		var b=$(this).outerHeight(),
+			c=b/2,
+			d=a/2,
+			e=$(this).offset().top,
+			f=$(window).scrollTop(),
+			g=$(this).attr("data-parallax-speed"),
+			h=e-a,
+			i=e+b,
+			j=e-a,
+			k=c+e-(d+d/2);
+			h<0&&(h=0,i=a);
+			var l=(f-h)/(i-h);
+			l*=100,l*=g,l=l.toFixed(2);
+			var m=(f-j)/(k-j);
+			m=m.toFixed(2),
+			m>=1&&(m=1),
+			$(this).css("background-position","center "+l+"%")
+		}
+		if($(window).width()>767){
+			var a=$(window).height();
+			$(".parallax").each(b),
+			$(window).on("scroll",function(a){$(".parallax").each(b)})
+		}
+	});
 
 
 // 7. jquery.mb.YTPlayer v3.1.4
@@ -84,18 +110,18 @@ function onYouTubeIframeAPIReady(){ytp.YTAPIReady||(ytp.YTAPIReady=!0,jQuery(doc
 
 // 8. Slick v1.6.0
 /*
-     _ _      _       _
+	 _ _      _       _
  ___| (_) ___| | __  (_)___
 / __| | |/ __| |/ /  | / __|
 \__ \ | | (__|   < _ | \__ \
 |___/_|_|\___|_|\_(_)/ |___/
-                   |__/
+				   |__/
 
  Version: 1.6.0
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
-    Docs: http://kenwheeler.github.io/slick
-    Repo: http://github.com/kenwheeler/slick
+	Docs: http://kenwheeler.github.io/slick
+	Repo: http://github.com/kenwheeler/slick
   Issues: http://github.com/kenwheeler/slick/issues
 
  */
