@@ -37,7 +37,6 @@ $(window).on("load", function() {
 	switch(location.search.substr(1).split('&')[0]){
 		case "contact":
 		case "explorer":
-		case "gallery":
 			break;
 		default:
 			if(location.search!=''){history.pushState(null, null, location.pathname)}
@@ -51,3 +50,4 @@ $('#launcher').load('/launcher.html');
 $('header').load('/header.html');
 $('footer').load('/footer.html');
 $('#portfolio').load('/gallery.html');
+$('#contact').load('/contact.html');

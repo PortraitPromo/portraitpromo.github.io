@@ -80,20 +80,20 @@ $(function(){
 			i=e+b,
 			j=e-a,
 			k=c+e-(d+d/2);
-			h<0&&(h=0,i=a);
-			var l=(f-h)/(i-h);
-			l*=100,l*=g,l=l.toFixed(2);
-			var m=(f-j)/(k-j);
-			m=m.toFixed(2),
-			m>=1&&(m=1),
-			$(this).css("background-position","center "+l+"%")
-		}
-		if($(window).width()>767){
-			var a=$(window).height();
-			$(".parallax").each(b),
-			$(window).on("scroll",function(a){$(".parallax").each(b)})
-		}
-	});
+		h<0&&(h=0,i=a);
+		var l=(f-h)/(i-h);
+		l*=100,l*=g,l=l.toFixed(2);
+		var m=(f-j)/(k-j);
+		m=m.toFixed(2),
+		m>=1&&(m=1),
+		$(this).css("background-position","center "+l+"%")
+	}
+	if($(window).width()>767){
+		var a=$(window).height();
+		$(".parallax").each(b),
+		$(window).on("scroll",function(a){$(".parallax").each(b)})
+	}
+});
 
 
 // 7. jquery.mb.YTPlayer v3.1.4

@@ -28,6 +28,7 @@
 		constructor(obj){
 			this.modal = obj;
 			this.init();
+			this.title_original = $('title').html();
 		}
 		init(){
 			var launcher = this;
@@ -58,6 +59,7 @@
 		hide(){
 			$('body').css('overflow', '');
 			this.modal.fadeOut('fast');
+			$('title').html(this.title_original)
 			try{
 				history.pushState(null, null, location.pathname);
 			}catch{}
@@ -73,8 +75,10 @@
 			let class_color = "blue";
 			switch(section){
 				case "contact":
+					$('title').html('Portrait.Promo - Контакты');
 					break;
 				case "explorer":
+					$('title').html('Portrait.Promo - Исследовать');
 					class_color = "red";
 			}
 			$(".search-box span").each(function(i,e){
