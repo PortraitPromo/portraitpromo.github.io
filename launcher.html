@@ -51,9 +51,7 @@
 			});
 			switch(location.search.substr(1)){
 				case "contact":
-				case "info":
-				case "gallery":
-				case "spotlight":
+				case "explorer":
 					launcher.update(location.search.substr(1));
 			}
 		}
@@ -72,9 +70,9 @@
 
 			$('.mobx-holder').remove();
 			let search_area = "сайту";
+			let class_color = "blue";
 			switch(section){
 				case "contact":
-					class_color = "blue";
 					break;
 				case "explorer":
 					class_color = "red";
