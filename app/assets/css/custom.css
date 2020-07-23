@@ -267,6 +267,7 @@ Animation:
 		right:0;
 		position: absolute;
 		margin-top: 10px;
+		color:#202020;
 	}
 	#launcher-modal>#launcher-modal-panel{
 		width:100%;
