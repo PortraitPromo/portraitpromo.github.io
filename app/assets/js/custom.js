@@ -49,5 +49,5 @@ $(window).on("load", function() {
 $('#launcher').load('/launcher.html');
 $('header').load('/header.html');
 $('footer').load('/footer.html');
-$('#portfolio').load('/gallery.html');
+$('#portfolio').load('/portfolio.html');
 $('#contact-info').load('/contact.html #contact-info');
