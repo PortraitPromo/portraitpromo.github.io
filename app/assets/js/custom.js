@@ -47,6 +47,6 @@ $(window).on("load", function() {
 	}
 });
 //12. TEMPLATER
-$('#launcher').load('/app/launcher.html');
+$('#launcher').load('/launcher.html');
 $('header').load('/header.html');
 $('footer').load('/footer.html');
