@@ -50,3 +50,4 @@ $(window).on("load", function() {
 $('#launcher').load('/launcher.html');
 $('header').load('/header.html');
 $('footer').load('/footer.html');
+$('#portfolio').load('/gallery.html');
