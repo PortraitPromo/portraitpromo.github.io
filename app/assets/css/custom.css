@@ -364,7 +364,7 @@ Animation:
 		margin-top:65px;
 		height:calc(100% - 65px);
 	}
-	.search_box span[name='explorer']{
+	.search-box span[name='explorer']{
 		right: 30px;
 	}
 }
