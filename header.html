@@ -158,7 +158,7 @@
 				localMenu += "<li><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"' style='padding: 25px 15px 0 15px;'>"+listMenu[x+1]+"</a></li>";
 			}
 			
-			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm' style='height:40px;'><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
+			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm' style='height:25px;'><a class='page-scroll link-underline-menu' href='#"+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
 		}
 
 		$("#localMenu").html(localMenu);
@@ -173,9 +173,9 @@
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
 			break;
-		case "/services/production/":
-			menuConstructor(['photo','Фото','video','Видео','design','Дизайн','sound','Звук']);
-			$(".home-page-title").html('<span>Медиа</span><br><span style="color:#FF214A;">производство</span>');
+		case "/services/":
+			menuConstructor(['production','Медиапроизводство','development','Разработка','Organization','Организация']);
+			$(".home-page-title").html('<span>Продюсирование</span><br><span style="color:#FF214A;">креатива</span>');
 			break;
 		case "/services/photo/":
 			menuConstructor(['photo','Виды фотоуслуг','portfolio','Портфолио']);
