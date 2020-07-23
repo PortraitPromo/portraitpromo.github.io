@@ -308,6 +308,7 @@ Animation:
 	text-align: center;
 	display: block;
 	border-radius:10px;
+	margin-top: 15px;
 }
 @media only screen and (min-width: 480px) {
 	.search-box input, .search-box input:focus {
@@ -338,6 +339,11 @@ Animation:
 	-o-transition: all 0.5s linear;
 	transition: all 0.5s linear;
 	cursor:pointer;
+	color:#202020;
+	font-size:25px;
+	padding: 5px;
+	margin-top: 2px;
+	position:absolute;
 }
 .search-box button:hover>span{
 	color:#FF214A;
