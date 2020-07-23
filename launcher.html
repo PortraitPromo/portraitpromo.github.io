@@ -99,7 +99,7 @@
 			});
 			$(".search-box span[name='"+section+"']").addClass("red");
 
-			setTimeout(() => $('#launcher-modal-content').load("/app/launcher/"+section+".html", function(){
+			setTimeout(() => $('#launcher-modal-content').load("/"+section+".html", function(){
 				$('#launcher-modal-content').css('opacity','1');
 				$("#preloader").fadeOut(500);
 				$(".preloader-bg").delay(400).fadeOut(600);

@@ -1708,7 +1708,7 @@ h2.home-page-subtitle-show {
 	opacity: .9;
 }
 
-@media only screen and (max-width: 830px) {
+@media only screen and (max-width: 925px) {
 	.main-navigation .navbar-nav li a {
 		padding: 10px 15px;
 		margin: 0;
