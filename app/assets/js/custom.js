@@ -40,7 +40,7 @@ $(window).on("load", function() {
 		case "gallery":
 			break;
 		default:
-			history.pushState(null, null, location.pathname);
+			if(location.search!=''){history.pushState(null, null, location.pathname)}
 			// 1. preloader
 			$("#preloader").fadeOut(600);
 			$(".preloader-bg").delay(400).fadeOut(600);
