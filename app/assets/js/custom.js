@@ -50,4 +50,4 @@ $('#launcher').load('/launcher.html');
 $('header').load('/header.html');
 $('footer').load('/footer.html');
 $('#portfolio').load('/gallery.html');
-$('#contact').load('/contact.html');
+$('#contact-info').load('/contact.html #contact-info');
