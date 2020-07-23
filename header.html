@@ -18,7 +18,7 @@
 
 							<ul class="nav navbar-nav navbar-nav-center">
 								<div id="localMenuMobile"></div>
-								
+
 								<li class="hidden-xs">
 									<!-- logo desktop start -->
 										<a class="logo page-scroll active" href="/"><img alt="Logo" class="logo-light" src="/app/assets/img/logo.png"></a>
@@ -169,6 +169,8 @@
 
 		$("#localMenu").html(localMenu);
 		$("#localMenuMobile").html(localMenuMobile);
+		$(".navbar-nav-center .link-underline-menu[href='"+location.pathname+"']").addClass('here');
+		
 		$(".link-underline-menu[href='"+location.pathname+"']").addClass('here');
 	}
 	switch(location.pathname){
