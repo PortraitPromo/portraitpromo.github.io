@@ -312,6 +312,7 @@ Animation:
 @media only screen and (min-width: 480px) {
 	.search-box input, .search-box input:focus {
 		width:350px;
+		top:15px;
 	}
 }
 .search-box input:not(:focus)::placeholder {color:#000;text-align:center;}
@@ -336,13 +337,16 @@ Animation:
 	-ms-transition: all 0.5s linear;
 	-o-transition: all 0.5s linear;
 	transition: all 0.5s linear;
+	cursor:pointer;
 }
 .search-box button:hover>span{
 	color:#FF214A;
 }
-.search-box span:hover{
+.search-box span[name='contact']:hover{
+	color:#26C9FF;
+}
+.search-box span[name='explorer']:hover{
 	color:#FF214A;
-	cursor:pointer;
 }
 
 #search-results-container{

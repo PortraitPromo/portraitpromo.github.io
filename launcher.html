@@ -7,17 +7,8 @@
 		<div id="launcher-modal-panel">
 			<i id="launcher-modal-panel-close" class="fa fa-times launcher-widgets-button"></i>
 			<div class="search-box" style="color:#FFF">
-				<span name="contact" class="fa fa-phone" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Связь с нами"></span>
-				<span name="explorer" class="fa fa-search" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Исследователь: поиск, FAQ, информация"></span>
-				<!-- <span name="gallery" class="fa fa-th" style="left:30px;font-size:25px;padding: 5px;margin-top: 2px;" title="Галерея: портфолио / наши работы"></span> -->
-				<span name="contact" class="fa fa-phone" style="color:#202020;position:absolute;left:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Исследователь: поиск, FAQ, информация"></span>
-				<span name="explorer" class="fa fa-search" style="color:#202020;position:absolute;right:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Исследователь: поиск, FAQ, информация"></span>
-				<!-- <div id="nav" class="navigation" style="display:none;">
-					<div class="navigation__inner">
-						123
-					</div>
-				</div>
- -->
+				<span name="contact" class="fa fa-phone" style="position:absolute;left:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Исследователь: поиск, FAQ, информация"></span>
+				<span name="explorer" class="fa fa-search" style="position:absolute;right:0;top:35px;font-size:25px;padding: 5px;margin-top: 2px;" title="Исследователь: поиск, FAQ, информация"></span>
 				<input id="search_input" name="story" placeholder="Поиск по сайту..." type="text">
 			</div>
 		</div>
@@ -82,15 +73,17 @@
 			$('.mobx-holder').remove();
 			let search_area = "сайту";
 			switch(section){
-				case "gallery":
-					search_area = "галерее";
+				case "contact":
+					class_color = "blue";
 					break;
+				case "explorer":
+					class_color = "red";
 			}
-			$('#story').attr("placeholder","Поиск по "+search_area);
 			$(".search-box span").each(function(i,e){
 				$(e).removeClass("red");
+				$(e).removeClass("blue");
 			});
-			$(".search-box span[name='"+section+"']").addClass("red");
+			$(".search-box span[name='"+section+"']").addClass(class_color);
 
 			setTimeout(() => $('#launcher-modal-content').load("/"+section+".html", function(){
 				$('#launcher-modal-content').css('opacity','1');
