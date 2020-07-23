@@ -195,17 +195,17 @@
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE2 overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
 			break;
-		default:
-			if(location.pathname=="/"){
-				menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true);
-			}
-			else{
-				menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true, '/');
-			}
-			$(".navbar-brand").attr('href','#home');
-			$(".logo").attr('href','#home');
-			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
-			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
+		// default:
+		// 	if(location.pathname=="/"){
+		// 		menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true);
+		// 	}
+		// 	else{
+		// 		menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true, '/');
+		// 	}
+		// 	$(".navbar-brand").attr('href','#home');
+		// 	$(".logo").attr('href','#home');
+		// 	$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
+		// 	$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
 	}
 
 	// 2. navigation
