@@ -2437,6 +2437,7 @@ h2.section-heading.section-heading-all {
 	height: 500px;
 	overflow: hidden;
 	/*padding: 148px 0 139px 0;*/
+	background-position: center center;
 }
 
 @media only screen and (max-width: 995px) {
