@@ -394,6 +394,12 @@ Animation:
 	background-image: url(../img/background/SINGLE-bg-WAVE.jpg);
 }
 
+@media only screen and (max-width: 768px) {
+
+}
+@media only screen and (max-width: 480px) {
+
+}
 .bg-img-FILM-GRAIN {
 	background-image: url(../img/background/SINGLE-bg-FILM-GRAIN.jpg);
 }
@@ -455,6 +461,23 @@ Animation:
 
 	.bg-img-4 {
 		background-image: url(../img/background/bg-4_m.jpg);
+	}
+}
+@media only screen and (max-width: 480px) {
+	.bg-img-1 {
+		background-image: url(../img/background/bg-1_m2.jpg);
+	}
+
+	.bg-img-2 {
+		background-image: url(../img/background/bg-2_m2.jpg);
+	}
+
+	.bg-img-3 {
+		background-image: url(../img/background/bg-3_m2.jpg);
+	}
+
+	.bg-img-4 {
+		background-image: url(../img/background/bg-4_m2.jpg);
 	}
 }
 
