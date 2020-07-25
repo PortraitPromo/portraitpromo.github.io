@@ -108,14 +108,6 @@ Animation:
 	units: 0.5s linear
 
 -----------------------------------------------------------------*/
-#parthers-title{
-	font-size:45px;
-}
-@media only screen and (max-width: 767px) {
-	#parthers-title{
-		font-size:30px;
-	}
-}
 .red{
 	color:#FF214A;
 }
@@ -2041,14 +2033,14 @@ h2.section-heading {
 
 @media only screen and (max-width: 880px) {
 	h2.section-heading {
-		font-size: 40px;
+		font-size: 35px;
 		margin: -15px auto;
 	}
 }
 
 @media only screen and (max-width: 640px) {
 	h2.section-heading {
-		font-size: 35px;
+		font-size: 25px;
 		margin: -13px auto;
 	}
 }
