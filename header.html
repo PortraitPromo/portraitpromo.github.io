@@ -29,7 +29,7 @@
 								   <hr>
 								</li>
 								<li  class="hidden-md hidden-lg hidden-sm">
-									<a class="link-underline-menu red" href="#services" style="padding: 10px 15px;">
+									<a class="page-scroll link-underline-menu red" href="#services" style="padding: 10px 15px;">
 									Услуги
 									</a>
 								</li>
@@ -203,11 +203,13 @@
 				menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true, "/#");
 				$(".navbar-brand").attr('href','/');
 				$(".logo").attr('href','/');
+				$("a[href='#services']").attr("href","/#services")
 			}
 			else{
 				menuConstructor(['intentions','Намерения','structure','Структура','portfolio','Портфолио', 'contact', 'Контакты'], '<h3 style="margin-top:5px;">Компания</h3>', true);
 				$(".navbar-brand").attr('href','#home');
 				$(".logo").attr('href','#home');
+
 			}
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
