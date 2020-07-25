@@ -1736,6 +1736,9 @@ h2.home-page-subtitle-show {
 	color: #26C9FF;
 	opacity:1;
 }
+.main-navigation .navbar-nav li a.red:hover {
+	color: #FF214A;
+}
 .main-navigation .navbar-nav li a.red span{
 	border: 1px solid #FFF;
 	padding: 5px;
