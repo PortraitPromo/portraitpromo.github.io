@@ -2180,7 +2180,7 @@ h2.section-heading.section-heading-all {
 	color: #000;
 }
 
-@media only screen and (max-width: 995px) {
+/*@media only screen and (max-width: 995px) {
 	.img-fullwidth-wrapper {
 		min-height: 450px;
 	}
@@ -2190,7 +2190,7 @@ h2.section-heading.section-heading-all {
 	.img-fullwidth-wrapper {
 		min-height: 350px;
 	}
-}
+}*/
 
 .img-fullwidth {
 	position: absolute;
@@ -2210,14 +2210,14 @@ h2.section-heading.section-heading-all {
 
 @media only screen and (max-width: 995px) {
 	.img-fullwidth {
-		min-height: 450px;
+		/*min-height: 450px;*/
 		padding: 0 15px;
 	}
 }
 
 @media only screen and (max-width: 880px) {
 	.img-fullwidth {
-		min-height: 350px;
+		/*min-height: 350px;*/
 		padding: 0 10px;
 	}
 }
