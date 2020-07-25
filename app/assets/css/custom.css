@@ -2152,7 +2152,7 @@ h2.section-heading.section-heading-all {
 	position: relative;
 	min-height: 550px;
 }
-.img-fullwidth.img-fullwidth-bg-dark:hover {
+.img-fullwidth-bg-dark:hover {
 	background: #fff;
 	-webkit-transition: all 0.5s ease-out;
 	-moz-transition: all 0.5s ease-out;
@@ -2160,8 +2160,7 @@ h2.section-heading.section-heading-all {
 	-o-transition: all 0.5s ease-out;
 	transition: all 0.5s ease-out;
 }
-
-.img-fullwidth.img-fullwidth-bg-dark:hover .triangle-left {
+.img-fullwidth-bg-dark:hover .triangle-left {
 	border-right: 20px solid #fff;
 	-webkit-transition: all 0.5s ease-out;
 	-moz-transition: all 0.5s ease-out;
@@ -2169,8 +2168,7 @@ h2.section-heading.section-heading-all {
 	-o-transition: all 0.5s ease-out;
 	transition: all 0.5s ease-out;
 }
-
-.img-fullwidth.img-fullwidth-bg-dark:hover .triangle-right {
+.img-fullwidth-bg-dark:hover .triangle-right {
 	border-left: 20px solid #fff;
 	-webkit-transition: all 0.5s ease-out;
 	-moz-transition: all 0.5s ease-out;
@@ -2178,8 +2176,7 @@ h2.section-heading.section-heading-all {
 	-o-transition: all 0.5s ease-out;
 	transition: all 0.5s ease-out;
 }
-
-.img-fullwidth.img-fullwidth-bg-dark:hover .post-all-heading, .img-fullwidth.img-fullwidth-bg-dark:hover .post-all p {
+.img-fullwidth-bg-dark:hover .post-all-heading,.img-fullwidth-bg-dark:hover .post-all p {
 	color: #000;
 }
 
@@ -2225,7 +2222,7 @@ h2.section-heading.section-heading-all {
 	}
 }
 
-.img-fullwidth.img-fullwidth-bg-dark {
+.img-fullwidth-bg-dark {
 	background: #0d0d0d;
 }
 
