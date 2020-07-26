@@ -394,9 +394,13 @@ Animation:
 	background-image: url(../img/background/SINGLE-bg-WAVE.jpg);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1366px) {
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px)  {
+}
+@media only screen and (max-width: 480px)  {
+}
+@media only screen and (max-width: 360px)  {
 }
 
 /* 1.2. facts parallax IMG BACKGROUND */
@@ -450,55 +454,90 @@ Animation:
 		slick fullscreen slideshow ZOOM/FADE IMG BACKGROUND
 		slick fullscreen slider typed text IMG BACKGROUND */
 .bg-img-1 {
-	background-image: url(../img/background/bg-1.jpg);
+	background-image: url(../img/background/bg-1_1920.jpg);
 }
 
 .bg-img-2 {
-	background-image: url(../img/background/bg-2.jpg);
+	background-image: url(../img/background/bg-2_1920.jpg);
 }
 
 .bg-img-3 {
-	background-image: url(../img/background/bg-3.jpg);
+	background-image: url(../img/background/bg-3_1920.jpg);
 }
 
 .bg-img-4 {
-	background-image: url(../img/background/bg-4.jpg);
+	background-image: url(../img/background/bg-4_1920.jpg);
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1366px) {
 	.bg-img-1 {
-		background-image: url(../img/background/bg-1_m.jpg);
+		background-image: url(../img/background/bg-1_1366.jpg);
 	}
 
 	.bg-img-2 {
-		background-image: url(../img/background/bg-2_m.jpg);
+		background-image: url(../img/background/bg-2_1366.jpg);
 	}
 
 	.bg-img-3 {
-		background-image: url(../img/background/bg-3_m.jpg);
+		background-image: url(../img/background/bg-3_1366.jpg);
 	}
 
 	.bg-img-4 {
-		background-image: url(../img/background/bg-4_m.jpg);
+		background-image: url(../img/background/bg-4_1366.jpg);
 	}
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px)  {
 	.bg-img-1 {
-		background-image: url(../img/background/bg-1_m2.jpg);
+		background-image: url(../img/background/bg-1_768.jpg);
 	}
 
 	.bg-img-2 {
-		background-image: url(../img/background/bg-2_m2.jpg);
+		background-image: url(../img/background/bg-2_768.jpg);
 	}
 
 	.bg-img-3 {
-		background-image: url(../img/background/bg-3_m2.jpg);
+		background-image: url(../img/background/bg-3_768.jpg);
 	}
 
 	.bg-img-4 {
-		background-image: url(../img/background/bg-4_m2.jpg);
+		background-image: url(../img/background/bg-4_768.jpg);
 	}
 }
+@media only screen and (max-width: 480px)  {
+	.bg-img-1 {
+		background-image: url(../img/background/bg-1_480.jpg);
+	}
+
+	.bg-img-2 {
+		background-image: url(../img/background/bg-2_480.jpg);
+	}
+
+	.bg-img-3 {
+		background-image: url(../img/background/bg-3_480.jpg);
+	}
+
+	.bg-img-4 {
+		background-image: url(../img/background/bg-4_480.jpg);
+	}
+}
+@media only screen and (max-width: 360px)  {
+	.bg-img-1 {
+		background-image: url(../img/background/bg-1_360.jpg);
+	}
+
+	.bg-img-2 {
+		background-image: url(../img/background/bg-2_360.jpg);
+	}
+
+	.bg-img-3 {
+		background-image: url(../img/background/bg-3_360.jpg);
+	}
+
+	.bg-img-4 {
+		background-image: url(../img/background/bg-4_360.jpg);
+	}
+}
+
 
 /* 1.5. ken burns slideshow IMG BACKGROUND */
 .kenburns-slide-1 {
