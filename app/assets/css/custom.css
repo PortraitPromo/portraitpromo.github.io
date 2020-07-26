@@ -2508,6 +2508,17 @@ h2.section-heading.section-heading-all {
 		padding: 99px 0 89px 0;
 	}
 }
+@media only screen and (max-width: 767px) {
+	.parallax {
+		height: 400px;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.parallax {
+		height: 300px;
+	}
+}
+
 
 .parallax-facts {
 	position: relative;
