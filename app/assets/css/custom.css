@@ -508,7 +508,7 @@ Animation:
 		background-image: url(../img/background/bg-4_480.jpg);
 	}
 }
-@media only screen and (max-width: 360px)  {
+/*@media only screen and (max-width: 360px)  {
 	.bg-img-1 {
 		background-image: url(../img/background/bg-1_360.jpg);
 	}
@@ -524,7 +524,7 @@ Animation:
 	.bg-img-4 {
 		background-image: url(../img/background/bg-4_360.jpg);
 	}
-}
+}*/
 
 /* 1.6. services IMG BACKGROUND */
 /* 1.3. services skills IMG BACKGROUND */
