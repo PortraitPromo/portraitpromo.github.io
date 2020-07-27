@@ -177,7 +177,7 @@
 	}
 	switch(location.pathname){
 		case "/services/":
-			menuConstructor(['production','Медиапроизводство','development','Разработка','Organization','Организация']);
+			menuConstructor(['production','Медиапроизводство','it','Разработка','org','Организация']);
 			$(".home-page-title").html('<span>Продюсирование</span><br><span style="color:#FF214A;">креатива</span>');
 			break;
 		case "/services/photo/":
@@ -192,7 +192,7 @@
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
 			break;
 		case "/services/promo/":
-			menuConstructor(['present','Имидж','event','Мероприятия']);
+			menuConstructor(['btl','Промоултеры','event','Мероприятия']);
 			$(".home-page-title").html('<span>Маркетинговые </span><span style="color:#FF214A;">коммуникации</span>');
 			$(".hero-fullscreen").removeClass('overlay');
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
