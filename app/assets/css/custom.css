@@ -2216,7 +2216,21 @@ h2.section-heading.section-heading-all {
 /* 14. fullwidth IMG */
 .img-fullwidth-wrapper {
 	position: relative;
-	min-height: 550px;
+	/*min-height: 550px;*/
+	height: 400px;
+}
+@media only screen and (max-width: 480px) {
+	.img-fullwidth-wrapper{
+		
+	}
+}
+.img-fullwidth-wrapper-banner{
+	height:400px;
+}
+@media only screen and (max-width: 480px) {
+	.img-fullwidth-wrapper-banner{
+		height: 200px;
+	}
 }
 .img-fullwidth-bg-dark:hover {
 	background: #fff;
@@ -2261,7 +2275,7 @@ h2.section-heading.section-heading-all {
 .img-fullwidth {
 	position: absolute;
 	height: auto;
-	min-height: 550px;
+	/*min-height: 550px;*/
 	top: 0;
 	bottom: 0;
 	padding: 0 100px;
