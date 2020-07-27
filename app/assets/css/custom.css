@@ -413,6 +413,9 @@ Animation:
 .parallax-3 {
 	background-image: url(../img/background/parallax-3bg.jpg);
 }
+.parallax-4 {
+	background-image: url(../../gallery/db/photo/pr3_1.jpg);
+}
 
 @media only screen and (max-width: 767px) {
 	.parallax-1 {
