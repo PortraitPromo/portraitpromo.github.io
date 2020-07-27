@@ -426,7 +426,7 @@ Animation:
 	}
 }
 
-@media only screen and (max-width: 480px) {
+/*@media only screen and (max-width: 480px) {
 	.parallax-1 {
 		background-image: url(../img/background/parallax-bg480.jpg);
 	}
@@ -436,7 +436,7 @@ Animation:
 	.parallax-3 {
 		background-image: url(../img/background/parallax-3bg480.jpg);
 	}
-}
+}*/
 
 /* 1.4. slick fullscreen slideshow IMG BACKGROUND,
 		slick fullscreen slideshow ZOOM/FADE IMG BACKGROUND
