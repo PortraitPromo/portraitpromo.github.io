@@ -2217,17 +2217,17 @@ h2.section-heading.section-heading-all {
 .img-fullwidth-wrapper {
 	position: relative;
 	/*min-height: 550px;*/
-	height: 400px;
-}
-.img-fullwidth-wrapper-2 {
 	height: 550px;
 }
-.img-fullwidth-wrapper-3 {
-	height: 500px;
+.img-fullwidth-wrapper-2 {
+	height: 600px;
 }
+/*.img-fullwidth-wrapper-3 {
+	height: 550px;
+}*/
 
 .img-fullwidth-wrapper-banner{
-	height:400px;
+	height:550px;
 }
 @media only screen and (max-width: 480px) {
 	.img-fullwidth-wrapper-banner{
@@ -2237,19 +2237,19 @@ h2.section-heading.section-heading-all {
 
 @media only screen and (min-width: 992px) {
 	.img-fullwidth-wrapper-banner{
-		height: 400px;
-	}
-}
-@media only screen and (min-width: 992px) {
-	.img-fullwidth-wrapper-banner-2{
 		height: 550px;
 	}
 }
 @media only screen and (min-width: 992px) {
-	.img-fullwidth-wrapper-banner-3{
-		height: 500px;
+	.img-fullwidth-wrapper-banner-2{
+		height: 600px;
 	}
 }
+/*@media only screen and (min-width: 992px) {
+	.img-fullwidth-wrapper-banner-3{
+		height: 550px;
+	}
+}*/
 
 .img-fullwidth-bg-dark:hover {
 	background: #fff;
