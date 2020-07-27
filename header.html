@@ -217,21 +217,19 @@
 
 	// 2. navigation
 	// 2.1. page scroll
-	if($(window).width()<768){
-		$(".page-scroll").on("click", function(e) {
-			var $anchor = $(this);
-			scrollTop: $($anchor.attr("href")).offset().top - 65
-			e.preventDefault();
-		});
-	}else{
-		$(".page-scroll").on("click", function(e) {
-			var $anchor = $(this);
+	$(".page-scroll").on("click", function(e) {
+		var $anchor = $(this);
+		if($(window).width()<768){
+			$("html, body").stop().animate({
+				scrollTop: $($anchor.attr("href")).offset().top - 65
+			}, 0, 'easeInOutExpo');
+		}else{
 			$("html, body").stop().animate({
 				scrollTop: $($anchor.attr("href")).offset().top - 65
 			}, 1500, 'easeInOutExpo');
-			e.preventDefault();
-		});
-	}
+		}
+		e.preventDefault();
+	});
 
 	// 2.2. spy navigation
 	$("body").scrollspy({
