@@ -414,13 +414,13 @@ Animation:
 	background-image: url(../img/background/parallax-3bg.jpg);
 }
 .parallax-4 {
-	background-image: url(../img/services/services-1.jpg);
+	background-image: url(../img/services/services-1_1920.jpg);
 }
 .parallax-5 {
-	background-image: url(../img/services/services-2.jpg);
+	background-image: url(../img/services/services-2_1920.jpg);
 }
 .parallax-6 {
-	background-image: url(../img/services/services-3.jpg);
+	background-image: url(../img/services/services-3_1920.jpg);
 }
 
 @media only screen and (max-width: 767px) {
@@ -432,6 +432,15 @@ Animation:
 	}
 	.parallax-3 {
 		background-image: url(../img/background/parallax-3bg767.jpg);
+	}
+	.parallax-4 {
+		background-image: url(../img/services/services-1_767.jpg);
+	}
+	.parallax-5 {
+		background-image: url(../img/services/services-2_767.jpg);
+	}
+	.parallax-6 {
+		background-image: url(../img/services/services-3_767.jpg);
 	}
 }
 
