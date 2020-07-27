@@ -2219,13 +2219,22 @@ h2.section-heading.section-heading-all {
 	/*min-height: 550px;*/
 	height: 400px;
 }
-@media only screen and (max-width: 480px) {
-	.img-fullwidth-wrapper{
-		
-	}
+.img-fullwidth-wrapper-2 {
+	height: 500px;
 }
+
 .img-fullwidth-wrapper-banner{
 	height:400px;
+}
+@media only screen and (min-width: 992px) {
+	.img-fullwidth-wrapper-banner{
+		height: 400px;
+	}
+}
+@media only screen and (min-width: 992px) {
+	.img-fullwidth-wrapper-banner-2{
+		height: 500px;
+	}
 }
 @media only screen and (max-width: 480px) {
 	.img-fullwidth-wrapper-banner{
