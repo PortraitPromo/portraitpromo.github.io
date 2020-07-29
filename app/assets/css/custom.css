@@ -1822,7 +1822,7 @@ h2.home-page-subtitle-show {
 	color: #FF214A;
 }
 .main-navigation .navbar-nav li a.red span{
-	border: 1px solid #FFF;
+	border: 1px solid transparent;
 	padding: 5px;
 	-webkit-transition: all .4s ease-out;
 	-moz-transition: all .4s ease-out;
@@ -2610,15 +2610,15 @@ h2.section-heading.section-heading-all {
 
 .image-grid .item-folio {
 	width: 25%;
-	height: 33vw;
+	height: 25vw;
 }
 
-@media all and (min-width: 1920px) {
+/*@media all and (min-width: 1920px) {
 	.image-grid .item-folio {
 		width: 25%;
 		height: 25vw;
 	}
-}
+}*/
 
 @media only screen and (max-width: 880px) {
 	.image-grid .item-folio {
