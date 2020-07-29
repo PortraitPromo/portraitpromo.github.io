@@ -2606,10 +2606,13 @@ h2.section-heading.section-heading-all {
 .image-grid {
 	display: flex;
 	flex-wrap: wrap;
+	margin: 0 auto;
+	float: none;
+
 }
 
 .image-grid .item-folio {
-	width: 25%;
+	width: 33%;
 	height: 25vw;
 }
 
@@ -2620,6 +2623,11 @@ h2.section-heading.section-heading-all {
 	}
 }*/
 
+@media only screen and (min-width: 880px){
+	.image-grid {
+		width: 80%;
+	}
+}
 @media only screen and (max-width: 880px) {
 	.image-grid .item-folio {
 		width: 50%;
