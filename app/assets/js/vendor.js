@@ -86,19 +86,19 @@ $(function(){
 		var m=(f-j)/(k-j);
 		m=m.toFixed(2),
 		m>=1&&(m=1);
-	if(right){
-	  $(this).css("background-position","right "+l+"%")
-	}else{
-	  $(this).css("background-position","center "+l+"%")
-	}
-		
+		if(right){
+		  $(this).css("background-position","right "+l+"%")
+		}else{
+		  $(this).css("background-position","center "+l+"%")
+		}
 	}
 	if($(window).width()>767){
 		var a=$(window).height();
 		$(".parallax").each(b);
-		$(".parallax-4").each(b(right=true));
 		$(window).on("scroll",function(a){$(".parallax").each(b)});
-		$(window).on("scroll",function(a){$(".parallax-4").each(b(right=true))});
+		
+		$(".parallax-4").each(b(true));
+		$(window).on("scroll",function(a){$(".parallax-4").each(b(true))});
 	}
 });
 
