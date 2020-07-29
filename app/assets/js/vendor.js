@@ -69,7 +69,7 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 // 6. parallax
 $(function(){
 	  "use strict";
-	  function b(){
+	  function b(right=false){
 		var b=$(this).outerHeight(),
 			c=b/2,
 			d=a/2,
@@ -85,13 +85,20 @@ $(function(){
 		l*=100,l*=g,l=l.toFixed(2);
 		var m=(f-j)/(k-j);
 		m=m.toFixed(2),
-		m>=1&&(m=1),
-		$(this).css("background-position","center "+l+"%")
+		m>=1&&(m=1);
+	if(right){
+	  $(this).css("background-position","right "+l+"%")
+	}else{
+	  $(this).css("background-position","center "+l+"%")
+	}
+		
 	}
 	if($(window).width()>767){
 		var a=$(window).height();
-		$(".parallax").each(b),
-		$(window).on("scroll",function(a){$(".parallax").each(b)})
+		$(".parallax").each(b);
+		$(".parallax-4").each(b(right=true));
+		$(window).on("scroll",function(a){$(".parallax").each(b)});
+		$(window).on("scroll",function(a){$(".parallax-4").each(b(right=true))});
 	}
 });
 
