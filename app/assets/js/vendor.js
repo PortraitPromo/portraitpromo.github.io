@@ -105,7 +105,7 @@ $(function(){
 		var m=(f-j)/(k-j);
 		m=m.toFixed(2),
 		m>=1&&(m=1),
-		$(this).css("background-position","center "+l+"%");
+		$(this).css("background-position","right "+l+"%");
 	}
 	if($(window).width()>767){
 		var a=$(window).height();
