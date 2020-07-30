@@ -558,33 +558,6 @@ Animation:
 	background-image: url(../img/services/services-3.jpg);
 }
 
-.services-auto-site{
-	background: url(../img/services/auto-site.jpg);
-}
-.services-auto-app{
-	background: url(../img/services/auto-app.jpg);
-}
-.services-auto-chatbot{
-	background: url(../img/services/auto-chatbot.jpg);
-}
-.services-auto-analysis{
-	background: url(../img/services/auto-analysis.jpg);
-}
-
-.services-digital-smm{
-	background: url(../img/services/digital-smm.jpg);
-}
-.services-digital-ppc{
-	background: url(../img/services/digital-ppc.jpg);
-}
-.services-digital-target{
-	background: url(../img/services/digital-target.jpg);
-}
-.services-digital-seo{
-	background: url(../img/services/digital-seo.jpg);
-}
-
-
 .services-photo-portrait{
 	background: url(../../db/gallery/photo/p2_2.jpg);
 }
@@ -605,11 +578,11 @@ Animation:
 	background: url(../img/services/video-promo.jpg);
 }
 
-.services-design-motion{
-	background: url(../img/services/design-motion.jpg);
-}
 .services-design-banner{
 	background: url(../img/services/design-banner.jpg);
+}
+.services-design-motion{
+	background: url(../img/services/design-motion.jpg);
 }
 .services-design-catalog{
 	background: url(../img/services/design-catalog.jpg);
@@ -623,6 +596,46 @@ Animation:
 }
 .services-sound-voice-promo{
 	background: url(../img/services/sound-voice-promo.jpg);
+}
+
+.services-web-dev{
+	background: url(../img/services/web-dev.jpg);
+}
+.services-web-seo{
+	background: url(../img/services/web-seo.jpg);
+}
+.services-web-ppc{
+	background: url(../img/services/web-ppc.jpg);
+}
+
+.services-smm-content{
+	background: url(../img/services/smm-content.jpg);
+}
+.services-smm-target{
+	background: url(../img/services/smm-target.jpg);
+}
+.services-smm-pr{
+	background: url(../img/services/smm-pr.jpg);
+}
+
+.services-auto-app{
+	background: url(../img/services/auto-app.jpg);
+}
+.services-auto-chatbot{
+	background: url(../img/services/auto-chatbot.jpg);
+}
+.services-auto-analysis{
+	background: url(../img/services/auto-analysis.jpg);
+}
+
+.services-marketing-btl{
+	background: url(../img/services/marketing-btl.jpg);
+}
+.services-marketing-promo{
+	background: url(../img/services/markteing-promo.jpg);
+}
+.services-marketing-brand{
+	background: url(../img/services/markteing-brand.jpg);
 }
 
 .services-event-business{
@@ -2636,7 +2649,7 @@ h2.section-heading.section-heading-all {
 
 .description h3 {
 	font-family: 'Montserrat', sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 700;
 	text-transform: uppercase;
