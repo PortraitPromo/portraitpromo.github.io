@@ -632,10 +632,10 @@ Animation:
 	background: url(../img/services/marketing-btl.jpg);
 }
 .services-marketing-promo{
-	background: url(../img/services/markteing-promo.jpg);
+	background: url(../img/services/marketing-promo.jpg);
 }
 .services-marketing-brand{
-	background: url(../img/services/markteing-brand.jpg);
+	background: url(../img/services/marketing-brand.jpg);
 }
 
 .services-event-business{
@@ -2332,6 +2332,9 @@ h2.section-heading.section-heading-all {
 .parallax-content {
 	width: 65%;
 	margin: 0 auto;
+}
+.parallax-right {
+	background-position: right center;
 }
 .testimonials-carousel {
 	position: relative;
