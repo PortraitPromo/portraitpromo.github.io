@@ -2631,7 +2631,7 @@ h2.section-heading.section-heading-all {
 	pointer-events: none;
 	z-index: 10;
 	background: rgba(0,0,0,.5);
-	border-radius: 25px;
+	border-radius: 0 0 25px 25px;
 }
 
 .description h3 {
