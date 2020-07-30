@@ -87,18 +87,18 @@ $(function(){
 		m=m.toFixed(2),
 		m>=1&&(m=1);
 		if(right){
-		  $(this).css("background-position","right "+l+"%")
+			$(this).css("background-position","right "+l+"%")
 		}else{
-		  $(this).css("background-position","center "+l+"%")
+			$(this).css("background-position","center "+l+"%")
 		}
 	}
 	if($(window).width()>767){
 		var a=$(window).height();
-		$(".parallax").each(b(false));
-		$(window).on("scroll",function(a){$(".parallax").each(b(false))});
+		$(".parallax-center").each(b(false));
+		$(window).on("scroll",function(a){$(".parallax-center").each(b(false))});
 
-		$(".parallax-4").each(b(true));
-		$(window).on("scroll",function(a){$(".parallax-4").each(b(true))});
+		$(".parallax-right").each(b(true));
+		$(window).on("scroll",function(a){$(".parallax-right").each(b(true))});
 	}
 });
 
