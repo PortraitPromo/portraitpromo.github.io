@@ -68,8 +68,8 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 
 // 6. parallax
 $(function(){
-	  "use strict";
-	  function b(right){
+	"use strict";
+	function b(){
 		var b=$(this).outerHeight(),
 			c=b/2,
 			d=a/2,
@@ -85,20 +85,35 @@ $(function(){
 		l*=100,l*=g,l=l.toFixed(2);
 		var m=(f-j)/(k-j);
 		m=m.toFixed(2),
-		m>=1&&(m=1);
-		if(right){
-			$(this).css("background-position","right "+l+"%")
-		}else{
-			$(this).css("background-position","center "+l+"%")
-		}
+		m>=1&&(m=1),
+		$(this).css("background-position","center "+l+"%");
+	}
+	function br(){
+		var b=$(this).outerHeight(),
+			c=b/2,
+			d=a/2,
+			e=$(this).offset().top,
+			f=$(window).scrollTop(),
+			g=$(this).attr("data-parallax-speed"),
+			h=e-a,
+			i=e+b,
+			j=e-a,
+			k=c+e-(d+d/2);
+		h<0&&(h=0,i=a);
+		var l=(f-h)/(i-h);
+		l*=100,l*=g,l=l.toFixed(2);
+		var m=(f-j)/(k-j);
+		m=m.toFixed(2),
+		m>=1&&(m=1),
+		$(this).css("background-position","center "+l+"%");
 	}
 	if($(window).width()>767){
 		var a=$(window).height();
-		$(".parallax-center").each(b(false));
-		$(window).on("scroll",function(a){$(".parallax-center").each(b(false))});
+		$(".parallax-center").each(b);
+		$(window).on("scroll",function(a){$(".parallax-center").each(b)});
 
-		$(".parallax-right").each(b(true));
-		$(window).on("scroll",function(a){$(".parallax-right").each(b(true))});
+		$(".parallax-right").each(br);
+		$(window).on("scroll",function(a){$(".parallax-right").each(br)});
 	}
 });
 
