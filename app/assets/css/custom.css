@@ -1779,7 +1779,7 @@ h2.home-page-subtitle-show {
 
 @media only screen and (max-width: 925px) {
 	.main-navigation .navbar-nav li a {
-		/*padding: 10px 15px;*/
+		padding: 10px 10px;
 		/*margin: 0;*/
 		font-size: 9px;
 	}
