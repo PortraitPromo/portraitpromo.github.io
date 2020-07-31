@@ -29,7 +29,7 @@
 									<!-- logo desktop end -->
 								</li>
 
-								<li class="hidden-md hidden-lg hidden-sm">
+								<li class="hidden-md hidden-lg hidden-sm" style="top: 20px;">
 								   <hr>
 								</li>
 								<li  class="hidden-md hidden-lg hidden-sm">
@@ -167,13 +167,22 @@
 		for (var x=0;x<listMenu.length;x+=2){
 			if (main){
 				localMenu += "<li><a class='page-scroll link-underline-menu' href='"+hash+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
+
 			} else{
 				localMenu += "<li><a class='page-scroll link-underline-menu' href='"+hash+listMenu[x]+"' style='padding: 25px 5px;'>"+listMenu[x+1]+"</a></li>";
 			}
 			
-			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm' style='height:25px;'><a class='page-scroll link-underline-menu' href='"+hash+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
+			localMenuMobile += "<li class='hidden-md hidden-lg hidden-sm' style='height:25px;float: left;'><a class='page-scroll link-underline-menu' href='"+hash+listMenu[x]+"'>"+listMenu[x+1]+"</a></li>";
 		}
-
+		if(main){
+			$("#localMenuMobile").css({
+				'width': '360px',
+				'left': '50%',
+				'transform': 'translate(-50%, 0%)',
+				'position': 'absolute',
+				'margin-top': '10px'
+			});
+		}
 		$("#localMenu").html(localMenu);
 		$("#localMenuMobile").html(localMenuMobile);
 		$(".navbar-nav-center .link-underline-menu[href='"+location.pathname+"']").addClass('here');
