@@ -383,15 +383,11 @@ Animation:
 /* 1. TEMPLATE BACKGROUNDS */
 /* 1.1. single IMG BACKGROUND */
 .bg-img-SINGLE {
-	background-image: url(../img/background/SINGLE-bg.jpg);
+	background-image: url(../img/services/services-2_1920.jpg);
 }
 
 .bg-img-SINGLE2 {
-	background-image: url(../img/background/SINGLE-bg2.jpg);
-}
-
-.bg-img-SINGLE-WAVE {
-	background-image: url(../img/background/SINGLE-bg-WAVE.jpg);
+	background-image: url(../img/services/services-3_1920.jpg);
 }
 
 @media only screen and (max-width: 1366px) {
