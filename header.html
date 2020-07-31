@@ -17,11 +17,10 @@
 							<ul id="localMenu" class="nav navbar-nav hidden-xs" style="position:absolute;left:0;top:0"></ul>
 
 							<ul class="nav navbar-nav navbar-nav-center">
-<!-- 								<li  class="hidden-md hidden-lg hidden-sm">
-									<span style="padding: 10px 15px;">
-									Компания:
+								<li  class="hidden-md hidden-lg hidden-sm">
+									<span style="padding: 10px 15px;" id="localMenuMobile-title">
 									</span>
-								</li> -->
+								</li>
 								<div id="localMenuMobile"></div>
 
 								<li class="hidden-xs">
@@ -190,7 +189,7 @@
 			$(".home-page-title").html('<span>Медиа</span><br><span style="color:#FF214A;">производство</span>');
 			break;
 		case "/services/it/":
-			menuConstructor(['automation','Автоматизация','digital','Цифровой-маркетинг']);
+			menuConstructor(['web','Веб-сайты','software','Автоматизация бизнеса']);
 			$(".home-page-title").html('<span>Цифровое</span> <span style="color:#FF214A;">окружение</span>');
 			$(".hero-fullscreen").removeClass('overlay');
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
@@ -216,6 +215,7 @@
 				$("a[href='/#services']").attr("href","#services");
 
 			}
+			$("#localMenuMobile-title").html('Компания');
 			$(".link-underline-menu[href='"+location.pathname+"']").removeClass('here');
 			$(".home-page-title").html('<span>Portrait</span>.<span style="color:#FF214A;">Promo</span>');
 	}
