@@ -81,6 +81,8 @@
 			$('#launcher-modal-content').css('opacity','0');
 			if(!portfolio){
 				history.pushState(null, null, location.pathname+'?'+section);
+			}else{
+				history.pushState(null, null, location.pathname+'?'+'portfolio');
 			}
 			$('body').css('overflow', 'hidden');
 
