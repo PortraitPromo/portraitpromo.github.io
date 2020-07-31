@@ -555,13 +555,11 @@ Animation:
 }
 
 .services-photo-portrait{
-	background: url(../../db/gallery/photo/p2_2.jpg);
-}
-.services-photo-art{
-	background: url(../../db/gallery/photo/a1_1.jpg);
+	background: url(../img/services/photo-portrait.jpg);
+	background-position: center top;
 }
 .services-photo-promo{
-	background: url(../../db/gallery/photo/pr5_1.jpg);
+	background: url(../img/services/photo-promo.jpg);
 }
 
 .services-video-music{
