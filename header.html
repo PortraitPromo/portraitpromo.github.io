@@ -33,7 +33,7 @@
 								   <hr>
 								</li>
 								<li  class="hidden-md hidden-lg hidden-sm">
-									<a class="page-scroll link-underline-menu red" href="/#services" style="padding: 10px 15px;font-size: 14px;">
+									<a class="page-scroll link-underline-menu red" href="/#services" style="padding: 10px 15px;font-size: 12px;">
 									Услуги
 									</a>
 								</li>
@@ -195,6 +195,7 @@
 			$("#localMenuMobile").css({
 				'width': '270px'
 			});
+			$("#localMenuMobile-title").html('Медиапроизводство');
 			break;
 		case "/services/it/":
 			menuConstructor(['web','Веб-сайты','software','Автоматизация бизнеса']);
@@ -205,6 +206,7 @@
 			$("#localMenuMobile").css({
 				'width': '270px'
 			});
+			$("#localMenuMobile-title").html('Цифровое окружение');
 			break;
 		case "/services/promo/":
 			menuConstructor(['social','Соц. сети','event','Мероприятия']);
@@ -215,6 +217,7 @@
 			$("#localMenuMobile").css({
 				'width': '190px'
 			});
+			$("#localMenuMobile-title").html('Продвижение');
 			break;
 		default:
 			if(location.pathname!="/"){
