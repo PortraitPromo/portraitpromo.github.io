@@ -556,7 +556,7 @@ Animation:
 
 .services-photo-portrait{
 	background: url(../img/services/photo-portrait.jpg);
-	background-position: center top;
+	background-position: center top !important;
 }
 .services-photo-promo{
 	background: url(../img/services/photo-promo.jpg);
