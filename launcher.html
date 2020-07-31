@@ -62,11 +62,11 @@
 				case "explorer":
 					launcher.update(location.search.substr(1));
 			}
-			window.addEventListener(popstate, function(e){
-				if(location==loc){
+			window.onpopstate = function(e){
+				if(location.host+location.pathname==loc){
 					launcher.hide();
 				}
-			}, false);
+			}
 		}
 		hide(){
 			$('body').css('overflow', '');
