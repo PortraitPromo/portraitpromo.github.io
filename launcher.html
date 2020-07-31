@@ -31,7 +31,8 @@
 			this.title_original = $('title').html();
 		}
 		init(){
-			var launcher = this;
+			var launcher = this,
+				loc = (location.host+location.pathname).split('?')[0];
 
 			//1. CLOSE
 			this.modal.hide();
@@ -61,6 +62,11 @@
 				case "explorer":
 					launcher.update(location.search.substr(1));
 			}
+			window.addEventListener(popstate, function(e){
+				if(location==loc){
+					launcher.hide();
+				}
+			}, false);
 		}
 		hide(){
 			$('body').css('overflow', '');
@@ -94,13 +100,13 @@
 				$(e).removeClass("blue");
 			});
 			$(".search-box span[name='"+section+"']").addClass(class_color);
-			
+
 			setTimeout(() => $('#launcher-modal-content').load("/"+section+".html", function(){
 				$('#launcher-modal-content').css('opacity','1');
 				$("#preloader").fadeOut(500);
 				$(".preloader-bg").delay(400).fadeOut(600);
 			}), 500);
-			
+
 			this.modal.fadeIn('slow');
 		}
 	}
