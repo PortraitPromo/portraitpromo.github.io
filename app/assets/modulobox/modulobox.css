@@ -565,6 +565,7 @@
 	-webkit-appearance: none;
 	-webkit-transition: opacity 0.25s ease-in-out;
 	transition: opacity 0.25s ease-in-out;
+	color: #202020;
 }
 .mobx-ui button:hover,
 .mobx-share-tooltip button:hover:after {
