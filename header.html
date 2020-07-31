@@ -18,10 +18,10 @@
 
 							<ul class="nav navbar-nav navbar-nav-center">
 								<li  class="hidden-md hidden-lg hidden-sm">
-									<span style="padding: 10px 15px;" id="localMenuMobile-title">
+									<span style="padding: 10px 15px;font-size: 14px;" id="localMenuMobile-title">
 									</span>
 								</li>
-								<div id="localMenuMobile"></div>
+								<div id="localMenuMobile" style="left: 50%;transform: translate(-50%);position: absolute;margin-top: 10px;"></div>
 
 								<li class="hidden-xs">
 									<!-- logo desktop start -->
@@ -33,8 +33,8 @@
 								   <hr>
 								</li>
 								<li  class="hidden-md hidden-lg hidden-sm">
-									<a class="page-scroll link-underline-menu red" href="/#services" style="padding: 10px 15px;">
-									Услуги:
+									<a class="page-scroll link-underline-menu red" href="/#services" style="padding: 10px 15px;font-size: 14px;">
+									Услуги
 									</a>
 								</li>
 								<div class="hidden-md hidden-lg hidden-sm" style="position: relative;left: 50%;transform: translate(-50%, 0%);width: 240px;padding-bottom:40px;">
@@ -176,11 +176,7 @@
 		}
 		if(main){
 			$("#localMenuMobile").css({
-				'width': '360px',
-				'left': '50%',
-				'transform': 'translate(-50%, 0%)',
-				'position': 'absolute',
-				'margin-top': '10px'
+				'width': '360px'
 			});
 		}
 		$("#localMenu").html(localMenu);
@@ -196,6 +192,9 @@
 		case "/services/photo-video/":
 			menuConstructor(['photo','Фото','photostudio','Фотостудия']);
 			$(".home-page-title").html('<span>Медиа</span><br><span style="color:#FF214A;">производство</span>');
+			$("#localMenuMobile").css({
+				'width': '270px'
+			});
 			break;
 		case "/services/it/":
 			menuConstructor(['web','Веб-сайты','software','Автоматизация бизнеса']);
@@ -203,6 +202,9 @@
 			$(".hero-fullscreen").removeClass('overlay');
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
+			$("#localMenuMobile").css({
+				'width': '270px'
+			});
 			break;
 		case "/services/promo/":
 			menuConstructor(['social','Соц. сети','event','Мероприятия']);
@@ -210,6 +212,9 @@
 			$(".hero-fullscreen").removeClass('overlay');
 			$(".hero-fullscreen").removeClass('overlay-top-bottom-dark-85');
 			$(".hero-fullscreen").html('<!-- single image start --><div class="hero-fullscreen-FIX"><div class="hero-bg bg-img-SINGLE2 overlay overlay-top-bottom-dark-85"></div></div><!-- single image end -->');
+			$("#localMenuMobile").css({
+				'width': '190px'
+			});
 			break;
 		default:
 			if(location.pathname!="/"){
